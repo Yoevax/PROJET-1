@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice Progressbar</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Raleway:wght@700&family=Roboto:wght@300;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h1>Find me.</h1>
+                <ul>
+                    <li><a href="https://docs.google.com/document/d/1kSBueFfOvsoCEGoadEaTtn4Dc4Y1HkK9rNXc4mid4GM/edit">Find
+                            me a movie</a></li>
+                    <li><a href="#">All movies</a></li>
+                    <li><a href="#">Sign in/up</a></li>
+                </ul>
+            </nav>
+
+            <div id="mainContent">
+                <div id="videoAccueil">
+                    <div class="overlay">
+                        <video preload="auto" loop playsinline autoplay muted width="100%">
+                            <source src="her.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div id="landing">
+                    <div class="content">
+                        <h2>Let me help you <br> to find something <br> to watch</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="scroll">
+            <p>Scroll down</p>
+            <span class="fleche">
+                <a href="#contentPage2">
+                    <svg viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0 7c0-.206.075-.404.208-.55a.68.68 0 0 1 .502-.228h16.736L12.98 1.33a.818.818 0 0 1-.208-.55c0-.207.075-.405.208-.55A.68.68 0 0 1 13.482 0a.68.68 0 0 1 .503.228l5.677 6.221a.787.787 0 0 1 .154.253.844.844 0 0 1 0 .596.787.787 0 0 1-.154.253l-5.677 6.22a.68.68 0 0 1-.503.229.68.68 0 0 1-.502-.228.818.818 0 0 1-.208-.55c0-.207.075-.405.208-.551l4.466-4.893H.71a.68.68 0 0 1-.502-.228A.817.817 0 0 1 0 7Z">
+                        </path>
+                    </svg>
+                </a>
+            </span>
+        </div>
+    </header>
+
+    <div id="contentPage2">
+        <div class="title_2">
+            Answer the questions and find your movie
+        </div>
+    </div>
+
+
+
+    <!-- CURSEUR SOURIS PERSONNALISEE    -->
+    <div id="curseur"> <span id="rec">REC</span> </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
