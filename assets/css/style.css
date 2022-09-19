@@ -15,14 +15,11 @@ body {
     cursor: none;
     color: white;
     font-family: 'Raleway';
-
-}
-
-body {
     margin: 0px;
     padding: 0px;
 
 }
+
 
 html {
     scroll-behavior: smooth;
@@ -127,7 +124,7 @@ li a:hover:after {
 
 /* Text accueil */
 
-h2 {
+.container h2 {
     font-size: 7rem;
     margin: 0;
     text-decoration: none;
@@ -247,7 +244,7 @@ video {
 .scroll {
     position: absolute;
     top: 90%;
-    left: 50%;
+  
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -255,6 +252,7 @@ video {
     font-weight: 100;
     margin-top: 0;
     text-align: center;
+    width: 100%;
 
 }
 
@@ -295,7 +293,7 @@ svg {
     margin-bottom: 5px;
 }
 
-/* PAGE 2 QUESTION PRINCIPAL AVEC GRADIENT */
+/* PAGE 2 QUESTION PRINCIPAL*/
 
 #contentPage2 {
     background-color: black;
@@ -304,7 +302,6 @@ svg {
     position: relative;
 }
 
-/*EFFET GRADIENT DU TEXTE*/
 .title_2 {
     width: 100%;
     text-align: center;
@@ -316,8 +313,35 @@ svg {
     font-family: 'Raleway';
     font-weight: 700;
     font-size: 6rem;
+}
+.title_2 p span{
+   font-family: 'Raleway';
+    font-size: 1.5rem;
+    line-height: 1.5;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(-45deg, #6355a4, red, #e89a3e, aqua);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: animGradient 5s linear infinite;
 
-   
+}
+
+/*ANIMATION DU TEXTE GRADIENT*/
+
+
+@keyframes animGradient {
+    0% {
+        background-position: 0px 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0px 50%;
+    }
 }
 .title_2 h3{
     margin: 20px;
@@ -329,18 +353,76 @@ svg {
     line-height: 1.5;
 }
 
-/*ANIMATION DU TEXTE GRADIENT*/
+/* CONTACT PAGE */
+#contact{
 
-@keyframes animGradient {
-    0% {
-        background-position: 0px 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0px 50%;
-    }
+    height: 100vh;
+    width: 100%;
+   margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
 }
+#contact h3{
+    font-size: 5.5rem;
+    margin: 50px ;
+
+}
+#contact a{
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+}
+#contact a:hover{
+    text-decoration:line-through;
+}
+
+#follow div i{
+ padding:20px;
+ font-size:30px;
+}
+
+#copyright{
+margin-top: 100px;
+}
+
+/* PAGE ABOUT FIND ME */
+#about-findme{
+    height: 100vh;
+    width: 100%;
+}
+
+#about-findme h3{
+    text-align: right;
+    font-size: 5rem;
+    padding: 10px;
+}
+#about-findme p{
+    text-align: left;
+    font-size: 4rem;
+    font-weight: 700;
+    padding: 20px;
+    width: 90%;
+}
+/* About us */
+#about-us{
+    height: 100vh;
+    width: 100%;
+}
+
+#about-us h3{
+    text-align: right;
+    font-size: 5rem;
+    padding: 10px;
+}
+#about-us p{
+    text-align: left;
+    font-size: 5rem;
+    font-weight: 700;
+    padding: 20px;
+    width: 90%;
+}
+
+/* CONNEXION PAGE */
