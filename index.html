@@ -10,46 +10,48 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Raleway:wght@700&family=Roboto:wght@300;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <div class="container">
-            <img src="./logonew.png" width="100px" alt="">
-            <nav>
+        <div class="container"> 
+            
+            <!-- VIDEO ACCUEIL -->
+            <div id="videoAccueil">
+                 <video preload="auto" loop playsinline autoplay muted width="100%">
+                        <source src="her.mp4" type="video/mp4">
+                </video>
+            </div>
+            
+            <div class="header_accueil">
+                <!-- LOGO -->
+                <div class="logo">
+                    <a href="#index.html">
+                        <img src="./logonew.png" width="100px" alt="">
+                    </a>
+                    
+                </div>
+                
 
-                <ul>
-                    <li><a href="https://docs.google.com/document/d/1kSBueFfOvsoCEGoadEaTtn4Dc4Y1HkK9rNXc4mid4GM/edit">Find
-                            me a movie</a></li>
-                    <li><a href="#">All movies</a></li>
-                    <li><a href="#">Sign in/up</a></li>
-                </ul>
-                <div id="mainContent">
+                <!-- NAV -->
+                <div>
+                    <nav>
+                        <ul>
+                            <li><a href="https://docs.google.com/document/d/1kSBueFfOvsoCEGoadEaTtn4Dc4Y1HkK9rNXc4mid4GM/edit">Find
+                                        me a movie</a></li>
+                            <li><a href="#">All movies</a></li>
+                            <li><a href="#">Sign in/up</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
                    
-
-            </nav>
-              <div id="videoAccueil">
-                        <div class="overlay">
-                            <video preload="auto" loop playsinline autoplay muted width="100%">
-                                <source src="her.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-            <!-- <div id="mainContent">
-                <div id="videoAccueil">
-                    <div class="overlay">
-                        <video preload="auto" loop playsinline autoplay muted width="100%">
-                            <source src="her.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div> -->
-
+            </div>
+             
                 <div id="landing">
                     <div class="content">
-                        <h2>Let me help you <br> to find something <br> to watch</h2>
+                        <h2>Want to watch a <br> great movie? <br> <span>Let us help you.</span> </h2>
                     </div>
                 </div>
             </div>
@@ -57,7 +59,7 @@
         </div>
 
         <div class="scroll">
-            <p>Scroll down</p>
+            <a href="#contentPage2">Scroll down</a>
             <span class="fleche">
                 <a href="#contentPage2">
                     <svg viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
@@ -72,8 +74,10 @@
 
     <div id="contentPage2">
         <div class="title_2">
-            Answer the questions and find your movie
+            <h3> Answer our questions to find your perfect movie</h3> 
+            <p>There are just four of them it will take you 10 seconds</p>
         </div>
+        
     </div>
 
 
