@@ -46,17 +46,17 @@ header {
 }
 
 /* Menu page d'accueil */
-.header_accueil{
+.header_accueil {
     position: absolute;
     top: 40px;
     right: 0px;
     display: flex;
     width: 100%;
     justify-content: space-between;
-   
+
 }
 
-.logo{
+.logo {
     margin-left: 40px;
 }
 
@@ -145,7 +145,7 @@ li a:hover:after {
     justify-content: flex-end;
 }
 
-.content span{
+.content span {
     line-height: 1.5;
 }
 
@@ -244,7 +244,7 @@ video {
 .scroll {
     position: absolute;
     top: 90%;
-  
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -285,7 +285,7 @@ svg {
 
 }
 
-.scroll a{
+.scroll a {
     text-decoration: none;
     color: white;
     font-weight: 100;
@@ -314,8 +314,9 @@ svg {
     font-weight: 700;
     font-size: 6rem;
 }
-.title_2 p span{
-   font-family: 'Raleway';
+
+.title_2 p span {
+    font-family: 'Raleway';
     font-size: 1.5rem;
     line-height: 1.5;
     transform: translate(-50%, -50%);
@@ -339,85 +340,93 @@ svg {
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0px 50%;
     }
 }
-.title_2 h3{
+
+.title_2 h3 {
     margin: 20px;
 }
 
-.title_2 p{
+.title_2 p {
     font-size: 1.5rem;
     color: white;
     line-height: 1.5;
 }
 
 /* CONTACT PAGE */
-#contact{
+#contact {
 
     height: 100vh;
     width: 100%;
-   margin-top: 20px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    
-}
-#contact h3{
-    font-size: 5.5rem;
-    margin: 50px ;
 
 }
-#contact a{
+
+#contact h3 {
+    font-size: 5.5rem;
+    margin: 50px;
+
+}
+
+#contact a {
     text-decoration: none;
     color: white;
     font-size: 2rem;
 }
-#contact a:hover{
-    text-decoration:line-through;
+
+#contact a:hover {
+    text-decoration: line-through;
 }
 
-#follow div i{
- padding:20px;
- font-size:30px;
+#follow div i {
+    padding: 20px;
+    font-size: 30px;
 }
 
-#copyright{
-margin-top: 100px;
+#copyright {
+    margin-top: 100px;
 }
 
 /* PAGE ABOUT FIND ME */
-#about-findme{
+#about-findme {
     height: 100vh;
     width: 100%;
 }
 
-#about-findme h3{
+#about-findme h3 {
     text-align: right;
     font-size: 5rem;
     padding: 10px;
 }
-#about-findme p{
+
+#about-findme p {
     text-align: left;
     font-size: 4rem;
     font-weight: 700;
     padding: 20px;
     width: 90%;
 }
+
 /* About us */
-#about-us{
+#about-us {
     height: 100vh;
     width: 100%;
 }
 
-#about-us h3{
+#about-us h3 {
     text-align: right;
     font-size: 5rem;
     padding: 10px;
 }
-#about-us p{
+
+#about-us p {
     text-align: left;
     font-size: 5rem;
     font-weight: 700;
