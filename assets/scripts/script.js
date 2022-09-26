@@ -1,3 +1,6 @@
+
+
+//personnalisation du curseur
 const cursor_follower = document.getElementById('curseur'); //on recup l'ID de la div
 const cursor_followerStyle = cursor_follower.style; // on modifie son style
 
@@ -8,6 +11,7 @@ document.addEventListener('mousemove', (e) => { // sur toute la page on modifie 
 
   });
 });
+
 
 
 
