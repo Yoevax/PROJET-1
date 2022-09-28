@@ -47,7 +47,7 @@
     <!-- formulaire de connexion -->
     <div id="form-connexion">
         <form action="./connexion.html" method="post">
-            <h2>Connexion</h2>
+            <h2>Sign up</h2>
             <div>
                 <label for="">email</label>
                 <input size="30px" type="text">
@@ -58,53 +58,15 @@
                 <input size="30px" type="text">
             </div>
 
-            <button>Sign in</button>
+            <button>Sign up</button>
             <br>
-            <div><a href="./inscription.php">No registred? Sign up here</a> </div>
+            <div><a href="./inscription.html"> Registred? Sign in here</a> </div>
 
 
         </form>
     </div>
 
-    <!-- <?php
-    
-        $isFound = false;
-        $loginAttempt = 0; //tentative pr msg derreur
-    
-        if ((isset($_POST["user_name"], $_POST["password"]))) {
-            $loginAttempt++; //faut qu'il renttre au moins une fois des données pour savoir si c juste ou pas
-    
-            $user_name = $_POST["user_name"];
-            $pass_word = $_POST["password"];
-    
-            $sqlQuery = " 
-                    SELECT *
-                    FROM users
-                    WHERE user_name=:param_user_name AND password =:param_password";
-            $statement = $mysqldb->prepare($sqlQuery);
-            $statement->execute(array('param_user_name' => $user_name, 'param_password' => $pass_word));
-            $result = $statement->fetchAll();
-    
-            if ($result) {
-                $isFound = true;
-                $loginFail = false;
-                $connectedUser = $result[0]['user_name'];
-                $email = $result[0]['email'];
-            }
-        }
-    
-        if ($isFound) {
-            echo "Bienvenue sur page d'accueil $user_name ($email)";
-        } else {
-    
-            include_once("./views/login.php");
-    
-            if (!$isFound && $loginAttempt >= 1) { //si isFound est false ( c a dire pas les memes info que dans la DB) et tentative a au moins 1 => msg erreur
-                echo "Username and password incorrect! ";
-                $loginAttempt = 0;
-            }
-        }
-?> -->
+
 
     <!-- CURSEUR SOURIS PERSONNALISEE    -->
     <div id="curseur"><span id="rec">REC</span></div>

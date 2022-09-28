@@ -8,6 +8,7 @@
      <title>Find me.</title>
      <link rel="stylesheet" href="../assets/css/style.css">
      <link rel="stylesheet" href="../assets/css/questions.css">
+     <link rel="stylesheet" href="../assets/css/selection.css">
 
      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,29 +40,34 @@
              </nav>
          </div>
      </div>
+
+     <div id="container">
+
+
+         <?php
+
+            //recuperation des reponses aux questions (avec isset et empty)
+            if ((isset($_POST["q1"], $_POST["q2"], $_POST["q4"])) && !empty($_POST["q1"]) && !empty($_POST["q2"]) && !empty($_POST["q4"]) && empty($_POST["q3"])) {
+
+                $answerQ1 = $_POST["q1"];
+                $answerQ2 = $_POST["q2"];
+                $answerQ4 = $_POST["q4"];
+
+                echo "Vos réponses : <br/>  Q1 : " . $_POST["q1"] . ";  <br/>  Q2  : " . $_POST["q2"] . ";  <br/> Q3 : " . $_POST["q4"] . "; <br>";
+            } else if (isset($_POST["q3"]) && !empty($_POST["q3"])) {
+
+                $answerQ1 = $_POST["q1"];
+                $answerQ2 = $_POST["q2"];
+                $answerQ3 = $_POST["q3"];
+                $answerQ4 = $_POST["q4"];
+
+                echo "Vos réponses :  <br/>  Q1 : " . $_POST["q1"] . ";  <br/>  Q2 : " . $_POST["q2"] . "; <br/>  Q3 : " . $_POST["q3"] . "; <br/>  Q4 :  " . $_POST["q4"] .  "<br>";
+            }
+
+            ?>
+     </div>
      <?php
-
-        //recuperation des reponses aux questions (avec isset et empty)
-        if ((isset($_POST["q1"], $_POST["q2"], $_POST["q4"])) && !empty($_POST["q1"]) && !empty($_POST["q2"]) && !empty($_POST["q4"]) && empty($_POST["q3"])) {
-
-            $answerQ1 = $_POST["q1"];
-            $answerQ2 = $_POST["q2"];
-            $answerQ4 = $_POST["q4"];
-
-            echo "Votre boooooo  <b> Q1" . $_POST["q1"] . "</b>Q2 " . $_POST["q2"] . "Q4" . $_POST["q4"] . "<br>";
-        } else if (isset($_POST["q3"]) && !empty($_POST["q3"])) {
-
-            $answerQ1 = $_POST["q1"];
-            $answerQ2 = $_POST["q2"];
-            $answerQ3 = $_POST["q3"];
-            $answerQ4 = $_POST["q4"];
-
-            echo "Votre iiiii <b> Q1 : " . $_POST["q1"] . "</b> Q2 " . $_POST["q2"] . "Q3 " . $_POST["q3"] . "Q4 " . $_POST["q4"] .  "<br>";
-        }
-
-        ?>
-     <?php
-        // ALGO POUR AFFICHER LA SELECTION SELON LES REPONSES
+        /*ALGO POUR AFFICHER LA SELECTION SELON LES REPONSES
         //
         //     include("../SRC/database.php");
 
@@ -81,13 +87,13 @@
         //     foreach ($data as $row) {
         //     
         ?>
-     // <div>
+      
          // <h1><?php echo $row["name"]; ?></h1>
          // </div>
      // <?php
         //     }
 
-        //     
+        //  */
         ?>
 
      <!-- CURSEUR SOURIS PERSONNALISEE    -->

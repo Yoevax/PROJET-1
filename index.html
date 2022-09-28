@@ -144,7 +144,7 @@
 
                             <!-- <input type="radio" name="q1" id="random" value="random"> -->
                             I don't care! I just want to watch a movie.
-                            Suprise me!
+                            Surprise me!
 
 
                         </a>
@@ -184,9 +184,17 @@
                         <label for="more">I don't know. Have you got more options?</label>
                     </div>
 
-                    <div>
-                        <input type="radio" name="q2" id="random" value="random">
-                        <label for="random">I don't care! I just want to watch a movie. Suprise me!</label>
+                    <div class="random">
+
+                        <a href="./views/random.php">
+
+                            <!-- <input type="radio" name="q1" id="random" value="random"> -->
+                            I don't care! I just want to watch a movie.
+                            Surprise me!
+
+
+                        </a>
+
                     </div>
 
                 </div>
@@ -223,11 +231,16 @@
                         <label for="teen">I want to be fifteen again, show me a teen movie.</label>
                     </div>
 
-                    <div>
-                        <input type="radio" name="q3" id="random" value="random">
-                        <label for="random">I already told you! I don't care what I watch. Suprise me!</label>
-                    </div>
+                    <div class="random">
 
+                        <a href="./views/random.php">
+
+                            I already told you! I don't care what I watch. Surprise me!
+
+
+                        </a>
+
+                    </div>
 
                 </div>
             </div>
@@ -258,13 +271,21 @@
                         <label for="less30">Time for a power-nap! Less than 30min </label>
                     </div>
 
-                    <div>
-                        <input type="radio" name="q4" id="random" value="random">
-                        <label for="random"> I don't give a monkeys. Suprise me!</label>
+                    <div class="random">
+
+                        <a href="./views/random.php">
+
+                            I don't give a monkeys. Surprise me!
+                        </a>
+
                     </div>
 
+
                 </div>
-                <div><button>Send!</button></div>
+
+                <div id="envoiFormBtn">
+                    <button>Send!</button> <!-- modifier l'emplacement (annuler le flex sur cet element) !-->
+                </div>
             </div>
 
         </form>

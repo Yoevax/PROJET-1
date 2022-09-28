@@ -45,8 +45,6 @@
 
     </div>
     <div id="container">
-
-
         <h1>All movies</h1>
 
         <div id="all">
@@ -64,7 +62,7 @@
             ?>
                 <div class="bloc">
                     <a href="#">
-                        <h3><?php echo $row["name"]; ?></h3>
+                        <h2><?php echo $row["name"]; ?></h2>
                         <img src="../assets/img/<?= $row["name"]; ?>.jpg">
                     </a>
                 </div>
