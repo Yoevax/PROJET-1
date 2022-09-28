@@ -12,8 +12,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -36,7 +35,7 @@
                     <li><a href="../index.html">Find
                             me a movie</a></li>
                     <li><a href="../views/allMovies.php">All movies</a></li>
-                    <li><a href="../views/connexion.html">Sign in/up</a></li>
+                    <li><a href="../views/connexion.php">Sign in/up</a></li>
                     <li><a href="../views/contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -46,16 +45,16 @@
     </div>
     <!-- formulaire de connexion -->
     <div id="form-connexion">
-        <form action="./connexion.html" method="post">
+        <form action="./connexion.php" method="post">
             <h2>Connexion</h2>
             <div>
-                <label for="">email</label>
-                <input size="30px" type="text">
+                <label for="user_name">Username</label>
+                <input id="user_name" name="user_name" size="30px" type="text">
             </div>
 
             <div>
-                <label for="">password</label>
-                <input size="30px" type="text">
+                <label id="password" for="password">password</label>
+                <input name="password" size="30px" type="text">
             </div>
 
             <button>Sign in</button>
@@ -66,45 +65,45 @@
         </form>
     </div>
 
-    <!-- <?php
-    
-        $isFound = false;
-        $loginAttempt = 0; //tentative pr msg derreur
-    
-        if ((isset($_POST["user_name"], $_POST["password"]))) {
-            $loginAttempt++; //faut qu'il renttre au moins une fois des données pour savoir si c juste ou pas
-    
-            $user_name = $_POST["user_name"];
-            $pass_word = $_POST["password"];
-    
-            $sqlQuery = " 
+    <?php
+    include("../SRC/database.php");
+
+    $isFound = false;
+    $loginAttempt = 0; //tentative pr msg derreur
+
+    if ((isset($_POST["user_name"], $_POST["password"]))) {
+        $loginAttempt++; //faut qu'il renttre au moins une fois des données pour savoir si c juste ou pas
+
+        $user_name = $_POST["user_name"];
+        $pass_word = $_POST["password"];
+
+        $sqlQuery = " 
                     SELECT *
                     FROM users
                     WHERE user_name=:param_user_name AND password =:param_password";
-            $statement = $mysqldb->prepare($sqlQuery);
-            $statement->execute(array('param_user_name' => $user_name, 'param_password' => $pass_word));
-            $result = $statement->fetchAll();
-    
-            if ($result) {
-                $isFound = true;
-                $loginFail = false;
-                $connectedUser = $result[0]['user_name'];
-                $email = $result[0]['email'];
-            }
+        $statement = $mysqldb->prepare($sqlQuery);
+        $statement->execute(array('param_user_name' => $user_name, 'param_password' => $pass_word));
+        $result = $statement->fetchAll();
+
+        if ($result) {
+            $isFound = true;
+            $loginFail = false;
+            $connectedUser = $result[0]['user_name'];
         }
-    
-        if ($isFound) {
-            echo "Bienvenue sur page d'accueil $user_name ($email)";
-        } else {
-    
-            include_once("./views/login.php");
-    
-            if (!$isFound && $loginAttempt >= 1) { //si isFound est false ( c a dire pas les memes info que dans la DB) et tentative a au moins 1 => msg erreur
-                echo "Username and password incorrect! ";
-                $loginAttempt = 0;
-            }
+    }
+
+    if ($isFound) {
+        echo "Bienvenue sur page d'accueil $user_name";
+    } else {
+
+
+
+        if (!$isFound && $loginAttempt >= 1) { //si isFound est false ( c a dire pas les memes info que dans la DB) et tentative a au moins 1 => msg erreur
+            echo "Username and password incorrect! ";
+            $loginAttempt = 0;
         }
-?> -->
+    }
+    ?>
 
     <!-- CURSEUR SOURIS PERSONNALISEE    -->
     <div id="curseur"><span id="rec">REC</span></div>

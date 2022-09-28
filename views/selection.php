@@ -34,7 +34,7 @@
                      <li><a href="#contentPage2">Find
                              me a movie</a></li>
                      <li><a href="../views/allMovies.php">All movies</a></li>
-                     <li><a href="../views/connexion.html">Sign in/up</a></li>
+                     <li><a href="../views/connexion.php">Sign in/up</a></li>
                      <li><a href="../views/contact.html">Contact</a></li>
                  </ul>
              </nav>

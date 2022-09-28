@@ -12,8 +12,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -37,7 +36,7 @@
                             me a movie</a></li>
                     <li><a href="../views/allMovies.php">All movies</a></li>
                     <li><a href="../views/connexion.html">Sign in/up</a></li>
-                    <li><a href="../views/contact.html">Contact</a></li>
+                    <li><a href="../views/contact.php">Contact</a></li>
                 </ul>
             </nav>
         </div>
