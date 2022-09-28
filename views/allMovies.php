@@ -9,6 +9,25 @@
 </head>
 
 <body>
+    <?php
+    include("../SRC/database.php");
+
+    $sql = "SELECT * 
+    FROM films";
+
+    $stmt = $mysqldb->query($sql);
+    $data = $stmt->fetchAll();
+
+    foreach ($data as $row) {
+    ?>
+        <div>
+            <h1><?php echo $row["name"]; ?></h1>
+        </div>
+    <?php
+    }
+
+    ?>
+
 
 </body>
 
