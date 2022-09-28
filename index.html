@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    <!-- <?php include_once("./views/homePage.php")?> -->
     <header>
         <div id="container" class="container">
 
@@ -150,7 +151,7 @@
                 <div class="left">
                     <p class="questionNumber">02</p>
                     <h2>What are you looking for?</h2>
-                    <button id="previousQ1" class="previous"> Previous</button>
+                    <a id="previousQ1" class="previous"> Previous</a>
                 </div>
 
 
@@ -189,7 +190,7 @@
                 <div class="left">
                     <p class="questionNumber">03</p>
                     <h2>Ok. Will these do?</h2>
-                    <button id="previousQ2" class="previous"> Previous</button>
+                    <a id="previousQ2" class="previous"> Previous</a>
                 </div>
 
 
@@ -229,28 +230,28 @@
                 <div class="left">
                     <p class="questionNumber">04</p>
                     <h2> How much time have you got ?</h2>
-                    <button id="previousQ3" class="previous"> Previous</button>
+                    <a id="previousQ3" class="previous"> Previous</a>
                 </div>
 
 
                 <div class="right">
                     <div>
-                        <input type="radio" name="q3" id="moreThan1" value="moreThan1">
+                        <input type="radio" name="q4" id="moreThan1" value="moreThan1">
                         <label for="moreThan1">All the time in the world! More than an hour</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="q3" id="lessThan1" value="lessThan1">
+                        <input type="radio" name="q4" id="lessThan1" value="lessThan1">
                         <label for="lessThan1">My lunch break. Less than an hour</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="q3" id="less30" value="less30">
+                        <input type="radio" name="q4" id="less30" value="less30">
                         <label for="less30">Time for a power-nap! Less than 30min </label>
                     </div>
 
                     <div>
-                        <input type="radio" name="q3" id="random" value="random">
+                        <input type="radio" name="q4" id="random" value="random">
                         <label for="random"> I don't give a monkeys. Suprise me!</label>
                     </div>
 
@@ -269,8 +270,9 @@
     <!-- CURSEUR SOURIS PERSONNALISEE    -->
     <div id="curseur"><span id="rec">REC</span></div>
 
-    <script src="./assets/scripts/script.js"></script>
-    <script src="../assets/scripts/questions.js"></script>
+    <script type="text/javascript" src="./assets/scripts/script.js"></script>
+    <script type="text/javascript" src="./assets/scripts/questions.js"></script>
+
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+'use strict';
 
 //l'ensemble des questions
 let q1 = document.getElementById("q1");

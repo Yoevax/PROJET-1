@@ -51,7 +51,7 @@ h2 {
 }
 
 
-button {
+.previous {
     cursor: pointer;
     font-family: 'Raleway';
     font-size: 0.9rem;
