@@ -27,8 +27,10 @@ let smart = document.getElementById("smart");
 let laugh = document.getElementById("laugh");
 let cry = document.getElementById("cry");
 let more = document.getElementById("more");
-let chmgtNb =  document.querySelectorAll("questionNumber");
 
+//changement du numéro
+let chmgtNb = document.getElementById("changeNb");
+console.log(chmgtNb);
 
 //reponses question 3
 let love = document.getElementById("love");
@@ -41,6 +43,7 @@ let teen = document.getElementById("teen");
 //EVENT QUESTION 1
 //event de la reponse 1 a la question 1
 betterHalf.addEventListener("click", () => {
+   
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -138,6 +141,7 @@ smart.addEventListener("click", () => {
 });
 
 laugh.addEventListener("click", () => {
+     chmgtNb.innerText = "03";
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -154,6 +158,8 @@ laugh.addEventListener("click", () => {
 });
 
 cry.addEventListener("click", () => {
+    chmgtNb.innerText = "03";
+
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -170,6 +176,7 @@ cry.addEventListener("click", () => {
 });
 
 more.addEventListener("click", () => {
+    
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -185,7 +192,7 @@ more.addEventListener("click", () => {
     q3.classList.add("questions");
 });
 
-//question 3 eevent
+//question 3 event
 love.addEventListener("click", () => {
     q1.classList.add("hidden");
     q1.classList.remove("questions");
@@ -259,7 +266,7 @@ previousQ1.addEventListener("click", () =>{
     q2.classList.add("hidden");
 })
 
-//retour en arriere (a la question 2)
+//retour en arriere (à la question 2)
 previousQ2.addEventListener("click", () =>{
     q1.classList.add("hidden");
     q1.classList.remove("questions");

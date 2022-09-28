@@ -61,29 +61,33 @@
 
         ?>
      <?php
-        include("../SRC/database.php");
+        // ALGO POUR AFFICHER LA SELECTION SELON LES REPONSES
+        //
+        //     include("../SRC/database.php");
 
-        $sql = "SELECT films.name, films.id
-        FROM films
-        join mtm_films_reponses as mtm
-        on mtm.id_films = films.id
-        join reponses as r
-        on r.id = mtm.id_reponses
-        where mtm.id_reponses in (1,3)";
-        //GROUP by films.name"; //attention ca fait un msg d'erreur qd on veut le group (là il affiche 2x le meme film)
+        //     $sql = "SELECT films.name, films.id
+        //     FROM films
+        //     join mtm_films_reponses as mtm
+        //     on mtm.id_films = films.id
+        //     join reponses as r
+        //     on r.id = mtm.id_reponses
+        //     where mtm.id_reponses in (1,3)";
+        //     //GROUP by films.name"; //attention ca fait un msg d'erreur qd on veut le group (là il affiche 2x le meme film)
 
 
-        $stmt = $mysqldb->query($sql);
-        $data = $stmt->fetchAll();
+        //     $stmt = $mysqldb->query($sql);
+        //     $data = $stmt->fetchAll();
 
-        foreach ($data as $row) {
+        //     foreach ($data as $row) {
+        //     
         ?>
-         <div>
-             <h1><?php echo $row["name"]; ?></h1>
-         </div>
-     <?php
-        }
+     // <div>
+         // <h1><?php echo $row["name"]; ?></h1>
+         // </div>
+     // <?php
+        //     }
 
+        //     
         ?>
 
      <!-- CURSEUR SOURIS PERSONNALISEE    -->
