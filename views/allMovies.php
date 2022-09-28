@@ -5,29 +5,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Find me. All movies</title>
+
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/allMovies.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600;700;800&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <?php
-    include("../SRC/database.php");
+    <!-- MENU NAV BAR -->
+    <div id="header_accueil">
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../assets/img/logonew.png" width="100px" alt="">
+            </a>
 
-    $sql = "SELECT * 
-    FROM films";
-
-    $stmt = $mysqldb->query($sql);
-    $data = $stmt->fetchAll();
-
-    foreach ($data as $row) {
-    ?>
-        <div>
-            <h1><?php echo $row["name"]; ?></h1>
         </div>
-    <?php
-    }
 
-    ?>
 
+        <!-- NAV -->
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Find
+                            me a movie</a></li>
+                    <li><a href="../views/allMovies.php">All movies</a></li>
+                    <li><a href="../views/connexion.html">Sign in/up</a></li>
+                    <li><a href="../views/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+    </div>
+    <div id="container">
+
+
+        <h1>All movies</h1>
+
+        <div id="all">
+
+            <?php
+            include("../SRC/database.php");
+
+            $sql = "SELECT * 
+                    FROM films";
+
+            $stmt = $mysqldb->query($sql);
+            $data = $stmt->fetchAll();
+
+            foreach ($data as $row) {
+            ?>
+                <div class="bloc">
+                    <a href="#">
+                        <h3><?php echo $row["name"]; ?></h3>
+                        <img src="../assets/img/<?= $row["name"]; ?>.jpg">
+                    </a>
+                </div>
+            <?php
+            }
+
+            ?>
+        </div>
+    </div>
+
+    <!-- CURSEUR SOURIS PERSONNALISEE    -->
+    <div id="curseur"><span id="rec">REC</span></div>
+
+    <script type="text/javascript" src="../assets/scripts/script.js"></script>
+    <script type="text/javascript" src="../assets/scripts/scrollNav.js"></script>
 
 </body>
 

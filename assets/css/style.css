@@ -35,7 +35,6 @@ header {
 }
 
 .container {
-
     margin-left: auto;
     margin-right: auto;
     justify-content: space-between;
@@ -178,7 +177,13 @@ li a:hover:after {
 
 /* Comportement du curseur pour les balises principales */
 a {
-    cursor: none;
+
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    color: white;
 }
 
 button {

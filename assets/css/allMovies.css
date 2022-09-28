@@ -1,0 +1,27 @@
+#container {
+    margin-top: 150px;
+    width: 100%;
+
+}
+
+.bloc {
+    margin-left: 2vw;
+}
+
+h1 {
+    font-size: 5rem;
+    text-align: right;
+    margin: 10vh 2vw;
+
+}
+
+#all {
+    display: flex;
+    width: 100%;
+}
+
+#container img {
+    width: 250px;
+    height: auto;
+
+}

@@ -298,3 +298,8 @@ previousQ3.addEventListener("click", () =>{
     q3.classList.remove("hidden");
 })
 
+random.addEventListener("click", () =>{
+    
+ 
+})
+

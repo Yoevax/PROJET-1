@@ -76,3 +76,36 @@ h2 {
 #q4 {
     display: none;
 }
+
+.random {
+
+    background: linear-gradient(-45deg, #6355a4, red, #e89a3e, aqua);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: animGradient 5s linear infinite;
+
+}
+
+.random a {
+    font-weight: 500;
+}
+
+
+/*ANIMATION DU TEXTE GRADIENT*/
+
+
+@keyframes animGradient {
+    0% {
+        background-position: 0px 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0px 50%;
+    }
+}
