@@ -21,7 +21,7 @@
     <div id="header_accueil">
         <!-- LOGO -->
         <div class="logo">
-            <a href="../index.html">
+            <a href="../index.php">
                 <img src="../assets/img/logonew.png" width="100px" alt="">
             </a>
 
@@ -32,7 +32,7 @@
         <div>
             <nav>
                 <ul>
-                    <li><a href="../index.html">Find
+                    <li><a href="../index.php">Find
                             me a movie</a></li>
                     <li><a href="../views/allMovies.php">All movies</a></li>
                     <li><a href="../views/connexion.php">Sign in/up</a></li>
