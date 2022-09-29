@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : mer. 31 août 2022 à 14:37
--- Version du serveur :  10.4.17-MariaDB
--- Version de PHP : 8.0.2
+-- Host: localhost:3306
+-- Generation Time: Sep 29, 2022 at 07:22 AM
+-- Server version: 5.7.24
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,37 +18,35 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `find me`
+-- Database: `findme`
 --
-CREATE DATABASE IF NOT EXISTS `findme` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `findme`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `films`
+-- Table structure for table `films`
 --
 
-DROP TABLE IF EXISTS `films`;
 CREATE TABLE `films` (
   `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `films`
+-- Dumping data for table `films`
 --
 
 INSERT INTO `films` (`id`, `name`) VALUES
-(1, 'Inception');
+(1, 'Inception'),
+(2, 'Harry Potter'),
+(3, 'le voyage de chihiro');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `mtm_films_reponses`
+-- Table structure for table `mtm_films_reponses`
 --
 
-DROP TABLE IF EXISTS `mtm_films_reponses`;
 CREATE TABLE `mtm_films_reponses` (
   `id` int(11) NOT NULL,
   `id_films` int(11) NOT NULL,
@@ -56,39 +54,39 @@ CREATE TABLE `mtm_films_reponses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `mtm_films_reponses`
+-- Dumping data for table `mtm_films_reponses`
 --
 
 INSERT INTO `mtm_films_reponses` (`id`, `id_films`, `id_reponses`) VALUES
 (1, 1, 1),
-(2, 1, 3);
+(2, 1, 3),
+(3, 2, 2);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `questions`
+-- Table structure for table `questions`
 --
 
-DROP TABLE IF EXISTS `questions`;
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL,
   `name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `questions`
+-- Dumping data for table `questions`
 --
 
 INSERT INTO `questions` (`id`, `name`) VALUES
-(1, 'Quelle durée ?');
+(1, 'duration'),
+(2, 'with_who');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reponses`
+-- Table structure for table `reponses`
 --
 
-DROP TABLE IF EXISTS `reponses`;
 CREATE TABLE `reponses` (
   `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
@@ -96,7 +94,7 @@ CREATE TABLE `reponses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `reponses`
+-- Dumping data for table `reponses`
 --
 
 INSERT INTO `reponses` (`id`, `name`, `id_question`) VALUES
@@ -104,18 +102,38 @@ INSERT INTO `reponses` (`id`, `name`, `id_question`) VALUES
 (2, 'En famille', 1),
 (3, 'Sci-Fi', 1);
 
+-- --------------------------------------------------------
+
 --
--- Index pour les tables déchargées
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(5) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `user_name` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`, `user_name`) VALUES
+(1, 'yoeva@outlook.be', '1234', 'yoeva');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `films`
+-- Indexes for table `films`
 --
 ALTER TABLE `films`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `mtm_films_reponses`
+-- Indexes for table `mtm_films_reponses`
 --
 ALTER TABLE `mtm_films_reponses`
   ADD PRIMARY KEY (`id`),
@@ -123,59 +141,71 @@ ALTER TABLE `mtm_films_reponses`
   ADD KEY `FK_mtm_reponses` (`id_reponses`);
 
 --
--- Index pour la table `questions`
+-- Indexes for table `questions`
 --
 ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `reponses`
+-- Indexes for table `reponses`
 --
 ALTER TABLE `reponses`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_questions` (`id_question`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `films`
+-- AUTO_INCREMENT for table `films`
 --
 ALTER TABLE `films`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `mtm_films_reponses`
+-- AUTO_INCREMENT for table `mtm_films_reponses`
 --
 ALTER TABLE `mtm_films_reponses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `questions`
+--
+ALTER TABLE `questions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `questions`
---
-ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT pour la table `reponses`
+-- AUTO_INCREMENT for table `reponses`
 --
 ALTER TABLE `reponses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Contraintes pour les tables déchargées
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `mtm_films_reponses`
+-- Constraints for table `mtm_films_reponses`
 --
 ALTER TABLE `mtm_films_reponses`
   ADD CONSTRAINT `FK_mtm_films` FOREIGN KEY (`id_films`) REFERENCES `films` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_mtm_reponses` FOREIGN KEY (`id_reponses`) REFERENCES `reponses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `reponses`
+-- Constraints for table `reponses`
 --
 ALTER TABLE `reponses`
   ADD CONSTRAINT `FK_questions` FOREIGN KEY (`id_question`) REFERENCES `questions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
