@@ -97,21 +97,21 @@
             </span>
         </div>
     </div>
-    <!-- QUESTIONS -->
+    
     </div>
 
-
+<!-- QUESTIONS -->
     <?php
 
-    function affiche_pre($text)
+    function affiche_pre($text) //fx pour formater l'affichage
     {
         ?><pre><?php print_r($text); ?></pre><?php
     }
 
 
-    $sqlQuestion = "select * from questions";
+    $sqlQuestion = "select * from questions"; //selectionne toutes les questions
     $stmt = $mysqldb->query($sqlQuestion);
-    $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $questions = $stmt->fetchAll(PDO::FETCH_ASSOC); // fetch assoc permet de ne pas afficher les indices/clés inutiles
     $questionsReponses = [];
 
     foreach ($questions as $key => $question) {
@@ -128,7 +128,7 @@
 
     affiche_pre($questionsReponses);
 
-    $i = 1;
+    $i = 1;//pour changer les numero des id pour pouvoir modifier leur cpt en js et style
     foreach($questionsReponses as $row){
         echo /*"<div class ='questions' id = 'q[".$i."]'>"*/$row["question"]["name"]."<br/>";
 
