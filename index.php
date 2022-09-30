@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find me.</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/questions.css">
+    <!-- <link rel="stylesheet" href="./assets/css/questions.css"> -->
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,18 +97,18 @@
             </span>
         </div>
     </div>
-    
+
     </div>
 
-<!-- QUESTIONS -->
+    <!-- QUESTIONS -->
     <?php
 
     function affiche_pre($text) //fx pour formater l'affichage
     {
-        ?><pre><?php print_r($text); ?></pre><?php
+    ?>
+        <pre><?php print_r($text); ?></pre>
+    <?php
     }
-
-
     $sqlQuestion = "select * from questions"; //selectionne toutes les questions
     $stmt = $mysqldb->query($sqlQuestion);
     $questions = $stmt->fetchAll(PDO::FETCH_ASSOC); // fetch assoc permet de ne pas afficher les indices/clés inutiles
@@ -117,39 +117,61 @@
     foreach ($questions as $key => $question) {
 
         $sql = "select * from reponses where id_question = " . $question['id'];
-
         $stmt = $mysqldb->query($sql);
         $reponses = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $questionsReponses[$key]['question'] = $question;
         $questionsReponses[$key]['reponses'] = $reponses;
-
     }
 
 
-    affiche_pre($questionsReponses);
-
-    $i = 1;//pour changer les numero des id pour pouvoir modifier leur cpt en js et style
-    foreach($questionsReponses as $row){
-        echo /*"<div class ='questions' id = 'q[".$i."]'>"*/$row["question"]["name"]."<br/>";
-
-        $i++;
-
-        foreach($row["reponses"] as $row2)
-        {
-            echo $row2["name"];
-            echo "<br>";
-        }
-        echo "<br>";
-        echo "<br>";
-    }
+    // affiche_pre($questionsReponses);
     ?>
 
     <div id="allQuestions">
+        <form action="./views/selection.php" method="post">
+            <?php
+
+                $i = 1; //pour changer les numero des id pour pouvoir modifier leur cpt en js et style
+                $a = 1; //idem
+
+                foreach ($questionsReponses as $row) { 
+            ?>
+                    <div class='questions' id='q<?= $i; ?>'>
+                        <div class="left">
+                            <p class="questionNumber"><?= $i; ?></p>
+                            <h2><?= $row["question"]["name"]; ?></h2>
+                        </div>
+
+                        <?php
+                            $i++;
+                        ?>
+                        <div class="right">
+                            <?php
+                                foreach ($row["reponses"] as $row2) { 
+                            ?>
+                                <div>
+                                    <input type="radio" name='q<?= $i; ?>' value="<?= $row2["name"]; ?>" id="answers<?= $a; ?>">
+                                    <label for="answers<?= $a; ?>"><?= $row2["name"]; ?></label>
+                                </div>
+                        </div>
+                            <?php
+                                    $a++;
+                                }
+                            ?>
+                    </div>
+
+                    <?php
+                }
+                ?>
+        </form>
+    </div>
+
+    <!--<div id="allQuestions">
 
         <form action="./views/selection.php" method="post">
             <div><br><br><br></div>
-            <!-- QUESTION 1 -->
-            <div class="questions" id="q1">
+             QUESTION 1 -->
+    <!-- <div class="questions" id="q1">
                 <div class="left">
                     <p class="questionNumber">01</p>
                     <h2>Who you want <br> to watch a movie with?</h2>
@@ -185,8 +207,8 @@
 
                         <a href="./views/random.php">
 
-                            <!-- <input type="radio" name="q1" id="random" value="random"> -->
-                            I don't care! I just want to watch a movie.
+                            <input type="radio" name="q1" id="random" value="random"> -->
+    <!-- I don't care! I just want to watch a movie.
                             Surprise me!
 
 
@@ -197,8 +219,8 @@
                 </div>
             </div>
 
-            <!-- QUESTION 2 -->
-            <div class="questions" id="q2">
+             QUESTION 2 -->
+    <!--<div class="questions" id="q2">
                 <div class="left">
                     <p class="questionNumber">02</p>
                     <h2>What are you looking for?</h2>
@@ -231,8 +253,8 @@
 
                         <a href="./views/random.php">
 
-                            <!-- <input type="radio" name="q1" id="random" value="random"> -->
-                            I don't care! I just want to watch a movie.
+                            <input type="radio" name="q1" id="random" value="random"> -->
+    <!-- I don't care! I just want to watch a movie.
                             Surprise me!
 
 
@@ -243,9 +265,9 @@
                 </div>
             </div>
 
-            <!-- QUESTION 3  -->
+             QUESTION 3  -->
 
-            <div class="questions" id="q3">
+    <!--<div class="questions" id="q3">
                 <div class="left">
                     <p class="questionNumber">03</p>
                     <h2>Ok. Will these do?</h2>
@@ -288,9 +310,9 @@
                 </div>
             </div>
 
-            <!-- QUESTION 4  -->
+             QUESTION 4  -->
 
-            <div class="questions" id="q4">
+    <!-- <div class="questions" id="q4">
                 <div class="left">
                     <p id="changeNb" class="questionNumber">04</p>
                     <h2> How much time have you got ?</h2>
@@ -327,8 +349,8 @@
                 </div>
 
                 <div id="envoiFormBtn">
-                    <button>Send!</button> <!-- modifier l'emplacement (annuler le flex sur cet element) !-->
-                </div>
+                    <button>Send!</button> modifier l'emplacement (annuler le flex sur cet element) !-->
+    <!-- </div>
             </div>
 
         </form>
@@ -339,7 +361,7 @@
 
 
 
-    <!-- CURSEUR SOURIS PERSONNALISEE    -->
+     CURSEUR SOURIS PERSONNALISEE    -->
     <div id="curseur"><span id="rec">REC</span></div>
 
     <script type="text/javascript" src="./assets/scripts/script.js"></script>
