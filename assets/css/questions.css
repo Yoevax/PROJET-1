@@ -33,8 +33,6 @@
     width: 50%;
 }
 
-
-
 @media(max-width : 765px) {
     .questions {
         display: flex;
@@ -78,10 +76,6 @@
     }
 }
 
-
-
-
-
 .right div {
     padding: 20px;
     margin: 10px;
@@ -97,6 +91,7 @@ label:hover {
     font-weight: 100;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 h2 {

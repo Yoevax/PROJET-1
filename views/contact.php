@@ -66,7 +66,7 @@
             </div>
 
             <div id="copyright">
-                <a href="#container"><img src="../assets/img/logonew.png" width="100px" alt=""></a> <br>
+                <!-- <a href="#container"><img src="../assets/img/logonew.png" width="100px" alt=""></a> <br> -->
                 <p>All reserved Find mr. Legal mentions</p>
             </div>
         </div>

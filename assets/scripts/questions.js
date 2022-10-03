@@ -141,7 +141,7 @@ answer6.addEventListener("click", () => {
 //event de la reponse 2 a la question 1
 answer7.addEventListener("click", () => {
     
-    chmgtNb.innerText = "03";
+
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -159,7 +159,7 @@ answer7.addEventListener("click", () => {
 });
 
 answer8.addEventListener("click", () => {
-     chmgtNb.innerText = "03";
+ 
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -176,7 +176,7 @@ answer8.addEventListener("click", () => {
 });
 
 answer9.addEventListener("click", () => {
-    chmgtNb.innerText = "03";
+  
 
     q1.classList.add("hidden");
     q1.classList.remove("questions");

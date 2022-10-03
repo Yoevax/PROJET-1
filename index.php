@@ -81,7 +81,7 @@
     <!--PAGE 2 FIND A MOVIE  -->
     <div id="contentPage2">
         <div class="title_2">
-            <h3> Answer our questions to find your perfect movie </h3>
+            <h3> Answer our questions to find <br> your perfect movie </h3>
             <p>There are just four of them it will take you <span> 10 seconds</span></p>
         </div>
         <!-- SCROLL BUTTON -->
@@ -139,7 +139,7 @@
             ?>
                 <div class='questions' id='q<?= $i; ?>'>
                     <div class="left">
-                        <p class="questionNumber" id="changeNb"><?= $i; ?></p>
+                        <p class="questionNumber" id="changeNb">0<?= $i; ?></p>
                         <h2><?= $row["question"]["name"]; ?></h2>
                         <?php if($i > 1){
                           ?>   <a id="previousQ<?= $c; ?>" class="previous">Previous</a>

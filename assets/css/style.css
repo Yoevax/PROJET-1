@@ -490,6 +490,7 @@ svg {
 
 /* CONTACT PAGE */
 #contact {
+
     height: 100vh;
     width: 100%;
     margin-top: 20px;
@@ -535,7 +536,9 @@ svg {
 /* PAGE ABOUT FIND ME */
 #about-findme {
     height: 100vh;
-    width: 100%;
+    width: 90%;
+    margin-left: 4vw;
+    
 }
 
 #about-findme h3 {
@@ -546,12 +549,12 @@ svg {
 }
 
 #about-findme p {
-    text-align: left;
+    text-align: justify;
     font-size: 3.7rem;
-    font-weight: 700;
+    font-weight: 400;
     padding: 20px;
     width: 90%;
-    margin: 0px;
+    margin-left: 5vw;
 }
 
 /* About us */
