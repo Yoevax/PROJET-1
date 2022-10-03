@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find me.</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- <link rel="stylesheet" href="./assets/css/questions.css"> -->
+    <link rel="stylesheet" href="./assets/css/questions.css">
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +47,7 @@
                                     me a movie</a></li>
                             <li><a href="./views/allMovies.php">All movies</a></li>
                             <li><a href="./views/connexion.php">Sign in/up</a></li>
-                            <li><a href="./views/contact.html">Contact</a></li>
+                            <li><a href="./views/contact.php">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -131,38 +131,49 @@
         <form action="./views/selection.php" method="post">
             <?php
 
-                $i = 1; //pour changer les numero des id pour pouvoir modifier leur cpt en js et style
-                $a = 1; //idem
+            $i = 1; //pour changer les numero des id pour pouvoir modifier leur cpt en js et style
+            $a = 1; //idem
+            $c = 0; //pour le previous 
 
-                foreach ($questionsReponses as $row) { 
+            foreach ($questionsReponses as $row) {
             ?>
-                    <div class='questions' id='q<?= $i; ?>'>
-                        <div class="left">
-                            <p class="questionNumber"><?= $i; ?></p>
-                            <h2><?= $row["question"]["name"]; ?></h2>
-                        </div>
-
-                        <?php
-                            $i++;
+                <div class='questions' id='q<?= $i; ?>'>
+                    <div class="left">
+                        <p class="questionNumber" id="changeNb"><?= $i; ?></p>
+                        <h2><?= $row["question"]["name"]; ?></h2>
+                        <?php if($i > 1){
+                          ?>   <a id="previousQ<?= $c; ?>" class="previous">Previous</a>
+                        <?php }
+                                
                         ?>
-                        <div class="right">
-                            <?php
-                                foreach ($row["reponses"] as $row2) { 
-                            ?>
-                                <div>
-                                    <input type="radio" name='q<?= $i; ?>' value="<?= $row2["name"]; ?>" id="answers<?= $a; ?>">
-                                    <label for="answers<?= $a; ?>"><?= $row2["name"]; ?></label>
-                                </div>
-                        </div>
-                            <?php
-                                    $a++;
-                                }
-                            ?>
+                       
                     </div>
 
                     <?php
-                }
-                ?>
+                        $i++;
+                        $c++;
+                    ?>
+
+
+                    <?php
+                    foreach ($row["reponses"] as $row2) {
+                        
+                    ?> <div class="answers">
+                            <div>
+                                <input type="radio" name='q<?= $i; ?>' value="<?= $row2["name"]; ?>" id="answer<?= $a; ?>">
+                                <label for="answer<?= $a; ?>"><?= $row2["name"]; ?></label>
+                            </div>
+                        </div>
+                    <?php
+                    
+                        $a++;
+                    }
+                    ?>
+                </div>
+
+            <?php
+            }
+            ?>
         </form>
     </div>
 

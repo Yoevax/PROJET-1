@@ -6,8 +6,8 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Find me.</title>
+
      <link rel="stylesheet" href="../assets/css/style.css">
-     <link rel="stylesheet" href="../assets/css/questions.css">
      <link rel="stylesheet" href="../assets/css/selection.css">
 
      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -31,39 +31,40 @@
          <div>
              <nav>
                  <ul>
-                     <li><a href="#contentPage2">Find
+                     <li><a href="../index.php">Find
                              me a movie</a></li>
                      <li><a href="../views/allMovies.php">All movies</a></li>
                      <li><a href="../views/connexion.php">Sign in/up</a></li>
-                     <li><a href="../views/contact.html">Contact</a></li>
+                     <li><a href="../views/contact.php">Contact</a></li>
                  </ul>
              </nav>
          </div>
      </div>
 
      <div id="container">
-
+         <h2>Your selection</h2>
 
          <?php
 
             //recuperation des reponses aux questions (avec isset et empty)
-            if ((isset($_POST["q1"], $_POST["q2"], $_POST["q4"])) && !empty($_POST["q1"]) && !empty($_POST["q2"]) && !empty($_POST["q4"]) && empty($_POST["q3"])) {
+            //         if ((isset($_POST["q1"], $_POST["q2"], $_POST["q4"])) && !empty($_POST["q1"]) && !empty($_POST["q2"]) && !empty($_POST["q4"]) && empty($_POST["q3"])) {
 
-                $answerQ1 = $_POST["q1"];
-                $answerQ2 = $_POST["q2"];
-                $answerQ4 = $_POST["q4"];
+            //             $answerQ1 = $_POST["q1"];
+            //             $answerQ2 = $_POST["q2"];
+            //             $answerQ4 = $_POST["q4"];
 
-                echo "Vos réponses : <br/>  Q1 : " . $_POST["q1"] . ";  <br/>  Q2  : " . $_POST["q2"] . ";  <br/> Q3 : " . $_POST["q4"] . "; <br>";
-            } else if (isset($_POST["q3"]) && !empty($_POST["q3"])) {
+            //             echo "Vos réponses : <br/>  Q1 : " . $_POST["q1"] . ";  <br/>  Q2  : " . $_POST["q2"] . ";  <br/> Q3 : " . $_POST["q4"] . "; <br>";
+            //         } else if (isset($_POST["q3"]) && !empty($_POST["q3"])) {
 
-                $answerQ1 = $_POST["q1"];
-                $answerQ2 = $_POST["q2"];
-                $answerQ3 = $_POST["q3"];
-                $answerQ4 = $_POST["q4"];
+            //             $answerQ1 = $_POST["q1"];
+            //             $answerQ2 = $_POST["q2"];
+            //             $answerQ3 = $_POST["q3"];
+            //             $answerQ4 = $_POST["q4"];
 
-                echo "Vos réponses :  <br/>  Q1 : " . $_POST["q1"] . ";  <br/>  Q2 : " . $_POST["q2"] . "; <br/>  Q3 : " . $_POST["q3"] . "; <br/>  Q4 :  " . $_POST["q4"] .  "<br>";
-            }
+            //             echo "Vos réponses :  <br/>  Q1 : " . $_POST["q1"] . ";  <br/>  Q2 : " . $_POST["q2"] . "; <br/>  Q3 : " . $_POST["q3"] . "; <br/>  Q4 :  " . $_POST["q4"] .  "<br>";
+            //         }
 
+            //         
             ?>
      </div>
      <?php

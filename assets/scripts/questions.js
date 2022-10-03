@@ -13,36 +13,49 @@ let previousQ2 =  document.getElementById("previousQ2");
 let previousQ3 =  document.getElementById("previousQ3");
 
 //reponses question 1
-let betterHalf = document.getElementById("betterHalf");
-let parents = document.getElementById("parents");
-let children = document.getElementById("children");
-let friends = document.getElementById("friend");
-let no_one = document.getElementById("no_one");
+let answers = document.querySelectorAll("answers");
 
+let answer1 = document.getElementById("answer1");
+let answer2 = document.getElementById("answer2");
+let answer3 = document.getElementById("answer3");
+let answer4 = document.getElementById("answer4");
+let answer5 = document.getElementById("answer5");
+let answer6 = document.getElementById("answer6");
 //reponse random
 let random = document.getElementById("random");
 
 //reponses question 2
-let smart = document.getElementById("smart");
-let laugh = document.getElementById("laugh");
-let cry = document.getElementById("cry");
-let more = document.getElementById("more");
+
+let answer7 = document.getElementById("answer7");
+let answer8 = document.getElementById("answer8");
+let answer9 = document.getElementById("answer9");
+let answer10 = document.getElementById("answer10");
+let answer11 = document.getElementById("answer11");
 
 //changement du numéro
 let chmgtNb = document.getElementById("changeNb");
-console.log(chmgtNb);
+
 
 //reponses question 3
-let love = document.getElementById("love");
-let action = document.getElementById("action");
-let scare = document.getElementById("scare");
-let teen = document.getElementById("teen");
+let answer12 = document.getElementById("answer12");
+let answer13 = document.getElementById("answer13");
+let answer14 = document.getElementById("answer14");
+let answer15 = document.getElementById("answer15");
+let answer16 = document.getElementById("answer16");
+
+//reponses question 4
+let answer17 = document.getElementById("answer17");
+let answer18 = document.getElementById("answer18");
+let answer19 = document.getElementById("answer19");
+let answer20 = document.getElementById("answer20");
 
 
 
-//EVENT QUESTION 1
-//event de la reponse 1 a la question 1
-betterHalf.addEventListener("click", () => {
+
+// EVENT QUESTION 1
+// event de la reponse 1 a la question 1
+
+answer1.addEventListener("click", () => {
    
     q1.classList.add("hidden");
     q1.classList.remove("questions");
@@ -57,8 +70,8 @@ betterHalf.addEventListener("click", () => {
     q2.classList.remove("hidden");
 });
 
-//event de la reponse 2 a la question 1
-parents.addEventListener("click", () => {
+// event de la reponse 2 a la question 1
+answer2.addEventListener("click", () => {
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -73,7 +86,7 @@ parents.addEventListener("click", () => {
 });
 
 //event de la reponse 3 a la question 1
-children.addEventListener("click", () => {
+answer3.addEventListener("click", () => {
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -88,7 +101,7 @@ children.addEventListener("click", () => {
 });
 
 //event de la reponse 4 a la question 1
-friends.addEventListener("click", () => {
+answer4.addEventListener("click", () => {
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -104,7 +117,7 @@ friends.addEventListener("click", () => {
 });
 
 //event de la reponse 5 a la question 1
-no_one.addEventListener("click", () => {
+answer5.addEventListener("click", () => {
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -118,11 +131,16 @@ no_one.addEventListener("click", () => {
     q2.classList.remove("hidden");
 });
 
+answer6.addEventListener("click", () => {
+    document.location.href = './views/random.php';
+});
+
 
 
 //EVENT QUESTION 2
 //event de la reponse 2 a la question 1
-smart.addEventListener("click", () => {
+answer7.addEventListener("click", () => {
+    
     chmgtNb.innerText = "03";
     q1.classList.add("hidden");
     q1.classList.remove("questions");
@@ -140,7 +158,7 @@ smart.addEventListener("click", () => {
     
 });
 
-laugh.addEventListener("click", () => {
+answer8.addEventListener("click", () => {
      chmgtNb.innerText = "03";
     q1.classList.add("hidden");
     q1.classList.remove("questions");
@@ -157,7 +175,7 @@ laugh.addEventListener("click", () => {
     q3.classList.add("hidden");
 });
 
-cry.addEventListener("click", () => {
+answer9.addEventListener("click", () => {
     chmgtNb.innerText = "03";
 
     q1.classList.add("hidden");
@@ -175,7 +193,7 @@ cry.addEventListener("click", () => {
     q3.classList.add("hidden");
 });
 
-more.addEventListener("click", () => {
+answer10.addEventListener("click", () => {
     
     q1.classList.add("hidden");
     q1.classList.remove("questions");
@@ -192,8 +210,14 @@ more.addEventListener("click", () => {
     q3.classList.add("questions");
 });
 
+answer11.addEventListener("click", () => {
+    
+    document.location.href = './views/random.php';
+});
+
+
 //question 3 event
-love.addEventListener("click", () => {
+answer12.addEventListener("click", () => {
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -209,7 +233,7 @@ love.addEventListener("click", () => {
     q3.classList.add("hidden");
 });
 
-scare.addEventListener("click", () => {
+answer13.addEventListener("click", () => {
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -225,7 +249,7 @@ scare.addEventListener("click", () => {
     q3.classList.add("hidden");
 });
 
-action.addEventListener("click", () => {
+answer14.addEventListener("click", () => {
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -241,7 +265,7 @@ action.addEventListener("click", () => {
     q3.classList.add("hidden");
 });
 
-teen.addEventListener("click", () => {
+answer15.addEventListener("click", () => {
     q1.classList.add("hidden");
     q1.classList.remove("questions");
  
@@ -256,6 +280,29 @@ teen.addEventListener("click", () => {
     q3.style.display = "none";
     q3.classList.add("hidden");
 });
+
+answer16.addEventListener("click", () => {
+    document.location.href = './views/random.php';
+});
+
+//question 3 event
+
+answer17.addEventListener("click", () => {
+    answer17.type = "submit";
+});
+answer18.addEventListener("click", () => {
+    answer18.type = "submit";
+});
+answer19.addEventListener("click", () => {
+    answer19.type = "submit";
+    
+});
+
+
+answer20.addEventListener("click", () => {
+    document.location.href = './views/random.php';
+});
+
 
 
 //previous de la question 2 (retour à la q1)
@@ -298,8 +345,5 @@ previousQ3.addEventListener("click", () =>{
     q3.classList.remove("hidden");
 })
 
-random.addEventListener("click", () =>{
-    
- 
-})
+
 

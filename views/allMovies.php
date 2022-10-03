@@ -39,7 +39,7 @@
                             me a movie</a></li>
                     <li><a href="../views/allMovies.php">All movies</a></li>
                     <li><a href="../views/connexion.php">Sign in/up</a></li>
-                    <li><a href="../views/contact.html">Contact</a></li>
+                    <li><a href="../views/contact.php">Contact</a></li>
                 </ul>
             </nav>
         </div>

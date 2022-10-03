@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find me. Random</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <link rel="stylesheet" href="../assets/css/random.css">
 
     <link rel="stylesheet" href="../assets/css/selection.css">
 
@@ -32,11 +33,11 @@
         <div>
             <nav>
                 <ul>
-                    <li><a href="#contentPage2">Find
+                    <li><a href="../index.php">Find
                             me a movie</a></li>
                     <li><a href="../views/allMovies.php">All movies</a></li>
                     <li><a href="../views/connexion.php">Sign in/up</a></li>
-                    <li><a href="../views/contact.html">Contact</a></li>
+                    <li><a href="../views/contact.php">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -46,30 +47,36 @@
 
 
         <h2>Look what we find for you.</h2>
-
-        <?php
-        include("../SRC/database.php");
-
-        $rand = "SELECT *
-            FROM `films`
-            ORDER BY RAND()
-            LIMIT 1";
+        <div id="bloc">
 
 
-        $stmt = $mysqldb->query($rand);
-        $data = $stmt->fetchAll();
+            <?php
+            include("../SRC/database.php");
 
-        foreach ($data as $row) {
-        ?>
-            <div>
-                <h3><?php echo $row["name"]; ?></h3>
-            </div>
-        <?php
-        }
+            $rand = "SELECT *
+                FROM `films`
+                ORDER BY RAND()
+                LIMIT 1";
 
 
-        ?>
+            $stmt = $mysqldb->query($rand);
+            $data = $stmt->fetchAll();
+
+            foreach ($data as $row) {
+            ?>
+                <div>
+                    <h3><?php echo $row["name"]; ?></h3>
+                    <img src="../assets/img/<?= $row["name"]; ?>.jpg">
+                </div>
+            <?php
+            }
+
+
+            ?>
+        </div>
+
     </div>
+
 </body>
 
 </html>
