@@ -1,3 +1,8 @@
+:root {
+    --size: 18px;
+    /* taille du curseur */
+}
+
 body {
     background: linear-gradient(-45deg, #000000, #000000, #8a8a8a, #000000);
     background-size: 400% 400%;

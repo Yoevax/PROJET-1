@@ -11,7 +11,11 @@ try {
         "root",
         "root"
     );
+
     $mysqldb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    
+        
 } catch (Exception $exception) {
     die('Oops, il y a eu problème : ' . $exception->getMessage());
 }
