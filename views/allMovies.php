@@ -62,7 +62,7 @@
             ?>
                 <div class="bloc">
                     <a href="#">
-                        <h2><?php echo $row["name"]; ?></h2>
+                        
                         <img src="../assets/img/<?= $row["name"]; ?>.jpg">
                     </a>
                 </div>
