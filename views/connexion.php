@@ -93,7 +93,14 @@
     }
 
     if ($isFound) {
-        echo "Welcome back $username :)";
+        session_start();
+        // on enregistre les paramètres de notre visiteur comme variables de session ($login et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
+        $_SESSION['username'] = $_POST['username'];
+        $_SESSION['password'] = $_POST['password'];
+
+        // on redirige notre visiteur vers une page de notre section membre
+        header('location: ./page_membre.php/');
+       
     } else {
 
 
@@ -103,7 +110,9 @@
             $loginAttempt = 0;
         }
     }
+   
     ?>
+    
 
     <!-- CURSEUR SOURIS PERSONNALISEE    -->
     <div id="curseur"><span id="rec">REC</span></div>

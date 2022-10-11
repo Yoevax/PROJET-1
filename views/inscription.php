@@ -102,7 +102,7 @@
 
 
             // redirection
-            header("../assets/css/allMovies.css");
+            
             header('location: http://localhost/PROJET%201/views/allMovies.php/');
             exit();
         } else {

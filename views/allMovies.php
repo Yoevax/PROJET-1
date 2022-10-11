@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,9 +22,106 @@
 </head>
 
 <body>
-    <?php include("../SRC/database.php"); ?>
+    <?php 
+    include("../SRC/database.php");
+ 
 
-    <!-- MENU NAV BAR -->
+    $isFound = false;
+    $loginAttempt = 0; //tentative pr msg derreur
+
+    if ((isset($_POST["username"], $_POST["password"]))) {
+        $loginAttempt++; //faut qu'il renttre au moins une fois des données pour savoir si c juste ou pas
+
+        $username = $_POST["username"];
+        $pass_word = $_POST["password"];
+
+        $sqlQuery = " 
+                    SELECT *
+                    FROM users
+                    WHERE username=:param_username AND password =:param_password";
+        $statement = $mysqldb->prepare($sqlQuery);
+        $statement->execute(array('param_username' => $username, 'param_password' => $pass_word));
+        $result = $statement->fetchAll();
+
+        if ($result) {
+            $isFound = true;
+            $loginFail = false;
+            $connectedUser = $result[0]['username'];
+        }
+    }
+
+    if ($isFound) {
+        
+        // on enregistre les paramètres de notre visiteur comme variables de session ($login et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
+        $_SESSION['username'] = $_POST['username'];
+        $_SESSION['password'] = $_POST['password'];
+    ?>
+        <!-- MENU NAV BAR -->
+        <div id="header_accueil">
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="../index.php">
+                <img src="../assets/img/logonew.png" width="100px" alt="">
+            </a>
+
+        </div>
+
+
+        <!-- NAV -->
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="../index.php">Find
+                            me a movie</a></li>
+                    <li><a href="../views/allMovies.php">All movies</a></li>
+                    <li><a href="../views/logout.php">Deconnexion</a></li>
+                    <li><a href="../views/contact.php">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+    </div>
+    <div id="container">
+        <h1>All movies</h1>
+
+        <div id="all">
+
+            <?php
+            $sql = "SELECT * 
+                    FROM films";
+
+            $stmt = $mysqldb->query($sql);
+            $data = $stmt->fetchAll();
+
+            foreach ($data as $row) {
+            ?>
+                <div class="bloc">
+                    <a href="#">
+                        
+                        <img src="../assets/img/<?= $row["name"]; ?>.jpg">
+                    </a>
+                </div>
+            <?php
+            }
+
+            
+            ?>
+        </div>
+    </div>
+
+    <!-- CURSEUR SOURIS PERSONNALISEE    -->
+    <div id="curseur"><span id="rec">REC</span></div>
+
+    <script type="text/javascript" src="../assets/scripts/script.js"></script>
+    <script type="text/javascript" src="../assets/scripts/scrollNav.js"></script>
+
+       
+    <?php
+    }
+    else {
+        ?>
+        <!-- MENU NAV BAR -->
     <div id="header_accueil">
         <!-- LOGO -->
         <div class="logo">
@@ -69,6 +170,7 @@
             <?php
             }
 
+            
             ?>
         </div>
     </div>
@@ -78,7 +180,12 @@
 
     <script type="text/javascript" src="../assets/scripts/script.js"></script>
     <script type="text/javascript" src="../assets/scripts/scrollNav.js"></script>
+    <?php
+    }
+    ?>
 
+
+    
 </body>
 
 </html>

@@ -5,7 +5,7 @@
 
 /* QUESTIONS */
 #allQuestions {
-    margin-top: 150px;
+
     height: 100vh;
 }
 
@@ -17,7 +17,7 @@
     }
 }
 
-.questions {
+.questions {    
     width: 100%;
     display: flex;
     align-items: center;
@@ -106,8 +106,12 @@ h2 {
     text-align: center;
 }
 
-
-.previous {
+#btn{
+    display: flex;
+    justify-content: right ;
+    width: 100%;
+}
+.previous, #btn1 {
     display: inline-block;
     cursor: pointer;
     font-family: 'Raleway';
@@ -123,7 +127,7 @@ h2 {
     border: 1px solid white;
 }
 
-.previous:hover {
+.previous:hover, #btn1:hover {
     color: black;
     background-color: white;
     font-weight: 800;

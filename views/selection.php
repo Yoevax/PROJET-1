@@ -9,6 +9,7 @@
 
      <link rel="stylesheet" href="../assets/css/style.css">
      <link rel="stylesheet" href="../assets/css/selection.css">
+     <link rel="stylesheet" href="../assets/css/allMovies.css">
 
      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,61 +48,49 @@
          <?php
 
             //recuperation des reponses aux questions (avec isset et empty)
-            //         if ((isset($_POST["q1"], $_POST["q2"], $_POST["q4"])) && !empty($_POST["q1"]) && !empty($_POST["q2"]) && !empty($_POST["q4"]) && empty($_POST["q3"])) {
+            if ((isset($_POST["q1"], $_POST["q2"], $_POST["q4"])) && !empty($_POST["q1"]) && !empty($_POST["q2"]) && !empty($_POST["q4"]) && empty($_POST["q3"])) {
 
-            //             $answerQ1 = $_POST["q1"];
-            //             $answerQ2 = $_POST["q2"];
-            //             $answerQ4 = $_POST["q4"];
+                //ALGO POUR AFFICHER LA SELECTION SELON LES REPONSES
 
-            //             echo "Vos réponses : <br/>  Q1 : " . $_POST["q1"] . ";  <br/>  Q2  : " . $_POST["q2"] . ";  <br/> Q3 : " . $_POST["q4"] . "; <br>";
-            //         } else if (isset($_POST["q3"]) && !empty($_POST["q3"])) {
+                include("../SRC/database.php");
 
-            //             $answerQ1 = $_POST["q1"];
-            //             $answerQ2 = $_POST["q2"];
-            //             $answerQ3 = $_POST["q3"];
-            //             $answerQ4 = $_POST["q4"];
+                $sql = 
+                "SELECT films.name, films.id
+                FROM films
+                join mtm_films_reponses as mtm
+                on mtm.id_films = films.id
+                join reponses as r
+                on r.id = mtm.id_reponses
+                where mtm.id_reponses in (1,3)";
+                //GROUP by films.name"; //attention ca fait un msg d'erreur qd on veut le group (là il affiche 2x le meme film)
 
-            //             echo "Vos réponses :  <br/>  Q1 : " . $_POST["q1"] . ";  <br/>  Q2 : " . $_POST["q2"] . "; <br/>  Q3 : " . $_POST["q3"] . "; <br/>  Q4 :  " . $_POST["q4"] .  "<br>";
-            //         }
 
-            //         
+                $stmt = $mysqldb->query($sql);
+                $data = $stmt->fetchAll();
+
+                foreach ($data as $row) {
+
             ?>
-     </div>
-     <?php
-        /*ALGO POUR AFFICHER LA SELECTION SELON LES REPONSES
-        //
-        //     include("../SRC/database.php");
 
-        //     $sql = "SELECT films.name, films.id
-        //     FROM films
-        //     join mtm_films_reponses as mtm
-        //     on mtm.id_films = films.id
-        //     join reponses as r
-        //     on r.id = mtm.id_reponses
-        //     where mtm.id_reponses in (1,3)";
-        //     //GROUP by films.name"; //attention ca fait un msg d'erreur qd on veut le group (là il affiche 2x le meme film)
+                 <h1><?php echo $row["name"]; ?></h1>
+    </div>
+            <?php
+                }
+            } else if (isset($_POST["q3"]) && !empty($_POST["q3"])) {
+            }
 
 
-        //     $stmt = $mysqldb->query($sql);
-        //     $data = $stmt->fetchAll();
+            ?>
+ </div>
+ <?php
 
-        //     foreach ($data as $row) {
-        //     
-        ?>
-      
-         // <h1><?php echo $row["name"]; ?></h1>
-         // </div>
-     // <?php
-        //     }
+    ?>
 
-        //  */
-        ?>
+ <!-- CURSEUR SOURIS PERSONNALISEE    -->
+ <div id="curseur"><span id="rec">REC</span></div>
 
-     <!-- CURSEUR SOURIS PERSONNALISEE    -->
-     <div id="curseur"><span id="rec">REC</span></div>
+ <script type="text/javascript" src="../assets/scripts/script.js"></script>
 
-     <script type="text/javascript" src="../assets/scripts/script.js"></script>
-     <script type="text/javascript" src="../assets/scripts/questions.js"></script>
  </body>
 
  </html>

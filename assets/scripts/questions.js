@@ -281,16 +281,16 @@ answer14.addEventListener("click", () => {
 
 //question 3 event
 
-answer15.addEventListener("click", () => {
-    answer17.type = "submit";
-});
-answer16.addEventListener("click", () => {
-    answer18.type = "submit";
-});
-answer17.addEventListener("click", () => {
-    answer19.type = "submit";
+// answer15.addEventListener("click", () => {
+//     //    document.location.href = './views/selection.php';
+// });
+// answer16.addEventListener("click", () => {
+//     // answer18.type = "submit";
+// });
+// answer17.addEventListener("click", () => {
+//     // answer19.type = "submit";
     
-});
+// });
 
 
 

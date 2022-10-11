@@ -168,6 +168,9 @@
 
                             $a++;
                         }
+                        if ($i >= 4) {
+                            echo "<div id='btn'><input type = 'submit' id='btn1' value ='Envoyer'/></div>";
+                        }
                         ?>
                     </div>
                 </div>
