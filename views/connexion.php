@@ -93,7 +93,7 @@
     }
 
     if ($isFound) {
-        echo "Bienvenue sur page d'accueil $username";
+        echo "Welcome back $username :)";
     } else {
 
 

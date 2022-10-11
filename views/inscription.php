@@ -64,9 +64,10 @@
                 <input id="password" size="30px" name="password" type="text">
             </div>
 
-            <button>Sign up</button>
+            <button id="btn">Sign up</button>
             <br>
             <div><a href="./connexion.php"> Registred? Sign in here</a> </div>
+            <p id="messageErreur"></p>
 
 
         </form>
@@ -80,7 +81,7 @@
 
     if (($_SERVER["REQUEST_METHOD"] == ("POST"))) {
         if (isValid()) {
-            var_dump('test');
+          
             global $mysqldb;
 
             $username = trim($_POST['username']);
@@ -101,6 +102,7 @@
 
 
             // redirection
+            header("../assets/css/allMovies.css");
             header('location: http://localhost/PROJET%201/views/allMovies.php/');
             exit();
         } else {
@@ -115,34 +117,31 @@
     function isValid()
     {
         if (!validUsername()) {
-
+           
             return false;
         }
 
         if (!validEmail()) {
-
+            
             return false;
         }
 
         if (!validPassword()) {
-
+           
             return false;
         }
         return true;
     }
 
     //verification du username
-    // $username = $_POST['username'];
-    // $email = $_POST['email'];
-    // $password = $_POST['password'];
 
     function validUsername()
     {
         global $mysqldb;
 
 
-        if (empty($_POST['username']) && !isset($_POST['username']) && count($_POST['username']) > 50 && count($_POST['username']) < 3) {
-            echo "<h1 class = 'invalidMsg'>INVALID USERNAME<h1>";
+        if (empty($_POST['username']) || !isset($_POST['username']) || strlen($_POST['username']) > 50 || strlen($_POST['username']) < 3) {
+
             return false;
         }
 
@@ -169,8 +168,8 @@
 
         $queryEmail = $mysqldb->prepare(
             "SELECT *  
-                   FROM users
-                   WHERE email = :email"
+            FROM users
+            WHERE email = :email"
         );
         $queryEmail->bindParam(':email', $_POST['email']);
         $queryEmail->execute();
@@ -185,7 +184,6 @@
         if (empty($_POST["password"]) || !isset($_POST["password"]) || strlen($_POST["password"]) > 50 || strlen($_POST["password"]) < 8) {
 
             return false;
-            echo "<p class = 'invalidMsg'>INVALID PASSWORD<p>";
         }
         return true;
     }
@@ -197,8 +195,9 @@
 
     <!-- CURSEUR SOURIS PERSONNALISEE    -->
     <div id="curseur"><span id="rec">REC</span></div>
-
     <script src="../assets/scripts/script.js"></script>
+
+    <!-- <script src="../assets/scripts/inscription.js"></script> -->
 </body>
 
 </html>
