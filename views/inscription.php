@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,8 @@
 
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/connexion.css">
+
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +45,7 @@
 
 
     </div>
-    <!-- formulaire de connexion -->
+    <!-- formulaire d'inscription -->
     <div id="form-connexion">
         <form action="./inscription.php" method="post">
             <h2>Sign up</h2>
@@ -58,98 +61,139 @@
 
             <div>
                 <label for="password">password</label>
-                <input id="password" size="30px" name="pass" type="text">
+                <input id="password" size="30px" name="password" type="text">
             </div>
 
             <button>Sign up</button>
             <br>
-            <div><a href="./inscription.php"> Registred? Sign in here</a> </div>
+            <div><a href="./connexion.php"> Registred? Sign in here</a> </div>
 
 
         </form>
     </div>
 
     <?php
-        include("../SRC/database.php");
 
-        if (isValid()){
+    include("../SRC/database.php");
 
+
+
+    if (($_SERVER["REQUEST_METHOD"] == ("POST"))) {
+        if (isValid()) {
+            var_dump('test');
             global $mysqldb;
 
+            $username = trim($_POST['username']);
+            $email = trim($_POST['email']);
+            $password = trim($_POST['password']);
+
             $query = $mysqldb->prepare(
-                "INSERT INTO users(email, pass, username)
-                VALUES(:email, :pass, :username)"
+                "INSERT INTO users(email, password, username)
+                VALUES(:email, :password, :username)"
             );
 
             $query->bindParam(':email', $email);
-            $query->bindParam(':pass', $pass);
+            $query->bindParam(':password', $password);
             $query->bindParam(':username', $username);
-
-            $username = trim($_POST[$username]);
-            $email = trim($_POST[$email]);
-            $pass = trim($_POST[$pass]);
 
             $query->execute();
 
+
+
             // redirection
-            // header('location:/PROJET%201/views/connection.php')
+            header('location: http://localhost/PROJET%201/views/allMovies.php/');
+            exit();
+        } else {
+
+            // affiche un message
         }
-    else {
-        // affiche un message
     }
 
-        function isValid() {
-        //taille des champs, si  le mail ou le username existe deja, mdp fasse minimum 8 caracteres, si il existe, sil est pas vide,  
-        if(!validUsername()) {
+
+    //fonction qui verifie si le username, l'email et le mot de passe en meme temps
+
+    function isValid()
+    {
+        if (!validUsername()) {
+
             return false;
         }
 
         if (!validEmail()) {
+
             return false;
         }
 
         if (!validPassword()) {
+
             return false;
         }
-         return true;
-         
-        }
+        return true;
+    }
 
-    function validUsername() {
-            if (empty($_POST["username"]) && !isset($_POST["username"]) && count($_POST["username"]) > 50 && count($_POST["username"]) < 4) {
-                return false;
-            }
-        }
+    //verification du username
+    // $username = $_POST['username'];
+    // $email = $_POST['email'];
+    // $password = $_POST['password'];
 
-    function validEmail () 
+    function validUsername()
     {
-
         global $mysqldb;
-        if (empty($_POST["email"]) && !isset($_POST["email"])&& !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) && count($_POST["email"]) > 50 && count($_POST["email"]) < 10) {
+
+
+        if (empty($_POST['username']) && !isset($_POST['username']) && count($_POST['username']) > 50 && count($_POST['username']) < 3) {
+            echo "<h1 class = 'invalidMsg'>INVALID USERNAME<h1>";
             return false;
         }
-        $queryEmail = $mysqldb->prepare("SELECT *
-                   email 
+
+        $queryUsername = $mysqldb->prepare(
+            "SELECT *  
                    FROM users
-                   WHERE email = :email AND username = :username"
-                   );
-    $queryEmail -> execute();
+                   WHERE username = :username"
+        );
 
-    return !$queryEmail->fetch();
-                }
+        $queryUsername->bindParam(':username', $_POST['username']);
+        $queryUsername->execute();
 
+        return !$queryUsername->fetch();
+    }
+
+    //verification de l'email
+    function validEmail()
+    {
+        global $mysqldb;
+
+        if (empty($_POST["email"]) || !isset($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) || strlen($_POST["email"]) > 50 || strlen($_POST["email"]) < 5) {
+            return false;
+        }
+
+        $queryEmail = $mysqldb->prepare(
+            "SELECT *  
+                   FROM users
+                   WHERE email = :email"
+        );
+        $queryEmail->bindParam(':email', $_POST['email']);
+        $queryEmail->execute();
+
+        return !$queryEmail->fetch();
+    }
+
+    //verification du mot de passe
     function validPassword()
     {
-        if
-        (empty($_POST["pass"]) && !isset($_POST["pass"]) && count($_POST["pass"]) > 50 && count($_POST["pass"]) < 8) {
+
+        if (empty($_POST["password"]) || !isset($_POST["password"]) || strlen($_POST["password"]) > 50 || strlen($_POST["password"]) < 8) {
+
             return false;
+            echo "<p class = 'invalidMsg'>INVALID PASSWORD<p>";
         }
+        return true;
     }
     ?>
 
-   
 
-    
+
+
 
     <!-- CURSEUR SOURIS PERSONNALISEE    -->
     <div id="curseur"><span id="rec">REC</span></div>

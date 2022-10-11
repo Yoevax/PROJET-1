@@ -210,13 +210,25 @@ answer10.addEventListener("click", () => {
     q3.classList.add("questions");
 });
 
-answer11.addEventListener("click", () => {
-    
-    document.location.href = './views/random.php';
-});
 
 
 //question 3 event
+answer11.addEventListener("click", () => {
+    q1.classList.add("hidden");
+    q1.classList.remove("questions");
+ 
+    q2.classList.add("hidden");
+    q2.classList.remove("questions");
+    q2.style.display = "none";
+
+    q4.style.display = "flex";
+    q4.classList.add("questions");
+    q4.classList.remove("hidden");
+
+    q3.style.display = "none";
+    q3.classList.add("hidden");
+});
+
 answer12.addEventListener("click", () => {
     q1.classList.add("hidden");
     q1.classList.remove("questions");
@@ -265,43 +277,22 @@ answer14.addEventListener("click", () => {
     q3.classList.add("hidden");
 });
 
-answer15.addEventListener("click", () => {
-    q1.classList.add("hidden");
-    q1.classList.remove("questions");
- 
-    q2.classList.add("hidden");
-    q2.classList.remove("questions");
-    q2.style.display = "none";
 
-    q4.style.display = "flex";
-    q4.classList.add("questions");
-    q4.classList.remove("hidden");
-
-    q3.style.display = "none";
-    q3.classList.add("hidden");
-});
-
-answer16.addEventListener("click", () => {
-    document.location.href = './views/random.php';
-});
 
 //question 3 event
 
-answer17.addEventListener("click", () => {
+answer15.addEventListener("click", () => {
     answer17.type = "submit";
 });
-answer18.addEventListener("click", () => {
+answer16.addEventListener("click", () => {
     answer18.type = "submit";
 });
-answer19.addEventListener("click", () => {
+answer17.addEventListener("click", () => {
     answer19.type = "submit";
     
 });
 
 
-answer20.addEventListener("click", () => {
-    document.location.href = './views/random.php';
-});
 
 
 

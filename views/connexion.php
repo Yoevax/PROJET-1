@@ -48,8 +48,8 @@
         <form action="./connexion.php" method="post">
             <h2>Connexion</h2>
             <div>
-                <label for="user_name">Username</label>
-                <input id="user_name" name="user_name" size="30px" type="text">
+                <label for="username">Username</label>
+                <input id="username" name="username" size="30px" type="text">
             </div>
 
             <div>
@@ -71,29 +71,29 @@
     $isFound = false;
     $loginAttempt = 0; //tentative pr msg derreur
 
-    if ((isset($_POST["user_name"], $_POST["password"]))) {
+    if ((isset($_POST["username"], $_POST["password"]))) {
         $loginAttempt++; //faut qu'il renttre au moins une fois des données pour savoir si c juste ou pas
 
-        $user_name = $_POST["user_name"];
+        $username = $_POST["username"];
         $pass_word = $_POST["password"];
 
         $sqlQuery = " 
                     SELECT *
                     FROM users
-                    WHERE user_name=:param_user_name AND password =:param_password";
+                    WHERE username=:param_username AND password =:param_password";
         $statement = $mysqldb->prepare($sqlQuery);
-        $statement->execute(array('param_user_name' => $user_name, 'param_password' => $pass_word));
+        $statement->execute(array('param_username' => $username, 'param_password' => $pass_word));
         $result = $statement->fetchAll();
 
         if ($result) {
             $isFound = true;
             $loginFail = false;
-            $connectedUser = $result[0]['user_name'];
+            $connectedUser = $result[0]['username'];
         }
     }
 
     if ($isFound) {
-        echo "Bienvenue sur page d'accueil $user_name";
+        echo "Bienvenue sur page d'accueil $username";
     } else {
 
 

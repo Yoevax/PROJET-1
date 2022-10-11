@@ -141,34 +141,35 @@
                     <div class="left">
                         <p class="questionNumber" id="changeNb">0<?= $i; ?></p>
                         <h2><?= $row["question"]["name"]; ?></h2>
-                        <?php if($i > 1){
-                          ?>   <a id="previousQ<?= $c; ?>" class="previous">Previous</a>
+                        <?php if ($i > 1) { //pour afficher les previous à partir de la question 2
+                        ?> <a id="previousQ<?= $c; ?>" class="previous">Previous</a>
                         <?php }
-                                
+
                         ?>
-                       
+
                     </div>
 
                     <?php
-                        $i++;
-                        $c++;
+                    $i++;
+                    $c++;
                     ?>
 
+                    <div class="right">
+                        <?php
+                        foreach ($row["reponses"] as $row2) {
 
-                    <?php
-                    foreach ($row["reponses"] as $row2) {
-                        
-                    ?> <div class="answers">
-                            <div>
-                                <input type="radio" name='q<?= $i; ?>' value="<?= $row2["name"]; ?>" id="answer<?= $a; ?>">
-                                <label for="answer<?= $a; ?>"><?= $row2["name"]; ?></label>
+                        ?> <div class="answers">
+                                <div>
+                                    <input type="radio" name='q<?= $i; ?>' value="<?= $row2["name"]; ?>" id="answer<?= $a; ?>">
+                                    <label for="answer<?= $a; ?>"><?= $row2["name"]; ?></label>
+                                </div>
                             </div>
-                        </div>
-                    <?php
-                    
-                        $a++;
-                    }
-                    ?>
+                        <?php
+
+                            $a++;
+                        }
+                        ?>
+                    </div>
                 </div>
 
             <?php
@@ -177,202 +178,12 @@
         </form>
     </div>
 
-    <!--<div id="allQuestions">
-
-        <form action="./views/selection.php" method="post">
-            <div><br><br><br></div>
-             QUESTION 1 -->
-    <!-- <div class="questions" id="q1">
-                <div class="left">
-                    <p class="questionNumber">01</p>
-                    <h2>Who you want <br> to watch a movie with?</h2>
-                </div>
-
-                <div class="right">
-                    <div>
-                        <input type="radio" name="q1" id="betterHalf" value="betterHalf">
-                        <label for="betterHalf">My better half</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="q1" id="parents" value="parents">
-                        <label for="parents">My parents (careful what you choose..)</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="q1" id="children" value="children">
-                        <label for="children">My children (but pls I don't want to watch Frozen)</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="q1" id="friend" value="friend">
-                        <label for="friend">My friend (I do have some, honest)</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="q1" id="no_one" value="no_one">
-                        <label for="no_one">No-one. I like my own company!</label>
-                    </div>
-
-                    <div class="random">
-
-                        <a href="./views/random.php">
-
-                            <input type="radio" name="q1" id="random" value="random"> -->
-    <!-- I don't care! I just want to watch a movie.
-                            Surprise me!
-
-
-                        </a>
-
-                    </div>
-
-                </div>
-            </div>
-
-             QUESTION 2 -->
-    <!--<div class="questions" id="q2">
-                <div class="left">
-                    <p class="questionNumber">02</p>
-                    <h2>What are you looking for?</h2>
-                    <a id="previousQ1" class="previous"> Previous</a>
-                </div>
-
-
-                <div class="right">
-                    <div>
-                        <input type="radio" name="q2" id="smart" value="smart">
-                        <label for="smart">I want to feel smarter! Show me something that will make me think</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="q2" id="laugh" value="laugh">
-                        <label for="laugh">I want to laugh my socks off</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="q2" id="cry" value="cry">
-                        <label for="cry">Pass me the tissues and make me weep</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="q2" id="more" value="more">
-                        <label for="more">I don't know. Have you got more options?</label>
-                    </div>
-
-                    <div class="random">
-
-                        <a href="./views/random.php">
-
-                            <input type="radio" name="q1" id="random" value="random"> -->
-    <!-- I don't care! I just want to watch a movie.
-                            Surprise me!
-
-
-                        </a>
-
-                    </div>
-
-                </div>
-            </div>
-
-             QUESTION 3  -->
-
-    <!--<div class="questions" id="q3">
-                <div class="left">
-                    <p class="questionNumber">03</p>
-                    <h2>Ok. Will these do?</h2>
-                    <a id="previousQ2" class="previous"> Previous</a>
-                </div>
-
-
-                <div class="right">
-                    <div>
-                        <input type="radio" name="q3" id="love" value="love">
-                        <label for="love">What's like to fall in love? Remind me.</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="q3" id="action" value="action">
-                        <label for="action">I want action!</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="q3" id="scare" value="scare">
-                        <label for="scare">Scare me! Even more than when I look at my bills </label>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="q3" id="teen" value="teen">
-                        <label for="teen">I want to be fifteen again, show me a teen movie.</label>
-                    </div>
-
-                    <div class="random">
-
-                        <a href="./views/random.php">
-
-                            I already told you! I don't care what I watch. Surprise me!
-
-
-                        </a>
-
-                    </div>
-
-                </div>
-            </div>
-
-             QUESTION 4  -->
-
-    <!-- <div class="questions" id="q4">
-                <div class="left">
-                    <p id="changeNb" class="questionNumber">04</p>
-                    <h2> How much time have you got ?</h2>
-                    <a id="previousQ3" class="previous"> Previous</a>
-                </div>
-
-
-                <div class="right">
-                    <div>
-                        <input type="radio" name="q4" id="moreThan1" value="moreThan1">
-                        <label for="moreThan1">All the time in the world! More than an hour</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="q4" id="lessThan1" value="lessThan1">
-                        <label for="lessThan1">My lunch break. Less than an hour</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="q4" id="less30" value="less30">
-                        <label for="less30">Time for a power-nap! Less than 30min </label>
-                    </div>
-
-                    <div class="random">
-
-                        <a href="./views/random.php">
-
-                            I don't give a monkeys. Surprise me!
-                        </a>
-
-                    </div>
-
-
-                </div>
-
-                <div id="envoiFormBtn">
-                    <button>Send!</button> modifier l'emplacement (annuler le flex sur cet element) !-->
-    <!-- </div>
-            </div>
-
-        </form>
-    </div>
 
 
 
 
 
-
-     CURSEUR SOURIS PERSONNALISEE    -->
+    <!-- CURSEUR SOURIS PERSONNALISEE    -->
     <div id="curseur"><span id="rec">REC</span></div>
 
     <script type="text/javascript" src="./assets/scripts/script.js"></script>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 03, 2022 at 08:48 AM
+-- Generation Time: Oct 11, 2022 at 07:31 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -159,10 +159,7 @@ INSERT INTO `reponses` (`id`, `name`, `id_question`) VALUES
 (15, 'I want to be fifteen again, show me a teen movie.', 3),
 (16, 'My lunch break. Less than an hour', 4),
 (17, 'Time for a power-nap! Less than 30min ', 4),
-(18, 'I don\'t give a monkeys. Surprise me!', 4),
-(19, 'I don\'t care! I just want to watch a movie. Surprise me!', 1),
-(20, 'I don\'t care! I just want to watch a movie. Surprise me!', 2),
-(21, 'I already told you! I don\'t care what I watch. Surprise me!', 3);
+(19, 'I don\'t care! I just want to watch a movie. Surprise me!', 1);
 
 -- --------------------------------------------------------
 
@@ -172,17 +169,36 @@ INSERT INTO `reponses` (`id`, `name`, `id_question`) VALUES
 
 CREATE TABLE `users` (
   `id` int(5) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  `user_name` varchar(200) NOT NULL
+  `email` varchar(70) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `user_name`) VALUES
-(1, 'yoeva@outlook.be', '1234', 'yoeva');
+INSERT INTO `users` (`id`, `email`, `password`, `username`) VALUES
+(1, 'yoeva@outlook.be', '1234', 'yoeva'),
+(2, 'yousra@jjj.com', '5555', 'yousra'),
+(3, 'yousra@jjj.com', '5555', 'yousra'),
+(4, 'yousra@jjj.com', '5555', 'yousra'),
+(5, 'yousra@jjj.com', '5555', 'yousra'),
+(6, 'ggggm', '8898', 'dzds'),
+(7, 'yousra@jjj.com', '5555', 'yousra'),
+(8, 'yousra@jjj.com', '5555', 'yousra'),
+(9, 'yousra@jjj.com', '5555', 'yousra'),
+(10, 'ggggm', '8898', 'dzds'),
+(11, 'yousra@jjj.com', '5555', 'yousra'),
+(12, 'yousra@jjj.com', '5555', 'yousra'),
+(13, 'yousra@jjj.com', '5555', 'yousra'),
+(14, 'yousra@jjj.com', '5555', 'yousra'),
+(15, 'yousra@jjj.com', '5555', 'yousra'),
+(16, 'yousra@jjj.com', '5555', 'yousra'),
+(17, 'yousra@jjj.com', '5555', 'yousra'),
+(18, 'yousra@jjj.com', '5555', 'yousra'),
+(19, 'yousra@jjj.com', '5555', 'yousra'),
+(20, 'yousra@jjj.com', '5555', 'yousra');
 
 --
 -- Indexes for dumped tables
@@ -253,7 +269,7 @@ ALTER TABLE `reponses`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
