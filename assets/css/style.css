@@ -124,6 +124,59 @@ nav {
     align-items: center;
     z-index: 1;
 }
+.links{
+  position: absolute;
+    left:80%;
+    top:50px;
+    
+}
+.links .icon{
+
+    width: 40px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+    
+}
+
+.links .icon span:first-child{
+
+    width:100%;
+
+}
+.links .icon span:nth-child(3){
+    width:100%;
+}
+
+.links .icon span:nth-child(2){
+
+    width:60%;
+
+}
+.links .icon:hover span:nth-child(2){
+    width:100%;
+}
+
+.links .icon span{
+
+        background-color: #fff;
+
+        margin-bottom: 5px;
+
+        height: 4px;
+
+        transition: 0.3s;
+
+    }
+@media(min-width:767px){
+    .links{
+        display:none;
+    }
+}
+
 
 nav ul li {
     display: inline-block;

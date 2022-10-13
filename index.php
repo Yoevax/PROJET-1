@@ -40,7 +40,19 @@ $_SESSION['isLogged'] = false;
                     <a href="index.php">
                         <img src="./assets/img/logonew.png" width="100px" alt="">
                     </a>
-                    
+                    <div class="links">
+
+                 <span class="icon">
+
+                 <span></span>
+
+                 <span></span>
+
+                 <span></span>
+
+                 </span>
+
+                    </div>
                 </div>
 
 
