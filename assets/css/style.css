@@ -17,7 +17,7 @@ body {
     font-family: 'Raleway';
     margin: 0px;
     padding: 0px;
-  
+    overflow: hidden;
 
 }
 
@@ -239,7 +239,7 @@ li a:hover:after {
     text-decoration: none;
     color: white;
     font-family: 'Raleway';
-    font-weight: 300;
+    font-weight: 600;
     text-align: left;
 }
 
@@ -439,7 +439,7 @@ svg {
     transition: transform .4s ease-out;
     transform: rotate(270deg);
     margin-right: 50px;
-    margin-top: 20px;
+   
 }
 
 svg {
@@ -606,7 +606,7 @@ svg {
     text-align: justify;
     font-size: 3.7rem;
     font-weight: 400;
-    padding: 20px;
+    /* padding: 20px; */
     width: 90%;
     margin-left: 5vw;
 }

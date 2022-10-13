@@ -14,7 +14,7 @@ $_SESSION['isLogged'] = false;
     <title>Find me. All movies</title>
 
 
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
     <link rel="stylesheet" href="../assets/css/allMovies.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

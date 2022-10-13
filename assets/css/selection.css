@@ -30,7 +30,7 @@ html {
     scroll-behavior: smooth;
 }
 
-#container h2 {
+#containerSelection h2 {
     font-size: 4rem;
     text-align: right;
     margin: 10vh 2vw;

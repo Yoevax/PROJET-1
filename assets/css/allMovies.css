@@ -1,3 +1,240 @@
+:root {
+    --size: 18px;
+    /* taille du curseur */
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: rgb(0, 0, 0);
+    cursor: none;
+    color: white;
+    font-family: 'Raleway';
+    margin: 0px;
+    padding: 0px;
+  
+
+}
+
+
+html {
+    scroll-behavior: smooth;
+
+}
+
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Large*/
+@media(min-width:1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* Medium*/
+@media(min-width:992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+
+ul {
+    list-style: none;
+}
+
+header {
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-height: 70px;
+    width: 100%;
+}
+
+@media(max-width:767px) {
+    ul li a {
+        display: none;
+    }
+}
+
+@media(max-width:767px) {
+    .logo img {
+        width: 80px;
+        margin-left: -20px;
+        padding-top: 20px;
+    }
+
+    @media (max-width:767px) {
+        .menu .togle-menu {
+            display: none;
+        }
+    }
+
+
+}
+
+@media(max-width:767px) {
+
+    #videoAccueil,
+    .container,
+    video {
+        width: 100%;
+    }
+}
+
+
+/* Menu page d'accueil */
+#header_accueil {
+    /*position: absolute;
+    top: 40px;*/
+    right: 0px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    transition: top 0.3s;
+}
+
+.logo {
+    margin-left: 40px;
+}
+
+nav {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.links {
+    position: absolute;
+    left: 80%;
+    top: 50px;
+
+}
+
+.links .icon {
+
+    width: 40px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+
+}
+
+.links .icon span:first-child {
+
+    width: 100%;
+
+}
+
+.links .icon span:nth-child(3) {
+    width: 100%;
+}
+
+.links .icon span:nth-child(2) {
+
+    width: 60%;
+
+}
+
+.links .icon:hover span:nth-child(2) {
+    width: 100%;
+}
+
+.links .icon span {
+
+    background-color: #fff;
+
+    margin-bottom: 5px;
+
+    height: 4px;
+
+    transition: 0.3s;
+
+}
+
+@media(min-width:767px) {
+    .links {
+        display: none;
+    }
+}
+
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    padding: 20px;
+    margin-left: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+
+}
+
+/* ANIMATION DES LIENS LA NAV */
+li a {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+li a:before,
+li:after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    top: 50%;
+    margin-top: -0.5px;
+    background: #fff;
+}
+
+li a:before {
+    left: -2.5px;
+}
+
+li :after {
+    right: 2.5px;
+    background: #fff;
+    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+li a:hover:before {
+    background: #fff;
+    width: 100%;
+    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+li a:hover:after {
+    background: transparent;
+    width: 100%;
+    transition: 0s;
+}
 #container {
     margin-top: 150px;
     max-width: 100%;

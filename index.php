@@ -42,15 +42,15 @@ $_SESSION['isLogged'] = false;
                     </a>
                     <div class="links">
 
-                 <span class="icon">
+                        <span class="icon">
 
-                 <span></span>
+                            <span></span>
 
-                 <span></span>
+                            <span></span>
 
-                 <span></span>
+                            <span></span>
 
-                 </span>
+                        </span>
 
                     </div>
                 </div>
@@ -104,7 +104,7 @@ $_SESSION['isLogged'] = false;
     <div id="contentPage2">
         <div class="title_2">
             <h3> Answer our questions to find <br> your perfect movie </h3>
-            <p>There are just four of them it will take you <span> 10 seconds</span></p>
+            <p>There are just three of them it will take you <span> 10 seconds</span></p>
         </div>
         <!-- SCROLL BUTTON -->
         <div class="scroll">
@@ -190,7 +190,7 @@ $_SESSION['isLogged'] = false;
 
                             $a++;
                         }
-                        if ($i >= 4) {
+                        if ($c >= 3) {
                             echo "<div id='btn'><input type = 'submit' id='btn1' value ='Envoyer'/></div>";
                         }
                         ?>
@@ -200,7 +200,14 @@ $_SESSION['isLogged'] = false;
             <?php
             }
             ?>
-        </form>
+        </form>    <span class="flecheHaut">
+        <a href="#">
+            <svg viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7c0-.206.075-.404.208-.55a.68.68 0 0 1 .502-.228h16.736L12.98 1.33a.818.818 0 0 1-.208-.55c0-.207.075-.405.208-.55A.68.68 0 0 1 13.482 0a.68.68 0 0 1 .503.228l5.677 6.221a.787.787 0 0 1 .154.253.844.844 0 0 1 0 .596.787.787 0 0 1-.154.253l-5.677 6.22a.68.68 0 0 1-.503.229.68.68 0 0 1-.502-.228.818.818 0 0 1-.208-.55c0-.207.075-.405.208-.551l4.466-4.893H.71a.68.68 0 0 1-.502-.228A.817.817 0 0 1 0 7Z">
+                </path>
+            </svg>
+        </a>
+    </span>
     </div>
 
 

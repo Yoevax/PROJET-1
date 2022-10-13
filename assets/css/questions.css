@@ -2,6 +2,9 @@
     display: none;
 }
 
+.show{
+    display: flex;
+}
 
 /* QUESTIONS */
 #allQuestions {
@@ -25,10 +28,9 @@
 
 }
 
-.answers{
-    align-self:unset;
+#q3 .right{
+    margin-top: 10%;
 }
-
 .left {
     border-right: 1px solid rgb(255, 255, 255);
     width: 50%;
@@ -77,7 +79,8 @@
     padding: 10px;
     margin: 10px;
     font-weight: 100;
-    font-size: 2rem;
+    font-size: 1.5rem;
+   
 }
 @media (max-width: 765px){
     .right div {
@@ -140,8 +143,8 @@ h2 {
     font-weight: 300;
     
     padding: 20px 38px; 
-    margin-left: 2vw;
-    margin-top: 20vh;
+    left: 9vw;
+    margin-top: 16vh;
   
     background-color: transparent;
     color: white;
