@@ -92,11 +92,11 @@ $_SESSION['isLogged'] = false;
     <div id="about-findme">
         <br><br><br>
         <h3>About Find me. </h3>
-        <p>Nowadays, we have to make tonnes of choices. So many choices that we don't know what to choose.
+        <p class="aboutTxt">Nowadays, we have to make tonnes of choices. So many choices that we don't know what to choose.
             Choosing a
             film to watch alone, with a friend or with your family can be overwhelming.</p>
 
-        <p> Our website offers a solution by offering a curated selection of films based on the user's
+        <p class="aboutTxt"> Our website offers a solution by offering a curated selection of films based on the user's
             taste, mood, and
             the time they have available.</p>
 
@@ -114,8 +114,8 @@ $_SESSION['isLogged'] = false;
 
     <div id="about-us">
         <br><br><br>
-        <h3>About us </h3>
-        <p>We are Ikram and Yousra, interns in front
+        <h3 class="titre">About us </h3>
+        <p class="about-us-txt">We are Ikram and Yousra, interns in front
             end web developer at Interface3.
             This website is our first project built with
             PHP/MySQL and JavaScript.

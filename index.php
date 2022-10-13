@@ -164,7 +164,7 @@ $_SESSION['isLogged'] = false;
                         <p class="questionNumber" id="changeNb">0<?= $i; ?></p>
                         <h2><?= $row["question"]["name"]; ?></h2>
                         <?php if ($i > 1) { //pour afficher les previous à partir de la question 2
-                        ?> <a id="previousQ<?= $c; ?>" class="previous">Previous</a>
+                        ?> <a id="previousQ<?= $c; ?>" class="previous"><span>←</span>  Back</a>
                         <?php }
 
                         ?>
@@ -191,7 +191,7 @@ $_SESSION['isLogged'] = false;
                             $a++;
                         }
                         if ($c >= 3) {
-                            echo "<div id='btn'><input type = 'submit' id='btn1' value ='Envoyer'/></div>";
+                            echo "<div id='btn'><input type = 'submit' id='btn1' value ='Send'/></div>";
                         }
                         ?>
                     </div>

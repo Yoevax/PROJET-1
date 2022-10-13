@@ -60,7 +60,15 @@ form {
 .inscription form {
     height: 650px;
 }
-
+@media (max-width:767px){
+    form{
+        border:none;
+        box-shadow: none;
+        background-color:transparent;
+        border-radius: 1px;
+        backdrop-filter: none;
+    }
+}
 form * {
     letter-spacing: 0.5px;
     outline: none;
@@ -86,6 +94,7 @@ input {
     font-size: 14px;
     font-weight: 300;
     color: white;
+    margin-top: 15px;
 }
 
 button {

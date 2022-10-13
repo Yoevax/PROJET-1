@@ -29,7 +29,7 @@
              <div id="header_accueil">
                  <!-- LOGO -->
                  <div class="logo">
-                     <a href="index.php">
+                     <a href="../index.php">
                          <img src="../assets/img/logonew.png" width="100px" alt="">
                      </a>
                      <div class="links">

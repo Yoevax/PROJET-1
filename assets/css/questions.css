@@ -18,7 +18,9 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        padding-top:150px;
     }
+   
 }
 
 .questions {    
@@ -36,18 +38,25 @@
     width: 50%;
 }
 
-@media(max-width : 765px) {
-    .questions {
-        display: flex;
+@media(max-width : 767px) {
+  
+    #q1, #q2,#q3 {
+     
         flex-direction: column;
         padding: 0;
         width: 100%;
     }
+    .questionNumber{
+        margin:0;
+    }
+
+
 
     .left {
         font-size: 1rem;
         border: none;
         width: 100%;
+        position:relative;
     }
 
     .left h2 {
@@ -64,8 +73,9 @@
         font-size: 4rem;
         text-align: center;
         margin-bottom: 3vh;
-        margin-top: 10vh;
+        
     }
+    
 }
 
 @media (max-width : 765px) {
@@ -84,9 +94,10 @@
 }
 @media (max-width: 765px){
     .right div {
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin-bottom: 0px;
         padding: 5px;
+       
     }
 }
 
@@ -136,7 +147,7 @@ h2 {
     border: 1px solid white;
 }
 #btn1{    
-    display: inline-block;
+    display: block;
     cursor: pointer;
     font-family: 'Raleway';
     font-size: 18px;
@@ -152,15 +163,38 @@ h2 {
   
  
 }
+@media(max-width: 765px){
+    #btn1{
+        font-size: 15px;
+        padding: 15px 20px; 
+        margin-right: 5vw;
+        margin-top: 7vh;
+        margin-bottom: 15vh;
+    }
+    .previous{
+       
+        font-size: 10px;
+        padding: 5px 10px;
+        position: absolute;
+        top:4vh;
+        left:8vw;
+        
+
+       
+       
+        
+    }
+}
 .previous:hover, #btn1:hover {
     color: black;
     background-color: white;
     font-weight: 800;
 }
 
-@media (max-width : 765px) {
+@media (max-width : 767px) {
     .previous {
-        display: inline-block;
+        display: block;
+        margin-top:0;
     }
 }
 
