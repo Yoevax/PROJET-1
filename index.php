@@ -1,4 +1,10 @@
-<?php include("./SRC/database.php"); ?>
+<?php
+
+session_start();
+
+$_SESSION['isLogged'] = false;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,20 +40,24 @@
                     <a href="index.php">
                         <img src="./assets/img/logonew.png" width="100px" alt="">
                     </a>
-
+                    
                 </div>
 
 
                 <!-- NAV -->
                 <div class="menu">
-                    <i class="fas fa-bars togle-menu"></i>
                     <nav>
                         <ul>
                             <li><a href="#contentPage2">Find
                                     me a movie</a></li>
                             <li><a href="./views/allMovies.php">All movies</a></li>
-                            <li><a href="./views/connexion.php">Sign in/up</a></li>
                             <li><a href="./views/contact.php">Contact</a></li>
+                            <?php
+                            if ($_SESSION['isLogged'] == true) {
+                                echo "<li><a href='./views/logout.php'>Log out</a></li>";
+                            } else {
+                                echo "<li><a href='./views/connexion.php'>Sign in/up</a></li>";
+                            } ?></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -102,7 +112,7 @@
 
     <!-- QUESTIONS -->
     <?php
-
+    include("./SRC/database.php");
     function affiche_pre($text) //fx pour formater l'affichage
     {
     ?>

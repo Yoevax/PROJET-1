@@ -1,3 +1,9 @@
+<?php
+session_start();
+include("../SRC/database.php");
+$_SESSION['isLogged'] = false;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +41,12 @@
                     <li><a href="../index.php">Find
                             me a movie</a></li>
                     <li><a href="../views/allMovies.php">All movies</a></li>
-                    <li><a href="../views/connexion.php">Sign in/up</a></li>
+                    <?php
+                    if ($_SESSION['isLogged'] == true) {
+                        echo "<li><a href='../views/logout.php'>Log out</a></li>";
+                    } else {
+                        echo "<li><a href='../views/connexion.php'>Sign in/up</a></li>";
+                    } ?></a></li>
                     <li><a href="../views/contact.php">Contact</a></li>
                 </ul>
             </nav>
@@ -76,6 +87,7 @@
 
         $username = $_POST["username"];
         $pass_word = $_POST["password"];
+        // $favoriteMovie = $_POST['favoriteMovie'];
 
         $sqlQuery = " 
                     SELECT *
@@ -93,26 +105,26 @@
     }
 
     if ($isFound) {
-        session_start();
+        //si les infos de connexion sont justes, on lance la session
+        session_start(); //lancement de la sesstion
         // on enregistre les paramètres de notre visiteur comme variables de session ($login et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['password'] = $_POST['password'];
+        // $_SESSION['favoriteMovie'] = $_POST['favoriteMovie'];
+        $_SESSION['isLogged'] = true; //je mets une session que je vais verifier par la suite;
 
         // on redirige notre visiteur vers une page de notre section membre
         header('location: ./page_membre.php/');
-       
     } else {
-
-
 
         if (!$isFound && $loginAttempt >= 1) { //si isFound est false ( c a dire pas les memes info que dans la DB) et tentative a au moins 1 => msg erreur
             echo "Username and password incorrect! ";
             $loginAttempt = 0;
         }
     }
-   
+
     ?>
-    
+
 
     <!-- CURSEUR SOURIS PERSONNALISEE    -->
     <div id="curseur"><span id="rec">REC</span></div>

@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+$_SESSION['isLogged'] = false;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,8 +42,14 @@
                     <li><a href="../index.php">Find
                             me a movie</a></li>
                     <li><a href="../views/allMovies.php">All movies</a></li>
-                    <li><a href="../views/connexion.php">Sign in/up</a></li>
                     <li><a href="../views/contact.php">Contact</a></li>
+                    <?php
+                    if ($_SESSION['isLogged'] == true) {
+                        echo "<li><a href='../views/logout.php'>Log out</a></li>";
+                    } else {
+                        echo "<li><a href='../views/connexion.php'>Sign in/up</a></li>";
+                    } ?></a></li>
+
                 </ul>
             </nav>
         </div>
@@ -46,7 +57,7 @@
 
     </div>
     <!-- formulaire d'inscription -->
-    <div id="form-connexion">
+    <div id="form-connexion" class="inscription">
         <form action="./inscription.php" method="post">
             <h2>Sign up</h2>
 
@@ -62,6 +73,11 @@
             <div>
                 <label for="password">password</label>
                 <input id="password" size="30px" name="password" type="text">
+            </div>
+
+            <div>
+                <label for="favoriteMovie">Your favorite movie</label>
+                <input id="favoriteMovie" size="30px" name="favoriteMovie" type="text">
             </div>
 
             <button id="btn">Sign up</button>
@@ -81,28 +97,30 @@
 
     if (($_SERVER["REQUEST_METHOD"] == ("POST"))) {
         if (isValid()) {
-          
+
             global $mysqldb;
 
             $username = trim($_POST['username']);
             $email = trim($_POST['email']);
             $password = trim($_POST['password']);
+            $favoriteMovie = $_POST['favoriteMovie'];
 
             $query = $mysqldb->prepare(
-                "INSERT INTO users(email, password, username)
-                VALUES(:email, :password, :username)"
+                "INSERT INTO users(email, password, username, favoriteMovie)
+                VALUES(:email, :password, :username, :favoriteMovie)"
             );
 
             $query->bindParam(':email', $email);
             $query->bindParam(':password', $password);
             $query->bindParam(':username', $username);
+            $query->bindParam(':favoriteMovie', $favoriteMovie);
 
             $query->execute();
 
 
 
             // redirection
-            
+
             header('location: http://localhost/PROJET%201/views/allMovies.php/');
             exit();
         } else {
@@ -117,24 +135,38 @@
     function isValid()
     {
         if (!validUsername()) {
-           
+
             return false;
         }
 
         if (!validEmail()) {
-            
+
             return false;
         }
 
         if (!validPassword()) {
-           
+
+            return false;
+        }
+        if (!validFavoriteMovie()) {
+
             return false;
         }
         return true;
     }
 
     //verification du username
+    function validFavoriteMovie(){
+        global $mysqldb;
 
+
+        if (empty($_POST['favoriteMovie']) || !isset($_POST['favoriteMovie']) || strlen($_POST['favoriteMovie']) > 100 || strlen($_POST['favoriteMovie']) < 3) {
+
+            return false;
+        }else{
+           return true; 
+        } 
+    }
     function validUsername()
     {
         global $mysqldb;

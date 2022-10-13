@@ -21,14 +21,24 @@ session_start();
 
 // On récupère nos variables de session -->
 if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
+    include("../SRC/database.php");
     $usernameSess = $_SESSION['username'];
+    //essayer de faire afficher le film preferé de l'utilisateur
+
+    $sqlQuery = " 
+                    SELECT favoriteMovie
+                    FROM users
+                    ";
+    $statement = $mysqldb->prepare($sqlQuery);
+    $statement->execute();
+    $result = $statement->fetchAll();
 ?>
 
     <body>
         <div id="header_accueil">
             <!-- LOGO -->
             <div class="logo">
-                <a href="index.php">
+                <a href="http://localhost/PROJET%201/">
                     <img src="http://localhost/PROJET%201/assets/img/logonew.png" width="100px" alt="">
                 </a>
 
@@ -36,25 +46,29 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
 
             <!-- NAV -->
-            <div class="menu">
-                <i class="fas fa-bars togle-menu"></i>
+            <div>
                 <nav>
                     <ul>
-                        <li><a href="http://localhost/PROJET%201/index.php">Find
+                        <li><a href="../index.php">Find
                                 me a movie</a></li>
-                        <li><a href="http://localhost/PROJET%201/views/allMovies.php">All movies</a></li>
-                        <li><a href="http://localhost/PROJET%201/views/contact.php">Contact</a></li>
-                        <li> <a href="../logout.php">Log out</a> </li>
+                        <li><a href="../views/allMovies.php">All movies</a></li>
+                        <li><a href="../views/contact.php">Contact</a></li>
+                        <?php
+                        if ($_SESSION['isLogged'] == true) {
+                            echo "<li><a href='../views/logout.php'>Log out</a></li>";
+                        } else {
+                            echo "<li><a href='../views/connexion.php'>Sign in/up</a></li>";
+                        } ?></a></li>
+
                     </ul>
                 </nav>
             </div>
+
         </div>
-
-
-        <div id="form-connexion">
-        <br><br><br><br><br><br>
-            <h2> Hello <?= $usernameSess ?> </h2>
-
+        <div>
+            <br><br><br><br><br>
+            <h2> Hello <?= $usernameSess . " "; ?> </h2>
+            <p>Your informations : mettre ici le username, mail, favorite movie </p>
 
         </div>
     <?php

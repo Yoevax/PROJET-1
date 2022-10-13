@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+$_SESSION['isLogged'] = false;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,8 +39,14 @@
                     <li><a href="../index.php">Find
                             me a movie</a></li>
                     <li><a href="../views/allMovies.php">All movies</a></li>
-                    <li><a href="../views/connexion.php">Sign in/up</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="../views/contact.php">Contact</a></li>
+                    <?php
+                    if ($_SESSION['isLogged'] == true) {
+                        echo "<li><a href='../views/logout.php'>Log out</a></li>";
+                    } else {
+                        echo "<li><a href='../views/connexion.php'>Sign in/up</a></li>";
+                    } ?></a></li>
+
                 </ul>
             </nav>
         </div>

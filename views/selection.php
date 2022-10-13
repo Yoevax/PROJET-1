@@ -1,3 +1,8 @@
+ <?php
+    session_start();
+
+    $_SESSION['isLogged'] = false;
+    ?>
  <!DOCTYPE html>
  <html lang="en">
 
@@ -35,61 +40,66 @@
                      <li><a href="../index.php">Find
                              me a movie</a></li>
                      <li><a href="../views/allMovies.php">All movies</a></li>
-                     <li><a href="../views/connexion.php">Sign in/up</a></li>
                      <li><a href="../views/contact.php">Contact</a></li>
+                     <?php
+                        if ($_SESSION['isLogged'] == true) {
+                            echo "<li><a href='../views/logout.php'>Log out</a></li>";
+                        } else {
+                            echo "<li><a href='../views/connexion.php'>Sign in/up</a></li>";
+                        } ?></a></li>
+
                  </ul>
              </nav>
          </div>
-     </div>
 
-     <div id="container">
-         <h2>Your selection</h2>
+         <div id="container">
+             <h2>Your selection</h2>
 
-         <?php
+             <?php
 
-            //recuperation des reponses aux questions (avec isset et empty)
-            if ((isset($_POST["q1"], $_POST["q2"], $_POST["q4"])) && !empty($_POST["q1"]) && !empty($_POST["q2"]) && !empty($_POST["q4"]) && empty($_POST["q3"])) {
+                //recuperation des reponses aux questions (avec isset et empty)
+                if ((isset($_POST["q1"], $_POST["q2"], $_POST["q4"])) && !empty($_POST["q1"]) && !empty($_POST["q2"]) && !empty($_POST["q4"]) && empty($_POST["q3"])) {
 
-                //ALGO POUR AFFICHER LA SELECTION SELON LES REPONSES
+                    //ALGO POUR AFFICHER LA SELECTION SELON LES REPONSES
 
-                include("../SRC/database.php");
+                    include("../SRC/database.php");
 
-                $sql = 
-                "SELECT films.name, films.id
+                    $sql =
+                        "SELECT films.name, films.id
                 FROM films
                 join mtm_films_reponses as mtm
                 on mtm.id_films = films.id
                 join reponses as r
                 on r.id = mtm.id_reponses
                 where mtm.id_reponses in (1,3)";
-                //GROUP by films.name"; //attention ca fait un msg d'erreur qd on veut le group (là il affiche 2x le meme film)
+                    //GROUP by films.name"; //attention ca fait un msg d'erreur qd on veut le group (là il affiche 2x le meme film)
 
 
-                $stmt = $mysqldb->query($sql);
-                $data = $stmt->fetchAll();
+                    $stmt = $mysqldb->query($sql);
+                    $data = $stmt->fetchAll();
 
-                foreach ($data as $row) {
+                    foreach ($data as $row) {
 
-            ?>
+                ?>
 
-                 <h1><?php echo $row["name"]; ?></h1>
-    </div>
-            <?php
-                }
-            } else if (isset($_POST["q3"]) && !empty($_POST["q3"])) {
-            }
-
-
-            ?>
- </div>
+                     <h1><?php echo $row["name"]; ?></h1>
+         </div>
  <?php
+                    }
+                } else if (isset($_POST["q3"]) && !empty($_POST["q3"])) {
+                }
+
 
     ?>
+     </div>
+     <?php
 
- <!-- CURSEUR SOURIS PERSONNALISEE    -->
- <div id="curseur"><span id="rec">REC</span></div>
+        ?>
 
- <script type="text/javascript" src="../assets/scripts/script.js"></script>
+     <!-- CURSEUR SOURIS PERSONNALISEE    -->
+     <div id="curseur"><span id="rec">REC</span></div>
+
+     <script type="text/javascript" src="../assets/scripts/script.js"></script>
 
  </body>
 
