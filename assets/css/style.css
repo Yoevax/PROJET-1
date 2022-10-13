@@ -478,6 +478,12 @@ svg {
     margin-bottom: 5px;
 }
 
+@media(max-width:767px){
+    .scroll a{
+        font-size: 0.8rem;
+    }
+}
+
 /* PAGE 2 QUESTION PRINCIPAL*/
 
 #contentPage2 {

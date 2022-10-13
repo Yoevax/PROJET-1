@@ -18,7 +18,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        padding-top:150px;
+        padding-top: 120px;
     }
    
 }
@@ -178,10 +178,6 @@ h2 {
         position: absolute;
         top:4vh;
         left:8vw;
-        
-
-       
-       
         
     }
 }
