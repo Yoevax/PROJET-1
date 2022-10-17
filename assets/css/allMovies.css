@@ -275,3 +275,31 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
         height: auto;
     }
 }
+
+/* POUR FAIRE LE CURSEUR EN FORME DE BOULE ROUGE REC */
+
+#curseur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: var(--size);
+    width: var(--size);
+    border-radius: 50%;
+    background-color: red;
+    transform: translate3d(calc(100vw * var(--cursor-x) - var(--size) / 2),
+            calc(100vh * var(--cursor-y) - var(--size) / 2),
+            0);
+    pointer-events: none;
+}
+
+#rec {
+    font-family: "Arial";
+    display: block;
+    font-size: 0.6rem;
+    text-align: center;
+    margin: auto;
+    font-weight: bold;
+    margin-top: 99%;
+    color: red;
+    line-height: 1.9;
+}

@@ -118,7 +118,7 @@ if(!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]){
             } else {
 
                 if (!$isFound && $loginAttempt >= 1) { //si isFound est false ( c a dire pas les memes info que dans la DB) et tentative a au moins 1 => msg erreur
-                    echo "<div id='msgErreur'>Username and password incorrect!</div>";
+                    echo "<div id='msgErreur'>Username and/or password incorrect!</div>";
                     $loginAttempt = 0;
                 }
             }
@@ -130,7 +130,7 @@ if(!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]){
 
             <div>
                 <label id="password" for="password">password</label>
-                <input name="password" size="30px" type="text">
+                <input name="password" size="30px" type="password">
             </div>
 
             <button>Sign in</button>

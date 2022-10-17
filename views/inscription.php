@@ -72,7 +72,7 @@ session_start();
 
             <div>
                 <label for="password">password</label>
-                <input id="password" size="30px" name="password" type="text">
+                <input id="password" size="30px" name="password" type="password"> 
             </div>
 
             <div>
