@@ -1,7 +1,7 @@
  <?php
     session_start();
 
-    $_SESSION['isLogged'] = false;
+
     ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -57,8 +57,10 @@
                              <li><a href="../views/allMovies.php">All movies</a></li>
                              <li><a href="../views/contact.php">Contact</a></li>
                              <?php
-                                if ($_SESSION['isLogged'] == true) {
+            if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
+                                    echo "<li><a href='../views/page_membre.php'>Profil</a></li>";
                                     echo "<li><a href='../views/logout.php'>Log out</a></li>";
+                                    
                                 } else {
                                     echo "<li><a href='../views/connexion.php'>Sign in/up</a></li>";
                                 } ?></a></li>
@@ -81,14 +83,12 @@
                         include("../SRC/database.php");
 
                         $sql =
-                            "SELECT films.name, films.id
-                FROM films
-                join mtm_films_reponses as mtm
-                on mtm.id_films = films.id
-                join reponses as r
-                on r.id = mtm.id_reponses
-                where mtm.id_reponses in (1,3)";
-                        //GROUP by films.name"; //attention ca fait un msg d'erreur qd on veut le group (là il affiche 2x le meme film)
+                            "SELECT `films`.name, `films`.id
+                            FROM `films`
+                            join `mtm_films_reponses` as mtm ON `mtm.id_films` = `films.id`
+                            join reponses as r ON r.id = mtm.id_reponses 
+                            where mtm.id_reponses in (1,3)
+                            GROUP BY films.name"; //creer une nouvelle colonne dans la table reponse (une FK `id_mtm_films_reponses`)
 
 
                         $stmt = $mysqldb->query($sql);

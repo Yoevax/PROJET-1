@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$_SESSION['isLogged'] = false;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,8 +25,6 @@ $_SESSION['isLogged'] = false;
     <header>
         <div id="container" class="container">
 
-            
-
             <div id="header_accueil">
                 <!-- LOGO -->
                 <div class="logo">
@@ -44,47 +42,54 @@ $_SESSION['isLogged'] = false;
                             <li><a href="../index.php">Find
                                     me a movie</a></li>
                             <li><a href="../views/allMovies.php">All movies</a></li>
-                            <li><a href="../views/connexion.php">Sign in/up</a></li>
                             <li><a href="../views/contact.php">Contact</a></li>
+                            <?php
+            if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
+                                echo "<li><a href='../views/page_membre.php'>Profil</a></li>";
+                                echo "<li><a href='../views/logout.php'>Log out</a></li>";
+                            } else {
+                                echo "<li><a href='../views/connexion.php'>Sign in/up</a></li>";
+                            } ?></a></li>
+
                         </ul>
                     </nav>
                 </div>
-            </div>
-        </div>    
+
     </header>
-            <div id="container">
+    
+    <div id="container">
 
 
-                <h2>Look what we find for you.</h2>
-                <div id="bloc">
+        <h2>Look what we find for you.</h2>
+        <div id="bloc">
 
 
-                    <?php
-                    include("../SRC/database.php");
+            <?php
+            include("../SRC/database.php");
 
-                    $rand = "SELECT *
+            $rand = "SELECT *
                 FROM `films`
                 ORDER BY RAND()
                 LIMIT 1";
 
 
-                    $stmt = $mysqldb->query($rand);
-                    $data = $stmt->fetchAll();
+            $stmt = $mysqldb->query($rand);
+            $data = $stmt->fetchAll();
 
-                    foreach ($data as $row) {
-                    ?>
-                        <div>
-                            <h3><?php echo $row["name"]; ?></h3>
-                            <img src="../assets/img/<?= $row["name"]; ?>.jpg">
-                        </div>
-                    <?php
-                    }
-
-
-                    ?>
+            foreach ($data as $row) {
+            ?>
+                <div>
+                    <h3><?php echo $row["name"]; ?></h3>
+                    <img src="../assets/img/<?= $row["name"]; ?>.jpg">
                 </div>
+            <?php
+            }
 
-            </div>
+
+            ?>
+        </div>
+
+    </div>
 
 </body>
 

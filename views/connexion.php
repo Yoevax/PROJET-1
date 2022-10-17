@@ -1,7 +1,11 @@
 <?php
 session_start();
 include("../SRC/database.php");
-$_SESSION['isLogged'] = false;
+
+if(!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]){
+    $_SESSION["isLogged"] = false;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +46,8 @@ $_SESSION['isLogged'] = false;
                             me a movie</a></li>
                     <li><a href="../views/allMovies.php">All movies</a></li>
                     <?php
-                    if ($_SESSION['isLogged'] == true) {
+            if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
+                        echo "<li><a href='../views/logout.php'>Page membre</a></li>";
                         echo "<li><a href='../views/logout.php'>Log out</a></li>";
                     } else {
                         echo "<li><a href='../views/connexion.php'>Sign in/up</a></li>";
@@ -55,32 +60,12 @@ $_SESSION['isLogged'] = false;
 
     </div>
     <!-- formulaire de connexion -->
-    <div id="form-connexion">
-        <form action="./connexion.php" method="post">
-            <h2>Connexion</h2>
-            <div>
-                <label for="username">Username</label>
-                <input id="username" name="username" size="30px" type="text">
-            </div>
-
-            <div>
-                <label id="password" for="password">password</label>
-                <input name="password" size="30px" type="text">
-            </div>
-
-            <button>Sign in</button>
-            <br>
-            <div><a href="./inscription.php">No registred? Sign up here</a> </div>
-
-
-        </form>
-    </div>
-
     <?php
     include("../SRC/database.php");
 
     $isFound = false;
     $loginAttempt = 0; //tentative pr msg derreur
+    $msgErreur = "";
 
     if ((isset($_POST["username"], $_POST["password"]))) {
         $loginAttempt++; //faut qu'il renttre au moins une fois des données pour savoir si c juste ou pas
@@ -104,26 +89,60 @@ $_SESSION['isLogged'] = false;
         }
     }
 
-    if ($isFound) {
-        //si les infos de connexion sont justes, on lance la session
-        session_start(); //lancement de la sesstion
-        // on enregistre les paramètres de notre visiteur comme variables de session ($login et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
-        $_SESSION['username'] = $_POST['username'];
-        $_SESSION['password'] = $_POST['password'];
-        // $_SESSION['favoriteMovie'] = $_POST['favoriteMovie'];
-        $_SESSION['isLogged'] = true; //je mets une session que je vais verifier par la suite;
-
-        // on redirige notre visiteur vers une page de notre section membre
-        header('location: ./page_membre.php/');
-    } else {
-
-        if (!$isFound && $loginAttempt >= 1) { //si isFound est false ( c a dire pas les memes info que dans la DB) et tentative a au moins 1 => msg erreur
-            echo "Username and password incorrect! ";
-            $loginAttempt = 0;
-        }
-    }
 
     ?>
+
+    <div id="form-connexion">
+        <form action="./connexion.php" method="post">
+            <h2>Connexion</h2>        
+            <?php 
+            if ($isFound) {
+                //si les infos de connexion sont justes, on lance la session
+                session_start(); //lancement de la sesstion
+                // on enregistre les paramètres de notre visiteur comme variables de session ($login et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
+
+                $username = $_POST['username'];
+
+                //$query = "SELECT * FROM `users` WHERE `username` = " . $username;
+
+                
+                $_SESSION['username'] = $username;
+                $_SESSION['password'] = $_POST['password'];
+
+                $_SESSION['email'] = $_POST['email'];
+                $_SESSION['favoriteMovie'] = $_POST['favoriteMovie'];
+              var_dump($_SESSION);
+                $_SESSION['isLogged'] = true; //je mets une session que je vais verifier par la suite;
+
+                // on redirige notre visiteur vers une page de notre section membre
+                header('location: ./page_membre.php/');
+            } else {
+
+                if (!$isFound && $loginAttempt >= 1) { //si isFound est false ( c a dire pas les memes info que dans la DB) et tentative a au moins 1 => msg erreur
+                    echo "<div id='msgErreur'>Username and password incorrect!</div>";
+                    $loginAttempt = 0;
+                }
+            }
+            ?>
+            <div>
+                <label for="username">Username</label>
+                <input id="username" name="username" size="30px" type="text">
+            </div>
+
+            <div>
+                <label id="password" for="password">password</label>
+                <input name="password" size="30px" type="text">
+            </div>
+
+            <button>Sign in</button>
+            <br>
+            <div><a href="./inscription.php">No registred? Sign up here</a> </div>
+    
+
+        </form>
+
+    </div>
+
 
 
     <!-- CURSEUR SOURIS PERSONNALISEE    -->

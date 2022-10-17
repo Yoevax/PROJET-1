@@ -2,8 +2,7 @@
 
 session_start();
 
-$_SESSION['isLogged'] = false;
-
+include("./SRC/database.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,8 +64,10 @@ $_SESSION['isLogged'] = false;
                             <li><a href="./views/allMovies.php">All movies</a></li>
                             <li><a href="./views/contact.php">Contact</a></li>
                             <?php
-                            if ($_SESSION['isLogged'] == true) {
+                            if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
+                                echo "<li><a href='./views/page_membre.php'>Profil</a></li>";
                                 echo "<li><a href='./views/logout.php'>Log out</a></li>";
+                                
                             } else {
                                 echo "<li><a href='./views/connexion.php'>Sign in/up</a></li>";
                             } ?></a></li>
@@ -124,7 +125,7 @@ $_SESSION['isLogged'] = false;
 
     <!-- QUESTIONS -->
     <?php
-    include("./SRC/database.php");
+
     function affiche_pre($text) //fx pour formater l'affichage
     {
     ?>
