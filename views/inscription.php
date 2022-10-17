@@ -44,7 +44,7 @@ session_start();
                     <li><a href="../views/allMovies.php">All movies</a></li>
                     <li><a href="../views/contact.php">Contact</a></li>
                     <?php
-    if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
+                    if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
                         echo "<li><a href='../views/page_membre.php'>Profil</a></li>";
                         echo "<li><a href='../views/logout.php'>Log out</a></li>";
                     } else {
@@ -61,7 +61,6 @@ session_start();
     <div id="form-connexion" class="inscription">
         <form action="./inscription.php" method="post">
             <h2>Sign up</h2>
-
             <div>
                 <label for="username">Username</label>
                 <input id="username" name="username" size="30px" type="text">
@@ -97,8 +96,7 @@ session_start();
 
 
     if (($_SERVER["REQUEST_METHOD"] == ("POST"))) {
-        if (isValid()) {
-
+            unset($_SESSION["statutInscription"]);
             global $mysqldb;
 
             $username = trim($_POST['username']);
@@ -121,110 +119,11 @@ session_start();
 
 
             // redirection
-
-            header('location: http://localhost/PROJET%201/views/allMovies.php/');
+            header('location: connexion.php');
             exit;
-        } else {
-
-            // affiche un message
-        }
     }
 
-
-    //fonction qui verifie si le username, l'email et le mot de passe en meme temps
-
-    function isValid()
-    {
-        if (!validUsername()) {
-
-            return false;
-        }
-
-        if (!validEmail()) {
-
-            return false;
-        }
-
-        if (!validPassword()) {
-
-            return false;
-        }
-        if (!validFavoriteMovie()) {
-
-            return false;
-        }
-        return true;
-    }
-
-    //verification du username
-    function validFavoriteMovie(){
-        global $mysqldb;
-
-
-        if (empty($_POST['favoriteMovie']) || !isset($_POST['favoriteMovie']) || strlen($_POST['favoriteMovie']) > 100 || strlen($_POST['favoriteMovie']) < 3) {
-
-            return false;
-        }else{
-           return true; 
-        } 
-    }
-    function validUsername()
-    {
-        global $mysqldb;
-
-
-        if (empty($_POST['username']) || !isset($_POST['username']) || strlen($_POST['username']) > 50 || strlen($_POST['username']) < 3) {
-
-            return false;
-        }
-
-        $queryUsername = $mysqldb->prepare(
-            "SELECT *  
-                   FROM users
-                   WHERE username = :username"
-        );
-
-        $queryUsername->bindParam(':username', $_POST['username']);
-        $queryUsername->execute();
-
-        return !$queryUsername->fetch();
-    }
-
-    //verification de l'email
-    function validEmail()
-    {
-        global $mysqldb;
-
-        if (empty($_POST["email"]) || !isset($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) || strlen($_POST["email"]) > 50 || strlen($_POST["email"]) < 5) {
-            return false;
-        }
-
-        $queryEmail = $mysqldb->prepare(
-            "SELECT *  
-            FROM users
-            WHERE email = :email"
-        );
-        $queryEmail->bindParam(':email', $_POST['email']);
-        $queryEmail->execute();
-
-        return !$queryEmail->fetch();
-    }
-
-    //verification du mot de passe
-    function validPassword()
-    {
-
-        if (empty($_POST["password"]) || !isset($_POST["password"]) || strlen($_POST["password"]) > 50 || strlen($_POST["password"]) < 8) {
-
-            return false;
-        }
-        return true;
-    }
     ?>
-
-
-
-
 
     <!-- CURSEUR SOURIS PERSONNALISEE    -->
     <div id="curseur"><span id="rec">REC</span></div>

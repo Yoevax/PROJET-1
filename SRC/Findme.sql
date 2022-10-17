@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Oct 13, 2022 at 12:02 PM
--- Server version: 5.7.24
--- PHP Version: 8.0.1
+-- Hôte : 127.0.01:8889
+-- Généré le : lun. 17 oct. 2022 à 23:15
+-- Version du serveur : 5.7.34
+-- Version de PHP : 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `findme`
+-- Base de données : `findme`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `films`
+-- Structure de la table `films`
 --
 
 CREATE TABLE `films` (
@@ -34,7 +34,7 @@ CREATE TABLE `films` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `films`
+-- Déchargement des données de la table `films`
 --
 
 INSERT INTO `films` (`id`, `name`, `description`) VALUES
@@ -79,7 +79,7 @@ INSERT INTO `films` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mtm_films_reponses`
+-- Structure de la table `mtm_films_reponses`
 --
 
 CREATE TABLE `mtm_films_reponses` (
@@ -89,24 +89,24 @@ CREATE TABLE `mtm_films_reponses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `mtm_films_reponses`
+-- Déchargement des données de la table `mtm_films_reponses`
 --
 
 INSERT INTO `mtm_films_reponses` (`id`, `id_films`, `id_reponses`) VALUES
-(1, 1, 1),
-(4, 23, 1),
-(5, 23, 4),
-(7, 23, 10),
-(8, 23, 6),
-(21, 22, 8),
-(22, 22, 5),
-(23, 22, 1),
-(24, 22, 7);
+(1, 1, 14),
+(4, 23, 14),
+(5, 23, 2),
+(7, 23, 9),
+(8, 23, 4),
+(21, 22, 7),
+(22, 22, 3),
+(23, 22, 14),
+(24, 22, 5);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `questions`
+-- Structure de la table `questions`
 --
 
 CREATE TABLE `questions` (
@@ -115,7 +115,7 @@ CREATE TABLE `questions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `questions`
+-- Déchargement des données de la table `questions`
 --
 
 INSERT INTO `questions` (`id`, `name`) VALUES
@@ -126,7 +126,7 @@ INSERT INTO `questions` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reponses`
+-- Structure de la table `reponses`
 --
 
 CREATE TABLE `reponses` (
@@ -136,31 +136,31 @@ CREATE TABLE `reponses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `reponses`
+-- Déchargement des données de la table `reponses`
 --
 
 INSERT INTO `reponses` (`id`, `name`, `id_question`) VALUES
-(1, 'All the time in the world! More than an hour', 3),
-(2, 'My parents (careful what you choose..)', 1),
-(4, 'My better half', 1),
-(5, 'My children (but pls I don\'t want to watch Frozen)', 1),
-(6, 'My friend (I do have some, honest)', 1),
-(7, 'No-one. I like my own company!', 1),
-(8, 'I want to feel smarter! Show me something that will make me think', 2),
-(9, 'I want to laugh my socks off', 2),
-(10, 'Pass me the tissues and make me weep', 2),
-(16, 'My lunch break. Less than an hour', 3),
-(17, 'Time for a power-nap! Less than 30min ', 3),
-(19, 'I don\'t care! I just want to watch a movie. Surprise me!', 1),
-(20, 'What\'s like to fall in love? Remind me.', 2),
-(21, 'I want action!', 2),
-(22, 'Scare me! Even more than when I look at my bills.', 2),
-(23, 'I want to be fifteen again, show me a teen movie.', 2);
+(1, 'My parents (careful what you choose..)', 1),
+(2, 'My better half', 1),
+(3, 'My children (but pls I don\'t want to watch Frozen)', 1),
+(4, 'My friend (I do have some, honest)', 1),
+(5, 'No-one. I like my own company!', 1),
+(6, 'I don\'t care! I just want to watch a movie. Surprise me!', 1),
+(7, 'I want to feel smarter! Show me something that will make me think', 2),
+(8, 'I want to laugh my socks off', 2),
+(9, 'Pass me the tissues and make me weep', 2),
+(10, 'What\'s like to fall in love? Remind me.', 2),
+(11, 'I want action!', 2),
+(12, 'I want to be fifteen again, show me a teen movie.', 2),
+(13, 'Scare me! Even more than when I look at my bills.', 2),
+(14, 'All the time in the world! More than an hour', 3),
+(15, 'My lunch break. Less than an hour', 3),
+(16, 'Time for a power-nap! Less than 30min ', 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -172,46 +172,24 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `username`, `favoriteMovie`) VALUES
-(25, 'yoeva@outlook.be', '123456789', 'yoeva', 'Star Wars'),
-(26, 'ikram@gmail.com', '123245888', 'ikram', ''),
-(27, 'echamlali.hamza@gmail.com', 'zazazazazszszsz', 'papapapa', ''),
-(28, 'ikram@gmail.comrrr', '123456788', 'ikram2', ''),
-(29, 'ikram@gmail.comrrrZ', '123456788', 'ikram2AZ', ''),
-(30, 'yoeva@outlook.bez', 'zazazazazszszsz', 'yoevaaaaa', ''),
-(31, 'yoeva@outlook.beaaa', 'zazazazazszszsz', 'yoeva1234', ''),
-(32, 'yoeva@outlook.bezzzz', 'zazazazazszszsz', 'ayayayaaaa', ''),
-(33, 'yoeva@outlook.beaaaaaaa', 'zazazazazszszsz', 'rerereaaaaaa', ''),
-(34, 'yoeva@outlook.be11237', '777778787', 'ikram53511', ''),
-(35, 'yoeva@outlook.beaas', 'zazazazazszszsz', 'yoeva1236', ''),
-(36, 'yoeva@outlook.be999', '9999999999', 'yoeva9999', ''),
-(37, 'yoeva@outlook.bedddddd', 'zazazazazszszsz', 'd', ''),
-(38, 'yoeva@outlook.berrrr', 'zazazazazszszsz', 'yoevazerr', ''),
-(39, 'yoeva@outlook.bewxw', 'zazazazazszszsz', 'rrr', ''),
-(40, 'yoeva@outlook.bezrer', 'zazazazazszszsz', 'yoevaaaaaaa', ''),
-(41, 'yoeva@outlook.beaefbfbf', 'zazazazazszszsz', 'yoevaaaaaaaaaaaaaaa', ''),
-(42, 'yoeva@outlook.bevvv', 'zazazazazszszsz', 'yoevaaazfv', ''),
-(43, 'ikram@gmail.com888', 'zazazazazszszsz', 'yoeva00000', ''),
-(44, 'yoeva@outlook.be22222', 'zazazazazszszsz', 'yoeva99888', ''),
-(45, 'yoeva@outlook.be1', 'zazazazazszszsz', 'yoeva21', ''),
-(46, 'yoeva@outlook.be04110', 'zazazazazszszsz', 'yoeva20333', ''),
-(47, 'yoeva@outlook.be12301230', '123012301230', 'yoeva1230', '');
+(78, 'yoeva@outlook.be', '123456789', 'yoeva', 'youhou');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `films`
+-- Index pour la table `films`
 --
 ALTER TABLE `films`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `mtm_films_reponses`
+-- Index pour la table `mtm_films_reponses`
 --
 ALTER TABLE `mtm_films_reponses`
   ADD PRIMARY KEY (`id`),
@@ -219,71 +197,71 @@ ALTER TABLE `mtm_films_reponses`
   ADD KEY `FK_mtm_reponses` (`id_reponses`);
 
 --
--- Indexes for table `questions`
+-- Index pour la table `questions`
 --
 ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `reponses`
+-- Index pour la table `reponses`
 --
 ALTER TABLE `reponses`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_questions` (`id_question`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `films`
+-- AUTO_INCREMENT pour la table `films`
 --
 ALTER TABLE `films`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT for table `mtm_films_reponses`
+-- AUTO_INCREMENT pour la table `mtm_films_reponses`
 --
 ALTER TABLE `mtm_films_reponses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `questions`
+-- AUTO_INCREMENT pour la table `questions`
 --
 ALTER TABLE `questions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `reponses`
+-- AUTO_INCREMENT pour la table `reponses`
 --
 ALTER TABLE `reponses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `mtm_films_reponses`
+-- Contraintes pour la table `mtm_films_reponses`
 --
 ALTER TABLE `mtm_films_reponses`
   ADD CONSTRAINT `FK_mtm_films` FOREIGN KEY (`id_films`) REFERENCES `films` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_mtm_reponses` FOREIGN KEY (`id_reponses`) REFERENCES `reponses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `reponses`
+-- Contraintes pour la table `reponses`
 --
 ALTER TABLE `reponses`
   ADD CONSTRAINT `FK_questions` FOREIGN KEY (`id_question`) REFERENCES `questions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

@@ -46,7 +46,7 @@ if(!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]){
                             me a movie</a></li>
                     <li><a href="../views/allMovies.php">All movies</a></li>
                     <?php
-            if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
+                    if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
                         echo "<li><a href='../views/logout.php'>Page membre</a></li>";
                         echo "<li><a href='../views/logout.php'>Log out</a></li>";
                     } else {
@@ -95,7 +95,7 @@ if(!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]){
     <div id="form-connexion">
         <form action="./connexion.php" method="post">
             <h2>Connexion</h2>        
-            <?php 
+            <?php
             if ($isFound) {
                 //si les infos de connexion sont justes, on lance la session
                 session_start(); //lancement de la sesstion
@@ -109,13 +109,12 @@ if(!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]){
                 $_SESSION['username'] = $username;
                 $_SESSION['password'] = $_POST['password'];
 
-                $_SESSION['email'] = $_POST['email'];
-                $_SESSION['favoriteMovie'] = $_POST['favoriteMovie'];
+                
               var_dump($_SESSION);
                 $_SESSION['isLogged'] = true; //je mets une session que je vais verifier par la suite;
 
                 // on redirige notre visiteur vers une page de notre section membre
-                header('location: ./page_membre.php/');
+                header('location: page_membre.php');
             } else {
 
                 if (!$isFound && $loginAttempt >= 1) { //si isFound est false ( c a dire pas les memes info que dans la DB) et tentative a au moins 1 => msg erreur

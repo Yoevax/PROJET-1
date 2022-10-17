@@ -150,13 +150,14 @@ include("./SRC/database.php");
     // affiche_pre($questionsReponses);
     ?>
 
-    <div id="allQuestions">
+<div id="allQuestions">
         <form action="./views/selection.php" method="post">
             <?php
 
             $i = 1; //pour changer les numero des id pour pouvoir modifier leur cpt en js et style
             $a = 1; //idem
             $c = 0; //pour le previous 
+            $e = 0;
 
             foreach ($questionsReponses as $row) {
             ?>
@@ -175,6 +176,7 @@ include("./SRC/database.php");
                     <?php
                     $i++;
                     $c++;
+                    $e++;
                     ?>
 
                     <div class="right">
@@ -183,17 +185,19 @@ include("./SRC/database.php");
 
                         ?> <div class="answers">
                                 <div>
-                                    <input type="radio" name='q<?= $i; ?>' value="<?= $row2["name"]; ?>" id="answer<?= $a; ?>">
+                                    <input type="radio" name='q<?= $e; ?>' value="<?= $a; ?>" id="answer<?= $a; ?>">
                                     <label for="answer<?= $a; ?>"><?= $row2["name"]; ?></label>
                                 </div>
                             </div>
                         <?php
 
                             $a++;
+                            
                         }
                         if ($c >= 3) {
                             echo "<div id='btn'><input type = 'submit' id='btn1' value ='Send'/></div>";
                         }
+                        
                         ?>
                     </div>
                 </div>
@@ -210,7 +214,6 @@ include("./SRC/database.php");
         </a>
     </span>
     </div>
-
 
 
 

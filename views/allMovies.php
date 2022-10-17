@@ -45,7 +45,7 @@ include("../SRC/database.php");
                     <li><a href="../views/allMovies.php">All movies</a></li>
                     <li><a href="../views/contact.php">Contact</a></li>
                     <?php //@MODIF
-            if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
+                        if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
                             echo "<li><a href='../views/page_membre.php'>Profil</a></li>";
                             echo "<li><a href='../views/logout.php'>Log out</a></li>";
                             

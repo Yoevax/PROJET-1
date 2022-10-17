@@ -13,6 +13,7 @@
      <title>Find me.</title>
 
      <link rel="stylesheet" href="../assets/css/style.css">
+     <link rel="stylesheet" href="../assets/css/allMovies.css"> 
      <link rel="stylesheet" href="../assets/css/selection.css"> 
 
 
@@ -52,12 +53,12 @@
                  <div class="menu">
                      <nav>
                          <ul>
-                             <li><a href="#contentPage2">Find
+                             <li><a href="../index.php">Find
                                      me a movie</a></li>
                              <li><a href="../views/allMovies.php">All movies</a></li>
                              <li><a href="../views/contact.php">Contact</a></li>
                              <?php
-            if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
+                                if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
                                     echo "<li><a href='../views/page_membre.php'>Profil</a></li>";
                                     echo "<li><a href='../views/logout.php'>Log out</a></li>";
                                     
@@ -69,48 +70,51 @@
                  </div>
                 </div>
              </div>
-        </header>                 
+        </header>   
+
         <div id="containerSelection">
-                 <h2>Your selection</h2>
+            <h2>Your selection</h2>
+             <div id="contentSelect">                 
+                <?php
+                
+                //recuperation des reponses aux questions (avec isset et empty)
+                if ((isset($_POST["q1"], $_POST["q2"], $_POST["q3"])) && !empty($_POST["q1"]) && !empty($_POST["q2"]) && !empty($_POST["q3"])) {
+                    //ALGO POUR AFFICHER LA SELECTION SELON LES REPONSES
+                  
+                    $q1 = $_POST["q1"];
+                    $q2 = $_POST["q2"];
+                    $q3 =  $_POST["q3"];
+                 
+                  var_dump($q1, $q2, $q3);
+                    include("../SRC/database.php");
+                    $sql =
+                     "SELECT `films`.`name`, `films`.`id` 
+                     FROM `films` 
+                     JOIN `mtm_films_reponses` ON `mtm_films_reponses`.`id_films` = `films`.`id` 
+                     JOIN `reponses` ON `reponses`.`id` = `mtm_films_reponses`.`id_reponses` 
+                     WHERE `mtm_films_reponses`.`id_reponses` IN ('$q1', '$q2', '$q3') 
+                     GROUP BY `films`.`name`";
+                  
 
-                 <?php
-
-                    //recuperation des reponses aux questions (avec isset et empty)
-                    if ((isset($_POST["q1"], $_POST["q2"], $_POST["q4"])) && !empty($_POST["q1"]) && !empty($_POST["q2"]) && !empty($_POST["q4"]) && empty($_POST["q3"])) {
-
-                        //ALGO POUR AFFICHER LA SELECTION SELON LES REPONSES
-
-                        include("../SRC/database.php");
-
-                        $sql =
-                            "SELECT `films`.name, `films`.id
-                            FROM `films`
-                            join `mtm_films_reponses` as mtm ON `mtm.id_films` = `films.id`
-                            join reponses as r ON r.id = mtm.id_reponses 
-                            where mtm.id_reponses in (1,3)
-                            GROUP BY films.name"; //creer une nouvelle colonne dans la table reponse (une FK `id_mtm_films_reponses`)
-
-
-                        $stmt = $mysqldb->query($sql);
-                        $data = $stmt->fetchAll();
-
-                        foreach ($data as $row) {
+                    $stmt = $mysqldb->query($sql);
+                    $data = $stmt->fetchAll();
+                 
+                     foreach ($data as $row) {
 
                     ?>
-
-                         <h1><?php echo $row["name"]; ?></h1>
-             </div>
-     <?php
+                        <div class="bloc">
+                            <a href="#">
+                                <h3><?php echo $row["name"]; ?></h3>
+                                <img src="../assets/img/<?= $row["name"]; ?>.jpg">
+                            </a>
+                </div>
+                         
+                <?php
                         }
-                    } else if (isset($_POST["q3"]) && !empty($_POST["q3"])) {
-                    }
-
-
-        ?>
-         </div>
-         <?php
-
-            ?>
+                } 
+                ?>
+            </div>
+        </div>  
 
          <!-- CURSEUR SOURIS PERSONNALISEE    -->
          <div id="curseur"><span id="rec">REC</span></div>
