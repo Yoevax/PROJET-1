@@ -57,7 +57,7 @@ session_start();
     if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
         include("../SRC/database.php");
         $usernameSess = $_SESSION['username'];
-      
+
         $sqlQuery = " 
         SELECT `favoriteMovie`, `email`
          FROM `users`
@@ -69,42 +69,42 @@ session_start();
 
 
     ?>
-        <div>
+        <div class="infos">
             <br><br><br><br><br><br>
             <?php
 
             ?>
-            <h2> Hello <?= $usernameSess . " !" ?> </h2>
-            <h3>Your informations</h3>
+            <h2 style='font-size:2.5rem; margin-bottom:5px;'> Hello <?= $usernameSess . " :)" ?> </h2>
+            <h3 style='font-size:1.5rem; font-weight:300;'>Here what we know about you</h3>
+            <div class="encadre">
+                <h3> Username </h3>
+            <p><?= $usernameSess ?></p>
 
-            <h3> Username </h3> 
-            <p><?= $usernameSess ?></p> 
 
-            
 
-            <h3> Email  </h3>
-            <p>   
+            <h3> Email </h3>
+            <p>
                 <?php
-                 foreach ($result as $row) {
-                     echo $row["email"];
-                     
-                 }
+                    foreach ($result as $row) {
+                        echo $row["email"];
+                    }
                 ?>
             </p>
 
-            <h3> Favorite movie  </h3>  
-                <p>
-                     <?php
-                        foreach ($result as $row) {
-                            echo $row["favoriteMovie"];
-                     
-                        }
-                    ?>
-                </p>
-               
-           
-
+            <h3> Favorite movie </h3>
+            <p>
+                <?php
+                    foreach ($result as $row) {
+                        echo $row["favoriteMovie"];
+                    }
+                ?>
+            </p>
+            </div>
             
+
+
+
+
 
         </div>
     <?php
