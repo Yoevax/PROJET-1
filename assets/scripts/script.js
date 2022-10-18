@@ -12,6 +12,18 @@ document.addEventListener('mousemove', (e) => { // sur toute la page on modifie 
   });
 });
 
+let mdpUser = document.getElementsByClassName('mdp');
+
+    seePassword = () =>{
+    for(let i = 0; i<mdpUser.length; i++){
+        if (mdpUser[i].type == 'password') {
+                mdpUser[i].type = 'text';
+            }
+
+            else
+                mdpUser[i].type = 'password';
+    }
+}
 
 
 

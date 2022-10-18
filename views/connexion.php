@@ -2,7 +2,7 @@
 session_start();
 include("../SRC/database.php");
 
-if(!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]){
+if (!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]) {
     $_SESSION["isLogged"] = false;
 }
 
@@ -94,7 +94,7 @@ if(!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]){
 
     <div id="form-connexion">
         <form action="./connexion.php" method="post">
-            <h2>Connexion</h2>        
+            <h2>Connexion</h2>
             <?php
             if ($isFound) {
                 //si les infos de connexion sont justes, on lance la session
@@ -105,12 +105,12 @@ if(!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]){
 
                 //$query = "SELECT * FROM `users` WHERE `username` = " . $username;
 
-                
+
                 $_SESSION['username'] = $username;
                 $_SESSION['password'] = $_POST['password'];
 
-                
-              var_dump($_SESSION);
+
+                var_dump($_SESSION);
                 $_SESSION['isLogged'] = true; //je mets une session que je vais verifier par la suite;
 
                 // on redirige notre visiteur vers une page de notre section membre
@@ -125,18 +125,20 @@ if(!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]){
             ?>
             <div>
                 <label for="username">Username</label>
-                <input id="username" name="username" size="30px" type="text">
+                <input id="username" name="username" size="30px" type="text" required>
             </div>
 
             <div>
+                
                 <label id="password" for="password">password</label>
-                <input name="password" size="30px" type="password">
+                <input class="mdp" name="password" size="30px" type="password" required placeholder="">
+                <span id="see" onclick="seePassword()" title="Voir/cacher le mot de passe"> &#128065; </span>
             </div>
 
             <button>Sign in</button>
             <br>
             <div><a href="./inscription.php">No registred? Sign up here</a> </div>
-    
+
 
         </form>
 

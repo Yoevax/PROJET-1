@@ -122,3 +122,7 @@ form a:hover{
     font-weight: 600;
 }
 
+#see {
+    margin-left: -120px;
+    cursor: pointer;
+}
