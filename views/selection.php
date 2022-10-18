@@ -73,7 +73,7 @@
         </header>   
 
         <div id="containerSelection">
-            <h2>Your selection</h2>
+            <h2 id="title_selection">Your selection</h2>
              <div id="contentSelect">                 
                 <?php
                 
@@ -85,7 +85,7 @@
                     $q2 = $_POST["q2"];
                     $q3 =  $_POST["q3"];
                  
-                  var_dump($q1, $q2, $q3);
+               
                     include("../SRC/database.php");
                     $sql =
                     "SELECT `films`.`name`, `films`.`id` 
@@ -105,7 +105,7 @@
                         <div class="bloc">
                             <a href="#">
                                 <h3><?php echo $row["name"]; ?></h3>
-                                <img src="../assets/img/<?= $row["name"]; ?>.jpg">
+                                <img class="imgFilms" src="../assets/img/<?= $row["name"]; ?>.jpg">
                             </a>
                 </div>
                          

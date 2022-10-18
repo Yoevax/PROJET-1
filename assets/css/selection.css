@@ -30,6 +30,10 @@ html {
     scroll-behavior: smooth;
 }
 
+#title_selection{
+    margin-bottom: 0;
+    font-size: 5rem;
+}
 #containerSelection {
     font-size: 4rem;
     text-align: right;
@@ -39,15 +43,18 @@ html {
 #contentSelect{
     display: flex;
     width: 100%;
-   
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
-img {
-    max-height: 50vh;
+.imgFilms {
+    height: 500px;
 }
 
 h3 {
     font-size: 2rem;
+    text-align: center;
 }
 
 /* Small */
