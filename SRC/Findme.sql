@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.01:8889
--- Généré le : lun. 17 oct. 2022 à 23:15
--- Version du serveur : 5.7.34
--- Version de PHP : 8.0.8
+-- Host: localhost:3306
+-- Generation Time: Oct 18, 2022 at 09:30 AM
+-- Server version: 5.7.24
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `findme`
+-- Database: `findme`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `films`
+-- Table structure for table `films`
 --
 
 CREATE TABLE `films` (
@@ -34,7 +34,7 @@ CREATE TABLE `films` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `films`
+-- Dumping data for table `films`
 --
 
 INSERT INTO `films` (`id`, `name`, `description`) VALUES
@@ -79,7 +79,7 @@ INSERT INTO `films` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `mtm_films_reponses`
+-- Table structure for table `mtm_films_reponses`
 --
 
 CREATE TABLE `mtm_films_reponses` (
@@ -89,7 +89,7 @@ CREATE TABLE `mtm_films_reponses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `mtm_films_reponses`
+-- Dumping data for table `mtm_films_reponses`
 --
 
 INSERT INTO `mtm_films_reponses` (`id`, `id_films`, `id_reponses`) VALUES
@@ -106,7 +106,7 @@ INSERT INTO `mtm_films_reponses` (`id`, `id_films`, `id_reponses`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `questions`
+-- Table structure for table `questions`
 --
 
 CREATE TABLE `questions` (
@@ -115,7 +115,7 @@ CREATE TABLE `questions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `questions`
+-- Dumping data for table `questions`
 --
 
 INSERT INTO `questions` (`id`, `name`) VALUES
@@ -126,7 +126,7 @@ INSERT INTO `questions` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reponses`
+-- Table structure for table `reponses`
 --
 
 CREATE TABLE `reponses` (
@@ -136,7 +136,7 @@ CREATE TABLE `reponses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `reponses`
+-- Dumping data for table `reponses`
 --
 
 INSERT INTO `reponses` (`id`, `name`, `id_question`) VALUES
@@ -160,7 +160,7 @@ INSERT INTO `reponses` (`id`, `name`, `id_question`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -172,24 +172,24 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `username`, `favoriteMovie`) VALUES
-(78, 'yoeva@outlook.be', '123456789', 'yoeva', 'youhou');
+(78, 'yoeva@outlook.be', '123456789', 'yoeva', 'Lord of the rings');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `films`
+-- Indexes for table `films`
 --
 ALTER TABLE `films`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `mtm_films_reponses`
+-- Indexes for table `mtm_films_reponses`
 --
 ALTER TABLE `mtm_films_reponses`
   ADD PRIMARY KEY (`id`),
@@ -197,71 +197,71 @@ ALTER TABLE `mtm_films_reponses`
   ADD KEY `FK_mtm_reponses` (`id_reponses`);
 
 --
--- Index pour la table `questions`
+-- Indexes for table `questions`
 --
 ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `reponses`
+-- Indexes for table `reponses`
 --
 ALTER TABLE `reponses`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_questions` (`id_question`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `films`
+-- AUTO_INCREMENT for table `films`
 --
 ALTER TABLE `films`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT pour la table `mtm_films_reponses`
+-- AUTO_INCREMENT for table `mtm_films_reponses`
 --
 ALTER TABLE `mtm_films_reponses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT pour la table `questions`
+-- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `reponses`
+-- AUTO_INCREMENT for table `reponses`
 --
 ALTER TABLE `reponses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `mtm_films_reponses`
+-- Constraints for table `mtm_films_reponses`
 --
 ALTER TABLE `mtm_films_reponses`
   ADD CONSTRAINT `FK_mtm_films` FOREIGN KEY (`id_films`) REFERENCES `films` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_mtm_reponses` FOREIGN KEY (`id_reponses`) REFERENCES `reponses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `reponses`
+-- Constraints for table `reponses`
 --
 ALTER TABLE `reponses`
   ADD CONSTRAINT `FK_questions` FOREIGN KEY (`id_question`) REFERENCES `questions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
