@@ -88,13 +88,13 @@
                   var_dump($q1, $q2, $q3);
                     include("../SRC/database.php");
                     $sql =
-                     "SELECT `films`.`name`, `films`.`id` 
-                     FROM `films` 
-                     JOIN `mtm_films_reponses` ON `mtm_films_reponses`.`id_films` = `films`.`id` 
-                     JOIN `reponses` ON `reponses`.`id` = `mtm_films_reponses`.`id_reponses` 
-                     WHERE `mtm_films_reponses`.`id_reponses` IN ('$q1', '$q2', '$q3') 
-                     GROUP BY `films`.`name`";
-                  
+                    "SELECT `films`.`name`, `films`.`id` 
+                    FROM `films` 
+                    JOIN `mtm_films_reponses` ON `mtm_films_reponses`.`id_films` = `films`.`id` 
+                    JOIN `reponses` ON `reponses`.`id` = `mtm_films_reponses`.`id_reponses`
+                    WHERE `id_reponses` IN ($q1, $q2, $q3)
+                    GROUP BY `id_films`
+                    HAVING COUNT(`id_films`)>=3";
 
                     $stmt = $mysqldb->query($sql);
                     $data = $stmt->fetchAll();
