@@ -12,7 +12,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Find me.</title>
 
-     <link rel="stylesheet" href="../assets/css/style.css">
+     <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
      <link rel="stylesheet" href="../assets/css/allMovies.css"> 
      <link rel="stylesheet" href="../assets/css/selection.css"> 
 
@@ -104,7 +104,8 @@
                     ?>
                         <div class="bloc">
                             <a href="#">
-                                <h3><?php echo $row["name"]; ?></h3>
+                                <br>
+                                <!-- <h3><//?php echo $row["name"]; ?></h3> -->
                                 <img class="imgFilms" src="../assets/img/<?= $row["name"]; ?>.jpg">
                             </a>
                 </div>
