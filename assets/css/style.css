@@ -741,6 +741,10 @@ svg {
    
 }
 
+
+
+/*PAGE MEMBRE */
+
 .infos{
   
     width: 100%;
@@ -755,10 +759,13 @@ text-align: center;
 border: 1px solid white;
 padding: 0px 100px 10px 100px;
 }
-
+@media (max-width:767px){
+.infos .encadre{
+    border:none;
+}
+}
 .infos .encadre p {
     background-color: white;
     color: black;
     padding: 15px;
 }
-

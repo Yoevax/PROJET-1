@@ -31,19 +31,19 @@ session_start();
 
 
         <!-- NAV -->
-        <div>
+        <div class="menu">
             <nav>
-                <ul>
-                    <li><a href="../index.php">Find
+                <ul id="menuListe">
+                    <li class="li"><a href="../index.php">Find
                             me a movie</a></li>
-                    <li><a href="allMovies.php">All movies</a></li>
-                    <li><a href="contact.php">Contact</a></li>
+                    <li class="li"><a href="allMovies.php">All movies</a></li>
+                    <li class="li"><a href="contact.php">Contact</a></li>
                     <?php
                     if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
-                        echo "<li><a href='#'>Profil</a></li>";
-                        echo "<li><a href='logout.php'>Log out</a></li>";
+                        echo "<li class='li'><a href='#'>Profil</a></li>";
+                        echo "<li class='li'><a href='logout.php'>Log out</a></li>";
                     } else {
-                        echo "<li><a href='connexion.php'>Sign in/up</a></li>";
+                        echo "<li class='li'><a href='connexion.php'>Sign in/up</a></li>";
                     } ?></a></li>
 
                 </ul>
@@ -78,29 +78,29 @@ session_start();
             <h3 style='font-size:1.5rem; font-weight:300;'>Here what we know about you</h3>
             <div class="encadre">
                 <h3> Username </h3>
-            <p><?= $usernameSess ?></p>
+                <p><?= $usernameSess ?></p>
 
 
 
-            <h3> Email </h3>
-            <p>
-                <?php
+                <h3> Email </h3>
+                <p>
+                    <?php
                     foreach ($result as $row) {
                         echo $row["email"];
                     }
-                ?>
-            </p>
+                    ?>
+                </p>
 
-            <h3> Favorite movie </h3>
-            <p>
-                <?php
+                <h3> Favorite movie </h3>
+                <p>
+                    <?php
                     foreach ($result as $row) {
                         echo $row["favoriteMovie"];
                     }
-                ?>
-            </p>
+                    ?>
+                </p>
             </div>
-            
+
 
 
 
