@@ -41,15 +41,7 @@ include("./SRC/database.php");
                     </a>
                     <div class="links">
 
-                        <span class="icon">
-
-                            <span></span>
-
-                            <span></span>
-
-                            <span></span>
-
-                        </span>
+                       <i class="fas fa-bars"></i> 
 
                     </div>
                 </div>
@@ -67,7 +59,6 @@ include("./SRC/database.php");
                             if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
                                 echo "<li><a href='./views/page_membre.php'>Profil</a></li>";
                                 echo "<li><a href='./views/logout.php'>Log out</a></li>";
-                                
                             } else {
                                 echo "<li><a href='./views/connexion.php'>Sign in/up</a></li>";
                             } ?></a></li>
@@ -150,7 +141,7 @@ include("./SRC/database.php");
     // affiche_pre($questionsReponses);
     ?>
 
-<div id="allQuestions">
+    <div id="allQuestions">
         <form action="./views/selection.php" method="post">
             <?php
 
@@ -166,7 +157,7 @@ include("./SRC/database.php");
                         <p class="questionNumber" id="changeNb">0<?= $i; ?></p>
                         <h2><?= $row["question"]["name"]; ?></h2>
                         <?php if ($i > 1) { //pour afficher les previous à partir de la question 2
-                        ?> <a id="previousQ<?= $c; ?>" class="previous"><span>←</span>  Back</a>
+                        ?> <a id="previousQ<?= $c; ?>" class="previous"><span>←</span> Back</a>
                         <?php }
 
                         ?>
@@ -192,12 +183,11 @@ include("./SRC/database.php");
                         <?php
 
                             $a++;
-                            
                         }
                         if ($c >= 3) {
                             echo "<div id='btn'><input type = 'submit' id='btn1' value ='Send'/></div>";
                         }
-                        
+
                         ?>
                     </div>
                 </div>
@@ -205,14 +195,14 @@ include("./SRC/database.php");
             <?php
             }
             ?>
-        </form>    <span class="flecheHaut">
-        <a href="#">
-            <svg viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7c0-.206.075-.404.208-.55a.68.68 0 0 1 .502-.228h16.736L12.98 1.33a.818.818 0 0 1-.208-.55c0-.207.075-.405.208-.55A.68.68 0 0 1 13.482 0a.68.68 0 0 1 .503.228l5.677 6.221a.787.787 0 0 1 .154.253.844.844 0 0 1 0 .596.787.787 0 0 1-.154.253l-5.677 6.22a.68.68 0 0 1-.503.229.68.68 0 0 1-.502-.228.818.818 0 0 1-.208-.55c0-.207.075-.405.208-.551l4.466-4.893H.71a.68.68 0 0 1-.502-.228A.817.817 0 0 1 0 7Z">
-                </path>
-            </svg>
-        </a>
-    </span>
+        </form> <span class="flecheHaut">
+            <a href="#">
+                <svg viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7c0-.206.075-.404.208-.55a.68.68 0 0 1 .502-.228h16.736L12.98 1.33a.818.818 0 0 1-.208-.55c0-.207.075-.405.208-.55A.68.68 0 0 1 13.482 0a.68.68 0 0 1 .503.228l5.677 6.221a.787.787 0 0 1 .154.253.844.844 0 0 1 0 .596.787.787 0 0 1-.154.253l-5.677 6.22a.68.68 0 0 1-.503.229.68.68 0 0 1-.502-.228.818.818 0 0 1-.208-.55c0-.207.075-.405.208-.551l4.466-4.893H.71a.68.68 0 0 1-.502-.228A.817.817 0 0 1 0 7Z">
+                    </path>
+                </svg>
+            </a>
+        </span>
     </div>
 
 

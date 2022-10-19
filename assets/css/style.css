@@ -130,11 +130,15 @@ nav {
     z-index: 1;
 }
 .links{
-  position: absolute;
-    left:80%;
-    top:50px;
-    
+ 
 }
+.links i {
+    font-size: 40px; 
+    position: absolute;
+    left:80%;
+    top:40px;
+}
+
 .links .icon{
 
     width: 40px;
@@ -717,3 +721,4 @@ padding: 0px 100px 10px 100px;
     color: black;
     padding: 15px;
 }
+
