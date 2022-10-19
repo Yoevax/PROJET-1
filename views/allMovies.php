@@ -68,20 +68,21 @@ include("../SRC/database.php");
 
             $stmt = $mysqldb->query($sql);
             $data = $stmt->fetchAll();
-
-            foreach ($data as $row) {
+            
+            foreach ($data as $row) { 
+                $name = $row["name"];
+                $description = $row["description"];
+                $img = "/assets/img/".$row["name"].".jpg"; 
             ?>
+        
                 <div class="bloc">
-                    <a href="#">
+                    <a href="affichageFilm.php?img=<?=$img;?>&name=<?= $name;?>&description=<?=$description;?>">
                         
                         <img src="../assets/img/<?= $row["name"]; ?>.jpg">
                     </a>
                 </div>
-            <?php
-            }
 
-            
-            ?>
+            <?php } ?>
         </div>
     </div>
 

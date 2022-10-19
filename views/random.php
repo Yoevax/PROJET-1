@@ -31,7 +31,6 @@ session_start();
                     <a href="../index.php">
                         <img src="../assets/img/logonew.png" width="100px" alt="">
                     </a>
-
                 </div>
 
 
@@ -54,7 +53,6 @@ session_start();
                         </ul>
                     </nav>
                 </div>
-
     </header>
     
     <div id="container">
@@ -77,11 +75,17 @@ session_start();
             $data = $stmt->fetchAll();
 
             foreach ($data as $row) {
+                $name = $row["name"];
+                $description = $row["description"];
+                $img = "/assets/img/".$row["name"].".jpg"; 
             ?>
-                <div>
-                    <h3 class="titre_film"><?php echo $row["name"]; ?></h3>
-                    <img src="../assets/img/<?= $row["name"]; ?>.jpg">
-                </div>
+
+                <div class="bloc">
+                <h3 class="titre_film"><?php echo $row["name"]; ?></h3>
+                            <a href="affichageFilm.php?img=<?=$img;?>&name=<?= $name;?>&description=<?=$description;?>">
+                                <img class="imgFilms" src="../assets/img/<?= $row["name"]; ?>.jpg">
+                            </a>
+                        </div>
             <?php
             }
 

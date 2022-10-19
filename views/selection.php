@@ -88,7 +88,7 @@
                
                     include("../SRC/database.php");
                     $sql =
-                    "SELECT `films`.`name`, `films`.`id` 
+                    "SELECT `description`,`films`.`name`, `films`.`id` 
                     FROM `films` 
                     JOIN `mtm_films_reponses` ON `mtm_films_reponses`.`id_films` = `films`.`id` 
                     JOIN `reponses` ON `reponses`.`id` = `mtm_films_reponses`.`id_reponses`
@@ -100,15 +100,15 @@
                     $data = $stmt->fetchAll();
                  
                      foreach ($data as $row) {
-
+                        $name = $row["name"];
+                        $description = $row["description"];
+                        $img = "/assets/img/".$row["name"].".jpg"; 
                     ?>
                         <div class="bloc">
-                            <a href="#">
-                                <br>
-                                <!-- <h3><//?php echo $row["name"]; ?></h3> -->
+                            <a href="affichageFilm.php?img=<?=$img;?>&name=<?= $name;?>&description=<?=$description;?>">
                                 <img class="imgFilms" src="../assets/img/<?= $row["name"]; ?>.jpg">
                             </a>
-                </div>
+                        </div>
                          
                 <?php
                         }
