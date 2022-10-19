@@ -73,7 +73,7 @@
         </header>   
 
         <div id="containerSelection">
-            <h2 id="title_selection">Your selection</h2>
+            <h2 id="title_selection">Our selection</h2>
              <div id="contentSelect">                 
                 <?php
                 
