@@ -41,7 +41,7 @@ include("./SRC/database.php");
                     </a>
                     <div class="links">
 
-                       <i class="fas fa-bars"></i> 
+                        <i class="fas fa-bars"></i>
 
                     </div>
                 </div>
@@ -50,17 +50,17 @@ include("./SRC/database.php");
                 <!-- NAV -->
                 <div class="menu">
                     <nav>
-                        <ul>
-                            <li><a href="#contentPage2">Find
+                        <ul id="menuListe">
+                            <li class="li"><a href="#contentPage2">Find
                                     me a movie</a></li>
-                            <li><a href="./views/allMovies.php">All movies</a></li>
-                            <li><a href="./views/contact.php">Contact</a></li>
+                            <li class="li"><a href="./views/allMovies.php">All movies</a></li>
+                            <li class="li"><a href="./views/contact.php">Contact</a></li>
                             <?php
                             if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
-                                echo "<li><a href='./views/page_membre.php'>Profil</a></li>";
-                                echo "<li><a href='./views/logout.php'>Log out</a></li>";
+                                echo "<li class = 'li'><a href='./views/page_membre.php'>Profil</a></li>";
+                                echo "<li class = 'li'><a href='./views/logout.php'>Log out</a></li>";
                             } else {
-                                echo "<li><a href='./views/connexion.php'>Sign in/up</a></li>";
+                                echo "<li class = 'li'><a href='./views/connexion.php'>Sign in/up</a></li>";
                             } ?></a></li>
                         </ul>
                     </nav>
@@ -142,7 +142,7 @@ include("./SRC/database.php");
     ?>
 
     <div id="allQuestions">
-        <form action="./views/selection.php" method="post">
+        <form action="./views/selection.php" method="post" id="formulaire">
             <?php
 
             $i = 1; //pour changer les numero des id pour pouvoir modifier leur cpt en js et style

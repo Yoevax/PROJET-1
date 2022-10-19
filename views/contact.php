@@ -27,25 +27,30 @@ session_start();
             <a href="../index.php">
                 <img src="../assets/img/logonew.png" width="100px" alt="">
             </a>
+            <div class="links">
+
+                <i class="fas fa-bars"></i>
+
+            </div>
 
         </div>
 
 
         <!-- NAV -->
-        <div>
+        <div class="menu">
             <nav>
-                <ul>
-                    <li><a href="../index.php">Find
+                <ul id="menuListe">
+                    <li class="li"><a href="../index.php">Find
                             me a movie</a></li>
-                    <li><a href="../views/allMovies.php">All movies</a></li>
-                    <li><a href="../views/contact.php">Contact</a></li>
+                    <li class="li"><a href="../views/allMovies.php">All movies</a></li>
+                    <li class="li"><a href="../views/contact.php">Contact</a></li>
                     <?php
                     if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
-                      
-                        echo "<li><a href='../views/page_membre.php'>Profil</a></li>"; 
-                        echo "<li><a href='../views/logout.php'>Log out</a></li>";
+
+                        echo "<li class='li'><a href='../views/page_membre.php'>Profil</a></li>";
+                        echo "<li class='li'><a href='../views/logout.php'>Log out</a></li>";
                     } else {
-                        echo "<li><a href='../views/connexion.php'>Sign in/up</a></li>";
+                        echo "<li class='li'><a href='../views/connexion.php'>Sign in/up</a></li>";
                     } ?></a></li>
 
                 </ul>
@@ -80,7 +85,7 @@ session_start();
 
             <div id="copyright">
                 <!-- <a href="#container"><img src="../assets/img/logonew.png" width="100px" alt=""></a> <br> -->
-                <p>All reserved Find mr. Legal mentions</p>
+                <p>All reserved Find me. Legal mentions</p>
             </div>
         </div>
 
@@ -132,9 +137,10 @@ session_start();
     </div>
 
     <!-- CURSEUR SOURIS PERSONNALISEE    -->
-    <div id="curseur"><span id="rec">REC</span></div>
-    <script src="../assets/scripts/scrollNav.js"></script>
+    <div id="curseur"><span id="rec">REC</span></div> 
     <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/scrollNav.js"></script>
+   
 </body>
 
 </html>

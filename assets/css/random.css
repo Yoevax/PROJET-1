@@ -24,6 +24,16 @@ h2 {
     text-align: right;
     margin: 10vh 2vw;
 }
+@media (max-width: 767px) {
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+        margin: 10vh 0vw;
+    }
+   .titre_film{
+        font-size: 1.1rem;
+    }
+}
 
 #bloc{
     width: 100%;
@@ -33,8 +43,8 @@ h2 {
 img{
     max-height: 50vh;
 }
-h3{
-    font-size: 2rem;
+.titre_film{
+    font-size: 20px;
 }
 
 /* Small */
@@ -186,6 +196,76 @@ li a:hover:after {
     background: transparent;
     width: 100%;
     transition: 0s;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+@media(max-width:767px) {
+    .li {
+        display: block;
+        line-height: 1.6;
+    }
+
+    .li a {
+        font-size: 2rem;
+        text-align: center;
+        font-weight: 700;
+        margin-left: 0;
+    }
+
+    #menuListe {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    #menuListe li:first-child {
+        display: none;
+    }
+
+    #header_accueil {
+        flex-direction: column;
+
+    }
+}
+
+@media(max-width:767px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+
+
+}
+
+.responsive {
+    display: block;
+}
+
+
+@media(max-width:767px) {
+    .logo img {
+        width: 80px;
+        margin-left: -20px;
+        padding-top: 20px;
+    }
+
+    /* @media (max-width:767px) {
+        .menu .togle-menu {
+            display: none;
+        }
+    } */
+
+
 }
 
 

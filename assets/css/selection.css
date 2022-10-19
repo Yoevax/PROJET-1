@@ -30,6 +30,12 @@ html {
     margin-bottom: 0;
     font-size: 5rem;
 }
+@media (max-width: 768px) {
+    #title_selection {
+    font-size: 2rem;
+
+    }
+}
 #containerSelection {
     font-size: 4rem;
     text-align: right;
@@ -44,8 +50,23 @@ html {
     flex-wrap: nowrap;
 }
 
+
 .imgFilms {
     height: 500px;
+}
+@media (max-width: 768px) {
+    .imgFilms{
+        width: 150px;
+        height: auto;
+        
+    }
+    .bloc{
+        margin: 0;
+        margin-left: 10px;
+    }
+    #contentSelect{
+    flex-wrap: wrap;
+    }
 }
 
 h3 {
@@ -253,4 +274,74 @@ textarea {
     margin-top: 99%;
     color: red;
     line-height: 1.9;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+@media(max-width:767px) {
+    .li {
+        display: block;
+        line-height: 1.6;
+    }
+
+    .li a {
+        font-size: 2rem;
+        text-align: center;
+        font-weight: 700;
+        margin-left: 0;
+    }
+
+    #menuListe {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    #menuListe li:first-child {
+        display: none;
+    }
+
+    #header_accueil {
+        flex-direction: column;
+
+    }
+}
+
+@media(max-width:767px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+
+
+}
+
+.responsive {
+    display: block;
+}
+
+
+@media(max-width:767px) {
+    .logo img {
+        width: 80px;
+        margin-left: -20px;
+        padding-top: 20px;
+    }
+
+    /* @media (max-width:767px) {
+        .menu .togle-menu {
+            display: none;
+        }
+    } */
+
+
 }

@@ -79,7 +79,7 @@ session_start();
             foreach ($data as $row) {
             ?>
                 <div>
-                    <h3><?php echo $row["name"]; ?></h3>
+                    <h3 class="titre_film"><?php echo $row["name"]; ?></h3>
                     <img src="../assets/img/<?= $row["name"]; ?>.jpg">
                 </div>
             <?php

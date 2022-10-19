@@ -20,6 +20,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
 <body>
@@ -36,19 +37,19 @@ session_start();
 
 
         <!-- NAV -->
-        <div>
+        <div class="menu">
             <nav>
-                <ul>
-                    <li><a href="../index.php">Find
+                <ul id="menuListe">
+                    <li class="li"><a href="../index.php">Find
                             me a movie</a></li>
-                    <li><a href="../views/allMovies.php">All movies</a></li>
-                    <li><a href="../views/contact.php">Contact</a></li>
+                    <li class="li"><a href="../views/allMovies.php">All movies</a></li>
+                    <li class="li"><a href="../views/contact.php">Contact</a></li>
                     <?php
                     if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
-                        echo "<li><a href='../views/page_membre.php'>Profil</a></li>";
-                        echo "<li><a href='../views/logout.php'>Log out</a></li>";
+                        echo "<li class='li'><a href='../views/page_membre.php'>Profil</a></li>";
+                        echo "<li class='li'><a href='../views/logout.php'>Log out</a></li>";
                     } else {
-                        echo "<li><a href='../views/connexion.php'>Sign in/up</a></li>";
+                        echo "<li class='li'><a href='../views/connexion.php'>Sign in/up</a></li>";
                     } ?></a></li>
 
                 </ul>
@@ -72,9 +73,17 @@ session_start();
 
             <div>
                 <label for="password">password</label>
-                <input id="password" size="30px" name="password" type="password"> 
+                <input id="password" size="30px" name="password" type="password">
             </div>
 
+            <div class="icon-see">
+              
+                <span id="see" title="Voir/cacher le mot de passe" onclick="seePassword()" class="material-symbols-outlined">
+                    visibility
+                </span>
+
+            </div>
+            
             <div>
                 <label for="favoriteMovie">Your favorite movie</label>
                 <input id="favoriteMovie" size="30px" name="favoriteMovie" type="text">
@@ -96,31 +105,31 @@ session_start();
 
 
     if (($_SERVER["REQUEST_METHOD"] == ("POST"))) {
-            unset($_SESSION["statutInscription"]);
-            global $mysqldb;
+        unset($_SESSION["statutInscription"]);
+        global $mysqldb;
 
-            $username = trim($_POST['username']);
-            $email = trim($_POST['email']);
-            $password = trim($_POST['password']);
-            $favoriteMovie = $_POST['favoriteMovie'];
+        $username = trim($_POST['username']);
+        $email = trim($_POST['email']);
+        $password = trim($_POST['password']);
+        $favoriteMovie = $_POST['favoriteMovie'];
 
-            $query = $mysqldb->prepare(
-                "INSERT INTO users(email, password, username, favoriteMovie)
+        $query = $mysqldb->prepare(
+            "INSERT INTO users(email, password, username, favoriteMovie)
                 VALUES(:email, :password, :username, :favoriteMovie)"
-            );
+        );
 
-            $query->bindParam(':email', $email);
-            $query->bindParam(':password', $password);
-            $query->bindParam(':username', $username);
-            $query->bindParam(':favoriteMovie', $favoriteMovie);
+        $query->bindParam(':email', $email);
+        $query->bindParam(':password', $password);
+        $query->bindParam(':username', $username);
+        $query->bindParam(':favoriteMovie', $favoriteMovie);
 
-            $query->execute();
+        $query->execute();
 
 
 
-            // redirection
-            header('location: connexion.php');
-            exit;
+        // redirection
+        header('location: connexion.php');
+        exit;
     }
 
     ?>

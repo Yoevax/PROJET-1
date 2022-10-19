@@ -20,8 +20,12 @@ body {
     overflow: hidden;
 
 }
-
-
+.hide{
+    display: none;
+}
+.show{
+    display: flex;
+}
 html {
     scroll-behavior: smooth;
 
@@ -72,12 +76,48 @@ header {
         padding-top:50px;
     }
 }
-
 @media(max-width:767px) {
-    ul li a {
+ .li {
+       display: block;
+       line-height: 1.6;
+    }
+  .li a {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 700;
+     margin-left: 0;
+  }  
+  
+    #menuListe{
+        width: 100%;
+        padding-left: 0;
+    }
+    #menuListe li:first-child{
         display: none;
     }
+
+    #header_accueil{
+        flex-direction: column;
+        
+    }
 }
+
+@media(max-width:767px) {
+    .menu{
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    
+   
+}
+.responsive{
+    display: block;
+}
+
 
 @media(max-width:767px) {
     .logo img {
@@ -86,11 +126,11 @@ header {
         padding-top: 20px;
     }
 
-    @media (max-width:767px) {
+    /* @media (max-width:767px) {
         .menu .togle-menu {
             display: none;
         }
-    }
+    } */
 
 
 }
@@ -129,9 +169,7 @@ nav {
     align-items: center;
     z-index: 1;
 }
-.links{
- 
-}
+
 .links i {
     font-size: 40px; 
     position: absolute;
@@ -626,8 +664,9 @@ svg {
 /* PAGE ABOUT FIND ME */
 #about-findme {
     height: 100vh;
-    width: 100%;
+    width: 90%;
     margin-left: 4vw;
+  
     
 }
 
@@ -684,7 +723,8 @@ svg {
 /* About us */
 #about-us {
     height: 100vh;
-    width: 100%;
+    width: 90%;
+    margin-left: 4vw;
 }
 
 #about-us h3 {
@@ -695,10 +735,10 @@ svg {
 
 #about-us p {
     text-align: left;
-    font-size: 5rem;
-    font-weight: 700;
+    font-size: 3.7rem;
+    font-weight: 400;
     padding: 20px;
-    width: 90%;
+   
 }
 
 .infos{

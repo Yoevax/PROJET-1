@@ -23,6 +23,8 @@ if (!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
 </head>
 
 <body>
@@ -34,25 +36,30 @@ if (!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]) {
             <a href="../index.php">
                 <img src="../assets/img/logonew.png" width="100px" alt="">
             </a>
+            <div class="links">
+
+                <i class="fas fa-bars"></i>
+
+            </div>
 
         </div>
 
 
         <!-- NAV -->
-        <div>
+        <div class="menu">
             <nav>
-                <ul>
-                    <li><a href="../index.php">Find
+                <ul id="menuListe">
+                    <li class="li"><a href="../index.php">Find
                             me a movie</a></li>
-                    <li><a href="../views/allMovies.php">All movies</a></li>
+                    <li class="li"><a href="../views/allMovies.php">All movies</a></li>
                     <?php
                     if (!empty($_SESSION['isLogged']) && $_SESSION['isLogged']) {
-                        echo "<li><a href='../views/logout.php'>Page membre</a></li>";
-                        echo "<li><a href='../views/logout.php'>Log out</a></li>";
+                        echo "<li class='li'><a href='../views/logout.php'>Page membre</a></li>";
+                        echo "<li class='li'><a href='../views/logout.php'>Log out</a></li>";
                     } else {
-                        echo "<li><a href='../views/connexion.php'>Sign in/up</a></li>";
+                        echo "<li class='li'><a href='../views/connexion.php'>Sign in/up</a></li>";
                     } ?></a></li>
-                    <li><a href="../views/contact.php">Contact</a></li>
+                    <li class="li"><a href="../views/contact.php">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -129,10 +136,19 @@ if (!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]) {
             </div>
 
             <div>
-                
+
                 <label id="password" for="password">password</label>
                 <input class="mdp" name="password" size="30px" type="password" required placeholder="">
-                <span id="see" onclick="seePassword()" title="Voir/cacher le mot de passe"> &#128065; </span>
+            
+                <div class="icon-see"> 
+              
+                    <span id = "see" title="Voir/cacher le mot de passe" onclick="seePassword()" class="material-symbols-outlined">
+                    visibility
+                    </span>
+                </div>
+               
+            
+
             </div>
 
             <button>Sign in</button>
