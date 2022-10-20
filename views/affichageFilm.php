@@ -46,10 +46,17 @@
 
             <div class="infos">
                 <br><br><br><br><br><br>
-                <h2 style='font-size:2.5rem; margin-bottom:5px;'> <?= $_GET['name']; ?> </h2>
+                <h2> <?= $_GET['name']; ?> </h2>
                 <div class="encadre">
-                    <p><img width="400px" height="auto" src="<?= "../".$_GET['img']; ?>"></p>
-                    <p> <?= $_GET['description']; ?> </p>
+                    <div id="bckground-film">
+                        <img width="400px" height="auto" src="<?= "../".$_GET['img']; ?>">
+                    </div>
+                    
+                    <div>
+                        <h4>Plot</h4>
+                        <p> <?= $_GET['description']; ?> </p>
+                    </div>
+                  
                 </div>
             </div>
 

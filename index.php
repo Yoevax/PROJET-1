@@ -71,7 +71,7 @@ include("./SRC/database.php");
             <!-- SLOGAN DE LA HOMEPAGE -->
             <div id="landing">
                 <div class="content">
-                    <h2>Want to watch a <br> great movie? <br> <span>Let us help you.</span> </h2>
+                    <h2 class="title">Want to watch <br> a great movie? <br>  <span>Let us help you.</span> </h2>
                 </div>
             </div>
         </div>
