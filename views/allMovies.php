@@ -13,8 +13,6 @@ include("../SRC/database.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find me. All movies</title>
 
-
-    <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
     <link rel="stylesheet" href="../assets/css/allMovies.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,6 +82,7 @@ include("../SRC/database.php");
 
             <?php } ?>
         </div>
+        
     </div>
 
     <!-- CURSEUR SOURIS PERSONNALISEE    -->
