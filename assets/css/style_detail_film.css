@@ -17,9 +17,7 @@ body {
     font-family: 'Raleway';
     margin: 0px;
     padding: 0px;
-    /* background-image: url('../img/lion.jpg');  */
-      /* background-image:url("../img/".<?= $row['name']?>."jpg");   */
-      /* background-image: url("<?= "../".$_GET['img']; ?>"); */
+
 }
 
 html {
@@ -505,13 +503,10 @@ svg {
 #bckground-film{
     height: 100vh;
     max-width: 100%;
-}
-.encadre img{
-    padding: 20px;
-    border-right: 1px solid white;
     flex: 1;
-   
 }
+
+
 .infos{
   
     width: 100%;
@@ -523,28 +518,38 @@ svg {
 
 .infos .encadre{
 text-align: center;
-/* display: flex; */
+display: flex; 
 width: 100%;
 padding: 0px 100px 10px 100px;
+align-items: center;
 }
+
 @media (max-width:767px){
 .infos .encadre{
     border:none;
 }
 }
+
+.infos .encadre .resume {
+    text-align: left;
+}
+
 .infos .encadre p {
-    flex: 1;
     color: white;
-    padding: 15px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 1.6;
     margin-top: 0;
+    width: 50%;
 }
-.infos h2{
-    font-size: 3rem;
+
+.infos .encadre .resume h2{
+    color :#EE352A;
+    font-size: 5rem;
     margin-bottom: 50px;
 }
 .infos h4{
-    font-size: 2.2rem;
+    font-size: 2rem;
+    font-weight: 300;
     margin: 0;
+    margin-bottom: 20px;
 }
