@@ -524,11 +524,7 @@ padding: 0px 100px 10px 100px;
 align-items: center;
 }
 
-@media (max-width:767px){
-.infos .encadre{
-    border:none;
-}
-}
+
 
 .infos .encadre .resume {
     text-align: left;
@@ -546,6 +542,46 @@ align-items: center;
     color :#EE352A;
     font-size: 5rem;
     margin-bottom: 50px;
+}
+@media (max-width : 767px){
+    .infos .encadre{
+        padding: 0;
+        width: 100%;
+       
+    }
+    .infos .encadre .resume h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    .infos .encadre .resume  {
+           
+         }
+
+    .infos .encadre p {
+        margin:15px;
+        width: 90%;
+      
+    }
+    .infos .encadre {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+           
+        }
+     #bckground-film img{
+        width: 200px;
+        height: auto;
+          
+        }
+    #bckground-film{
+        order: -1;
+         }
+    .infos .encadre .resume h4 {
+        display: none;
+          }
+
+    
 }
 .infos h4{
     font-size: 2rem;

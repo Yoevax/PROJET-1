@@ -64,29 +64,29 @@ session_start();
             <h2>Sign up</h2>
             <div>
                 <label for="username">Username</label>
-                <input id="username" name="username" size="30px" type="text">
+                <input id="username" name="username" size="30px" type="text" required>
             </div>
             <div>
                 <label for="email">email</label>
-                <input id="email" name="email" size="30px" type="text">
+                <input id="email" name="email" size="30px" type="text" required>
             </div>
 
             <div>
                 <label for="password">password</label>
-                <input class ="mdp"id="password" size="30px" name="password" type="password">
+                <input class="mdp" id="password" size="30px" name="password" type="password" required>
             </div>
 
             <div class="icon-see">
-              
+
                 <span id="see" title="Voir/cacher le mot de passe" onclick="seePassword()" class="material-symbols-outlined">
                     visibility
                 </span>
 
             </div>
-            
+
             <div>
                 <label for="favoriteMovie">Your favorite movie</label>
-                <input id="favoriteMovie" size="30px" name="favoriteMovie" type="text">
+                <input id="favoriteMovie" size="30px" name="favoriteMovie" type="text" required>
             </div>
 
             <button id="btn">Sign up</button>
