@@ -45,14 +45,15 @@ html {
 #contentSelect{
     display: flex;
     width: 100%;
+    margin-top: 40px;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 
 .imgFilms {
-    height: 500px;
+    height: 400px;
 }
 @media (max-width: 768px) {
     .imgFilms{

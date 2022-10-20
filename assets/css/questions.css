@@ -102,9 +102,36 @@
 }
 
 label:hover {
-    text-decoration: underline;
+    color: #EE352A;
+    font-weight: 600;
+    background: linear-gradient(-45deg, #6355a4, red, #e89a3e, aqua);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: animGradient 5s linear infinite;
+    cursor: pointer;
 }
 
+
+
+
+/*ANIMATION DU TEXTE GRADIENT*/
+
+
+@keyframes animGradient {
+    0% {
+        background-position: 0px 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0px 50%;
+    }
+}
 .questionNumber {
     font-size: 20rem;
     font-weight: 100;
