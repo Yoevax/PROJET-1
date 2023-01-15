@@ -1,11 +1,8 @@
  <?php
     session_start();
-
-
     ?>
  <!DOCTYPE html>
  <html lang="en">
-
  <head>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +12,6 @@
      <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
      <link rel="stylesheet" href="../assets/css/allMovies.css"> 
      <link rel="stylesheet" href="../assets/css/selection.css"> 
-
 
      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,21 +29,7 @@
                      <a href="../index.php">
                          <img src="../assets/img/logonew.png" width="100px" alt="">
                      </a>
-                     <div class="links">
-
-                         <span class="icon">
-
-                             <span></span>
-
-                             <span></span>
-
-                             <span></span>
-
-                         </span>
-
-                     </div>
                  </div>
-
 
                  <!-- NAV -->
                  <div class="menu">
@@ -84,7 +66,6 @@
                     $q1 = $_POST["q1"];
                     $q2 = $_POST["q2"];
                     $q3 =  $_POST["q3"];
-                 
                
                     include("../SRC/database.php");
                     $sql =
@@ -111,7 +92,7 @@
                         </div>
                          
                 <?php
-                        }
+                    }
                 } 
                 ?>
             </div>

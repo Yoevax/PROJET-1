@@ -27,15 +27,8 @@ session_start();
             <a href="../index.php">
                 <img src="../assets/img/logonew.png" width="100px" alt="">
             </a>
-            <div class="links">
-
-                <i class="fas fa-bars"></i>
-
-            </div>
 
         </div>
-
-
         <!-- NAV -->
         <div class="menu">
             <nav>
@@ -56,7 +49,6 @@ session_start();
                 </ul>
             </nav>
         </div>
-
 
     </div>
 
@@ -90,8 +82,6 @@ session_start();
         </div>
 
     </div>
-
-
 
     <!-- PAGE ABOUT FIND ME -->
     <br>

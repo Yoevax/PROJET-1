@@ -26,10 +26,7 @@ session_start();
             <a href="../index.php">
                 <img src="../assets/img/logonew.png" width="100px" alt="">
             </a>
-
         </div>
-
-
         <!-- NAV -->
         <div class="menu">
             <nav>
@@ -45,7 +42,6 @@ session_start();
                     } else {
                         echo "<li class='li'><a href='connexion.php'>Sign in/up</a></li>";
                     } ?></a></li>
-
                 </ul>
             </nav>
         </div>
@@ -53,34 +49,27 @@ session_start();
     </div>
     <?php
 
-    // On récupère nos variables de session -->
-    if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
-        include("../SRC/database.php");
-        $usernameSess = $_SESSION['username'];
+        // On récupère nos variables de session -->
+        if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
+            include("../SRC/database.php");
+            $usernameSess = $_SESSION['username'];
 
-        $sqlQuery = " 
-        SELECT `favoriteMovie`, `email`
-         FROM `users`
-         WHERE `username` LIKE '$usernameSess'";
+            $sqlQuery = " 
+            SELECT `favoriteMovie`, `email`
+            FROM `users`
+            WHERE `username` LIKE '$usernameSess'";
 
-        $statement = $mysqldb->prepare($sqlQuery);
-        $statement->execute();
-        $result = $statement->fetchAll();
-
-
+            $statement = $mysqldb->prepare($sqlQuery);
+            $statement->execute();
+            $result = $statement->fetchAll();
     ?>
         <div class="infos">
             <br><br><br><br><br><br>
-            <?php
-
-            ?>
             <h2 style='font-size:2.5rem; margin-bottom:5px;'> Hello <?= $usernameSess . " :)" ?> </h2>
             <h3 style='font-size:1.5rem; font-weight:300;'>Here what we know about you</h3>
             <div class="encadre">
                 <h3> Username </h3>
                 <p><?= $usernameSess ?></p>
-
-
 
                 <h3> Email </h3>
                 <p>
@@ -100,12 +89,6 @@ session_start();
                     ?>
                 </p>
             </div>
-
-
-
-
-
-
         </div>
     <?php
     }

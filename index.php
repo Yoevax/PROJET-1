@@ -1,8 +1,7 @@
 <?php
+    session_start();
 
-session_start();
-
-include("./SRC/database.php");
+    include("./SRC/database.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,41 +38,7 @@ include("./SRC/database.php");
                     <a href="index.php">
                         <img src="./assets/img/logonew.png" width="100px" alt="">
                     </a>
-                    <div class="links">
-
-                        <i class="fas fa-bars"></i>
-
-                    </div>
                 </div>
-
-                <!-- NAV BOOTSTRAP A RAJOUTER !!
-                    <nav class="navbar navbar-expand-md fixed-top navbar-dark">
-                        <div class="container">
-                            <a class="navbar-brand text-uppercase " href="#">
-                                <span id="logo" class=" p-1 rounded-3 text-light">Yousra Lemqaddem</span>
-                            </a> 
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#about">About</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#skillsSection">Skills</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#portfolio">Portfolio</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#contact">Contact</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav> -->
 
                 <!-- NAV -->
                 <div class="menu">

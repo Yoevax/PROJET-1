@@ -1,41 +1,37 @@
-#container {
-    margin-top: 150px;
-    width: 100%;
-}
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-
 body {
-        background-color: rgb(0, 0, 0);
-        cursor: none;
-        color: white;
-        font-family: 'Raleway';
-        margin: 0px;
-        padding: 0px;
+    background-color: rgb(0, 0, 0);
+    cursor: none;
+    color: white;
+    font-family: 'Raleway';
+    margin: 0px;
+    padding: 0px;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-html {
-    scroll-behavior: smooth;
+#container {
+    margin-top: 150px;
+    width: 100%;
 }
-
 #title_selection{
     margin-bottom: 0;
     font-size: 5rem;
 }
 @media (max-width: 768px) {
     #title_selection {
-    font-size: 2rem;
-
+        font-size: 2rem;
     }
 }
+
 #containerSelection {
     font-size: 4rem;
     text-align: right;
@@ -50,7 +46,6 @@ html {
     align-items: center;
     flex-wrap: wrap;
 }
-
 
 .imgFilms {
     height: 400px;
@@ -116,35 +111,14 @@ header {
 }
 
 @media(max-width:767px) {
-    ul li a {
-        display: none;
-    }
-}
-
-@media(max-width:767px) {
     .logo img {
         width: 80px;
         margin-left: -20px;
         padding-top: 20px;
     }
 
-    @media (max-width:767px) {
-        .menu .togle-menu {
-            display: none;
-        }
-    }
-
-
 }
 
-@media(max-width:767px) {
-
-    #videoAccueil,
-    .container,
-    video {
-        width: 100%;
-    }
-}
 
 
 /* Menu page d'accueil */
@@ -184,6 +158,23 @@ nav ul li a {
     text-decoration: none;
     font-size: 1rem;
 
+}
+@media(max-width:767px) {
+
+    #videoAccueil,
+    .container,
+    video {
+        width: 100%;
+    }
+
+    nav li:first-child{
+        display: none;
+    }
+
+    nav ul li a{
+        font-size: 0.7rem;
+        padding: 10px;
+    }
 }
 
 /* ANIMATION DES LIENS LA NAV */
@@ -286,64 +277,7 @@ textarea {
     display: flex;
 }
 
-@media(max-width:767px) {
-    .li {
-        display: block;
-        line-height: 1.6;
-    }
-
-    .li a {
-        font-size: 2rem;
-        text-align: center;
-        font-weight: 700;
-        margin-left: 0;
-    }
-
-    #menuListe {
-        width: 100%;
-        padding-left: 0;
-    }
-
-    #menuListe li:first-child {
-        display: none;
-    }
-
-    #header_accueil {
-        flex-direction: column;
-
-    }
-}
-
-@media(max-width:767px) {
-    .menu {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-    }
-
-
-
-}
 
 .responsive {
     display: block;
-}
-
-
-@media(max-width:767px) {
-    .logo img {
-        width: 80px;
-        margin-left: -20px;
-        padding-top: 20px;
-    }
-
-    /* @media (max-width:767px) {
-        .menu .togle-menu {
-            display: none;
-        }
-    } */
-
-
 }

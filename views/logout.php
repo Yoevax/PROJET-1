@@ -1,10 +1,10 @@
 <?php
-session_start();
+    session_start();
 
-unset($_SESSION['isLogged']);
+    unset($_SESSION['isLogged']);
 
 
-// On redirige le visiteur vers la page d'accueil
-header ('location: ../index.php');
+    // On redirige le visiteur vers la page d'accueil
+    header ('location: ../index.php');
 
 ?>

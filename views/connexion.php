@@ -1,16 +1,14 @@
 <?php
-session_start();
-include("../SRC/database.php");
+    session_start();
+    include("../SRC/database.php");
 
-if (!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]) {
-    $_SESSION["isLogged"] = false;
-}
-
+    if (!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]) {
+        $_SESSION["isLogged"] = false;
+    }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,11 +22,9 @@ if (!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
 </head>
 
 <body>
-
     <!-- MENU NAV BAR -->
     <div id="header_accueil">
         <!-- LOGO -->
@@ -36,14 +32,7 @@ if (!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]) {
             <a href="../index.php">
                 <img src="../assets/img/logonew.png" width="100px" alt="">
             </a>
-            <div class="links">
-
-                <i class="fas fa-bars"></i>
-
-            </div>
-
         </div>
-
 
         <!-- NAV -->
         <div class="menu">
@@ -68,34 +57,33 @@ if (!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]) {
     </div>
     <!-- formulaire de connexion -->
     <?php
-    include("../SRC/database.php");
+        include("../SRC/database.php");
 
-    $isFound = false;
-    $loginAttempt = 0; //tentative pr msg derreur
-    $msgErreur = "";
+        $isFound = false;
+        $loginAttempt = 0; //tentative pr msg derreur
+        $msgErreur = "";
 
-    if ((isset($_POST["username"], $_POST["password"]))) {
-        $loginAttempt++; //faut qu'il renttre au moins une fois des données pour savoir si c juste ou pas
+        if ((isset($_POST["username"], $_POST["password"]))) {
+            $loginAttempt++; //faut qu'il renttre au moins une fois des données pour savoir si c juste ou pas
 
-        $username = $_POST["username"];
-        $pass_word = $_POST["password"];
-        // $favoriteMovie = $_POST['favoriteMovie'];
+            $username = $_POST["username"];
+            $pass_word = $_POST["password"];
+            // $favoriteMovie = $_POST['favoriteMovie'];
 
-        $sqlQuery = " 
-                    SELECT *
-                    FROM users
-                    WHERE username=:param_username AND password =:param_password";
-        $statement = $mysqldb->prepare($sqlQuery);
-        $statement->execute(array('param_username' => $username, 'param_password' => $pass_word));
-        $result = $statement->fetchAll();
+            $sqlQuery = " 
+                        SELECT *
+                        FROM users
+                        WHERE username=:param_username AND password =:param_password";
+            $statement = $mysqldb->prepare($sqlQuery);
+            $statement->execute(array('param_username' => $username, 'param_password' => $pass_word));
+            $result = $statement->fetchAll();
 
-        if ($result) {
-            $isFound = true;
-            $loginFail = false;
-            $connectedUser = $result[0]['username'];
+            if ($result) {
+                $isFound = true;
+                $loginFail = false;
+                $connectedUser = $result[0]['username'];
+            }
         }
-    }
-
 
     ?>
 
@@ -107,15 +95,12 @@ if (!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]) {
                 //si les infos de connexion sont justes, on lance la session
                 session_start(); //lancement de la sesstion
                 // on enregistre les paramètres de notre visiteur comme variables de session ($login et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
-
                 $username = $_POST['username'];
 
                 //$query = "SELECT * FROM `users` WHERE `username` = " . $username;
 
-
                 $_SESSION['username'] = $username;
                 $_SESSION['password'] = $_POST['password'];
-
 
                 var_dump($_SESSION);
                 $_SESSION['isLogged'] = true; //je mets une session que je vais verifier par la suite;
@@ -136,7 +121,6 @@ if (!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]) {
             </div>
 
             <div>
-
                 <label id="password" for="password">password</label>
                 <input class="mdp" name="password" size="30px" type="password" required placeholder="">
             
@@ -146,21 +130,13 @@ if (!empty($_SESSION["isLogged"]) && $_SESSION["isLogged"]) {
                     visibility
                     </span>
                 </div>
-               
-            
-
             </div>
 
             <button>Sign in</button>
             <br>
             <div><a href="./inscription.php">No registred? Sign up here</a> </div>
-
-
         </form>
-
     </div>
-
-
 
     <!-- CURSEUR SOURIS PERSONNALISEE    -->
     <div id="curseur"><span id="rec">REC</span></div>

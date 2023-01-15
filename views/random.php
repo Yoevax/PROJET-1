@@ -1,7 +1,5 @@
 <?php
-session_start();
-
-
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,12 +54,8 @@ session_start();
     </header>
     
     <div id="container">
-
-
         <h2>Look what we find for you.</h2>
         <div id="bloc">
-
-
             <?php
             include("../SRC/database.php");
 
@@ -69,8 +63,6 @@ session_start();
                 FROM `films`
                 ORDER BY RAND()
                 LIMIT 1";
-
-
             $stmt = $mysqldb->query($rand);
             $data = $stmt->fetchAll();
 
@@ -88,13 +80,9 @@ session_start();
                         </div>
             <?php
             }
-
-
             ?>
         </div>
-
     </div>
-
 </body>
 
 </html>

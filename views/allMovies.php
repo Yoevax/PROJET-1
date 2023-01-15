@@ -1,39 +1,30 @@
 <?php 
-session_start();
-include("../SRC/database.php");
-//var_dump($_SESSION['isLogged']);die;
+    session_start();
+    include("../SRC/database.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find me. All movies</title>
-
     <link rel="stylesheet" href="../assets/css/allMovies.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600;700;800&display=swap" rel="stylesheet">
 
 </head>
-
 <body>
-        
-        <!-- MENU NAV BAR -->
+    <!-- MENU NAV BAR -->
     <div id="header_accueil">
         <!-- LOGO -->
         <div class="logo">
             <a href="../index.php">
                 <img src="../assets/img/logonew.png" width="100px" alt="">
             </a>
-
         </div>
-
-
         <!-- NAV -->
         <div>
             <nav>
@@ -53,13 +44,10 @@ include("../SRC/database.php");
             </nav>
         </div>
 
-
     </div>
     <div id="container">
         <h1>All movies</h1>
-
         <div id="all">
-
             <?php
             $sql = "SELECT * 
                     FROM films";
