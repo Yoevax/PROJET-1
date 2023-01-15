@@ -19,14 +19,12 @@
         width: 100%;
         padding-top: 120px;
     }
-   
 }
 
 .questions {    
     width: 100%;
     display: flex;
     align-items: center;
-
 }
 
 #q3 .right{
@@ -38,9 +36,7 @@
 }
 
 @media(max-width : 767px) {
-  
     #q1, #q2,#q3 {
-     
         flex-direction: column;
         padding: 0;
         width: 100%;
@@ -48,33 +44,23 @@
     .questionNumber{
         margin:0;
     }
-
-
-
     .left {
         font-size: 1rem;
         border: none;
         width: 100%;
         position:relative;
     }
-
     .left h2 {
         font-size: 1.7rem;
         text-align: center;
         margin-bottom: 10px;
         margin: 0px;
-
     }
-
-  
-
     .left .questionNumber {
         font-size: 4rem;
         text-align: center;
         margin-bottom: 3vh;
-        
     }
-    
 }
 
 @media (max-width : 765px) {
@@ -89,14 +75,12 @@
     margin: 10px;
     font-weight: 100;
     font-size: 1.5rem;
-   
 }
 @media (max-width: 765px){
     .right div {
         font-size: 1rem;
         margin-bottom: 0px;
         padding: 5px;
-       
     }
 }
 
@@ -111,9 +95,6 @@ label:hover {
     animation: animGradient 5s linear infinite;
     cursor: pointer;
 }
-
-
-
 
 /*ANIMATION DU TEXTE GRADIENT*/
 
@@ -166,7 +147,6 @@ h2 {
     padding-bottom: 1.11111em;
     padding-left: 2.11111em;
     margin-left: 2vw;
-   
     margin-top: 6vh;
     background-color: transparent;
     color: white;
@@ -178,16 +158,12 @@ h2 {
     font-family: 'Raleway';
     font-size: 18px;
     font-weight: 300;
-    
     padding: 20px 38px; 
     left: 9vw;
     margin-top: 16vh;
-  
     background-color: transparent;
     color: white;
     border: 1px solid white;
-  
- 
 }
 @media(max-width: 765px){
     #btn1{
@@ -198,13 +174,11 @@ h2 {
         margin-bottom: 15vh;
     }
     .previous{
-       
         font-size: 10px;
         padding: 5px 10px;
         position: absolute;
         top:4vh;
         left:8vw;
-        
     }
 }
 .previous:hover, #btn1:hover {
@@ -220,7 +194,6 @@ h2 {
     }
 }
 
-
 #q2 {
     display: none;
 }
@@ -232,22 +205,17 @@ h2 {
 #q4 {
     display: none;
 }
-
 .random {
-
     background: linear-gradient(-45deg, #6355a4, red, #e89a3e, aqua);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
     animation: animGradient 5s linear infinite;
-
 }
-
 .random a {
     font-weight: 500;
 }
-
 
 /*ANIMATION DU TEXTE GRADIENT*/
 
