@@ -102,7 +102,7 @@ header {
         padding: 10px;
     }
     body{
-        overflow:scroll;
+        overflow-y:scroll;
   }
 }
 
